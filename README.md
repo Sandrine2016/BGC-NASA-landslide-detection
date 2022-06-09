@@ -1,2 +1,2 @@
-# nasa_social_landslide_detector
+# BGC-NASA-landslide-detection
 Detect landslide location, date, and category automatically.

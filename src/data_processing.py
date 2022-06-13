@@ -1,7 +1,8 @@
 from urllib.request import Request, urlopen
 import pandas as pd
 from flair.data import Sentence
-
+import spacy as spacy
+from flair.models import SequenceTagger
 
 def get_non_date(df):
     non_dates = []
@@ -43,6 +44,8 @@ def get_test_data(df, tagger, nlp):
     INDEX = []
     SENTENCE = []
     for idx, row in df.iterrows():
+        if row['category'] == 'neg':
+            continue
         if type(row['article_text']) != float:
             for sent in nlp(row['article_text']).sents:
                 sub_sent = sent.text.strip()
@@ -70,3 +73,13 @@ def get_test_data(df, tagger, nlp):
                         INDEX.append(idx)
                         SENTENCE.append(sub_sent)
     return pd.DataFrame({'id': INDEX, 'text': SENTENCE, 'GPE': GPE, 'LOC': LOC, 'DATE': DATE, 'TIME': TIME})
+
+
+def prepare_date(df):
+    model_nlp = spacy.load('en_core_web_sm')
+    model_tagger = SequenceTagger.load('ner-ontonotes-fast')
+    # non_dates = get_non_date(df)
+    # df = update_date(df, non_dates, model_tagger)
+    clean_data = get_test_data(df, model_tagger, model_nlp)
+    return clean_data
+

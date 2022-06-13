@@ -1,3 +1,5 @@
+import pickle
+
 import pandas as pd
 import numpy as np
 from collections import defaultdict
@@ -9,6 +11,7 @@ from sklearn.metrics import classification_report
 import geocoder
 import geopy.distance
 
+
 def merge_locs_dates(data):
     """Fill NAs and merge location/date columns"""
     data = data.fillna('')  # replace NAN with empty string
@@ -16,6 +19,7 @@ def merge_locs_dates(data):
     data['dates'] = data[['DATE','TIME']].agg('|'.join, axis=1)  # join DATE and TIME by |
     data = data.drop(columns=['GPE', 'LOC', 'DATE', 'TIME'])  # keep only the joined column
     return data
+
 
 def preprocess(nasa, ner):
     """
@@ -89,6 +93,7 @@ def train(data):
     test_scores = classification_report(y_test, model.predict(X_test))
     return model, test_scores
 
+
 def get_distance(p1, p2):
     """Get the geographical distance between two points"""
     if p1 and p2:
@@ -96,12 +101,14 @@ def get_distance(p1, p2):
     else:
         return None
 
+
 def get_radius(p1, p2):
     """Get the radius of a region"""
     if p1 and p2:
         return round(geopy.distance.geodesic(p1, p2).km, 3)/2
     else:
         return None
+
 
 def get_outlier_idx(centroid, points):
     """
@@ -113,6 +120,7 @@ def get_outlier_idx(centroid, points):
     """
     dists = [get_distance(centroid, point) for point in points]
     return dists.index(max(dists))
+
 
 def get_smallest_region_idx(locs):
     """
@@ -131,7 +139,8 @@ def get_smallest_region_idx(locs):
     dists = [get_distance(loc['northeast'], loc['southwest']) for loc in locs]
     return dists.index(min(dists))
 
-def predict(df, model):   # df=example, model=best_model
+
+def predict(df):   # df=example, model=best_model
     """Get the most likely locations, latitude, longitude based on pred model
 
     Parameters
@@ -146,6 +155,7 @@ def predict(df, model):   # df=example, model=best_model
     -------
         a data frame with locations, the most likely location, latitude, longitude, diameter
     """
+    model = pickle.load(open('../models/loc_model', 'rb'))
     df = merge_locs_dates(df)
 
     # get predict_proba
@@ -170,7 +180,7 @@ def predict(df, model):   # df=example, model=best_model
                 current_proba = current_proba.drop(idx)  # drop the current idxmax
                 idx = current_proba.idxmax()  # get the idxmax of the rest
             except ValueError:
-                print(f"All locations in document {i} are empty!") 
+                # print(f"All locations in document {i} are empty!")
                 idx = -1  # set idx=-1 if all locations are empty
                 break
 
@@ -212,7 +222,7 @@ def predict(df, model):   # df=example, model=best_model
                 lat, lng = geolocs[0]['lat'], geolocs[0]['lng']
                 ne, sw = geolocs[0]['northeast'], geolocs[0]['southwest']
             else:
-                print(f"Locations in document {i} cannot be geocoded!")
+                # print(f"Locations in document {i} cannot be geocoded!")
                 location, lat, lng, ne, sw = None, None, None, None, None
         else:
             result['locations'][i] = None

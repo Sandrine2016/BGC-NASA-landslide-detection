@@ -36,7 +36,7 @@ def preprocess(nasa, ner):
     nasa = nasa.rename(columns={"index": "id"})  # id: index in NASA dataset
     df = pd.merge(ner, nasa, how='left', on='id')
     df = merge_locs_dates(df[['id', 'text', 'location_description', 'GPE', 'LOC', 'DATE', 'TIME']])
-    
+
     data = df.to_dict()  # transform dataframe into dictionary
 
     data['pos_sentence'] = {}
@@ -76,7 +76,7 @@ def preprocess(nasa, ner):
     return pd.DataFrame(data)[pd.DataFrame(data)['contain_pos_sent']]
 
 
-def loc_train(data):
+def train(data):
     """Train and return the model for pos sentence prediction"""
     df_train, df_test = train_test_split(data, test_size=0.20, random_state=123)
     X_train, y_train = df_train["text"], df_train["pos_sentence"]
@@ -93,6 +93,13 @@ def get_distance(p1, p2):
     """Get the geographical distance between two points"""
     if p1 and p2:
         return round(geopy.distance.geodesic(p1, p2).km, 3)
+    else:
+        return None
+
+def get_radius(p1, p2):
+    """Get the radius of a region"""
+    if p1 and p2:
+        return round(geopy.distance.geodesic(p1, p2).km, 3)/2
     else:
         return None
 
@@ -124,8 +131,7 @@ def get_smallest_region_idx(locs):
     dists = [get_distance(loc['northeast'], loc['southwest']) for loc in locs]
     return dists.index(min(dists))
 
-
-def loc_predict(df, model):   # df=example, model=best_model
+def predict(df, model):   # df=example, model=best_model
     """Get the most likely locations, latitude, longitude based on pred model
 
     Parameters
@@ -214,6 +220,6 @@ def loc_predict(df, model):   # df=example, model=best_model
 
         result['location'][i] = location
         result['latitude'][i], result['longitude'][i] = lat, lng
-        result['radius_km'][i] = get_distance(ne, sw) / 2
+        result['radius_km'][i] = get_radius(ne, sw)
 
     return pd.DataFrame(result)

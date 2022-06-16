@@ -113,6 +113,7 @@ def id_interval_extraction(data):
     Given a dataframe with the normalized date/time intervals for each sentence, returns a dictionary with unique
     article ids and the related date/time intervals
     """
+
     idx = defaultdict()
     for row in data.iterrows():
         index = row[1][1]
@@ -122,3 +123,40 @@ def id_interval_extraction(data):
         if normilized_date:
             idx[index] = row[1][8]
     return idx
+
+
+def discrete_date_plus_confidence(data):
+
+    """
+    Given a df with calculated intervals, calculates the centroids of these intervals and their confidence interval,
+    returns a df with document index, intervals, discrete values and confidence intervals
+    """
+
+    discrete_date = defaultdict(str)
+    confidence = defaultdict(str)
+    for row in data.iterrows():
+        intervals = [row[1][8]]
+        if intervals:
+            intervals = intervals[0].split('\n')
+            for interval in intervals:
+                if len(interval) > 0:
+                    interval = interval.strip('\n')
+                    if interval == 'None':
+                        discrete_date[row[1][1]] += 'None' + '\n'
+                        confidence[row[1][1]] += 'None' + '\n'
+                    else:
+                        date_start, date_end = interval.split('-')
+                        date_start, date_end = parse(date_start), parse(date_end)
+                        delta_hours = (date_end - date_start).total_seconds() / 60 / 60 / 2
+                        date_start += relativedelta(hours=delta_hours)
+                        discrete_date[row[1][1]] += str(date_start.strftime("%Y/%m/%d, %H:%M")) + '\n'
+                        confidence[row[1][1]] = confidence[row[1][1]] + f'± {round(delta_hours, 2)} hours \n'
+
+    discrete_date = pd.DataFrame.from_dict(discrete_date, orient='index').reset_index().rename(
+        columns={0: 'discrete_date'})
+    confidence = pd.DataFrame.from_dict(confidence, orient='index').reset_index().rename(columns={0: 'confidence'})
+    intervals = id_interval_extraction(data)
+    intervals = pd.DataFrame.from_dict(intervals, orient='index').reset_index().rename(columns={0: 'interval'})
+    merged_columns = intervals.merge(discrete_date, on='index')
+    merged_columns = merged_columns.merge(confidence, on='index')
+    return merged_columns

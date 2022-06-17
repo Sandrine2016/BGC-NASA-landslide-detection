@@ -1,4 +1,4 @@
-from helpers import help_dict, week_days, times_of_day, months, months_reversed, seasons, vague_language
+from src.time_normalizer.helpers import help_dict, week_days, times_of_day, months, months_reversed, seasons, vague_language
 
 import datetime as dt
 from dateutil.relativedelta import relativedelta

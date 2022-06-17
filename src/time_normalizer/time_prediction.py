@@ -1,8 +1,9 @@
-from time_main import time_date_normalization
+from src.time_normalizer.time_main import time_date_normalization
 from collections import defaultdict
 import pickle
 import pandas as pd
-
+from dateutil.relativedelta import relativedelta
+from dateparser import parse
 
 
 def merge_locs_dates(data, model_name):
@@ -14,7 +15,6 @@ def merge_locs_dates(data, model_name):
 
     with open(model_name, 'rb') as f:
         model = pickle.load(f)
-    data = pd.read_csv(data)
     data = data.fillna('missing_value')  # replace NAN with missing_value string
     data['locations'] = data[['GPE', 'LOC']].agg(' '.join, axis=1)  # join GPE and LOC by " "
     data['dates'] = data[['DATE', 'TIME']].agg(' '.join, axis=1)  # join DATE and TIME by " "
@@ -30,12 +30,11 @@ def data_filtering_post_processing(data, predictions, predict_proba):
     document sentences
     """
 
-    data = pd.read_csv(data)[['id', 'text', 'DATE', 'TIME']]
+    data = data[['id', 'text', 'DATE', 'TIME']].copy()
     data['label'] = predictions.tolist()
     data['pos_label_confidence'] = predict_proba[:, 1].tolist()
     normalization = len(data) * [False]
     idx_max = data.groupby('id')['pos_label_confidence'].idxmax().to_dict()
-    print(len(idx_max))
     for i, idx in idx_max.items():
         current_proba = data.query('id == @i')['pos_label_confidence']
         if type(data['DATE'][idx]) != float or type(data['TIME'][idx]) != float:
@@ -61,11 +60,11 @@ def publication_gold_date_merge(publication_dates_file, nasa_catalog_gold, curre
     with gold_date from Nasa Global Landslide Catalog Point and the file with the extracted publication dates
     """
 
-    publication_date = pd.read_csv(publication_dates_file)[['id', 'dates']]
-    gold_date = pd.read_csv(nasa_catalog_gold).reset_index()[['index', 'event_date']].rename(columns={'index': 'id',
-                                                                                                       'event_date': 'gold_date'})
-    current_dataset = publication_date.merge(current_dataset, on='id').rename(columns={'dates': 'publication_dates'})
-    current_dataset = current_dataset.merge(gold_date, on='id').reset_index()
+    publication_date = publication_dates_file[['id', 'article_publish_date']].copy()
+    # gold_date = pd.read_csv(nasa_catalog_gold).reset_index()[['index', 'article_publish_date']].rename(columns={'index': 'id',
+    #                                                                                                    'event_date': 'gold_date'})
+    current_dataset = publication_date.merge(current_dataset, on='id').rename(columns={'article_publish_date': 'publication_dates'})
+    # current_dataset = current_dataset.merge(gold_date, on='id').reset_index()
     return current_dataset
 
 
@@ -82,13 +81,12 @@ def phrase_normalization(data):
 
     date_time = defaultdict()
     for row in data.iterrows():
-
         date_time[row[1][0]] = ""
-        publication_date = row[1][2]
+        publication_date = row[1][1]
         if type(publication_date) == float or '.' in publication_date:
             continue
-        phrases = row[1][7]
-        normalization = row[1][5]
+        phrases = row[1][5]
+        normalization = row[1][4]
         if normalization == True and len(phrases) > 1:
             phrases = phrases.split('|')
             for phrase in phrases:
@@ -96,14 +94,14 @@ def phrase_normalization(data):
                     try:
                         date_start, date_end = time_date_normalization(phrase, publication_date)
                         if date_start:
-                            date_time[row[0]] += str((date_start.strftime("%Y/%m/%d, %H:%M") + '-' + date_end.strftime(
+                            date_time[row[1][0]] += str((date_start.strftime("%Y/%m/%d, %H:%M") + '-' + date_end.strftime(
                                 "%Y/%m/%d, %H:%M"))) + '\n'
                         else:
-                            date_time[row[0]] += "None" + '\n'
+                            date_time[row[1][0]] += "None" + '\n'
                     except:
-                        date_time[row[0]] += "None" + '\n'
-
+                        date_time[row[1][0]] += "None" + '\n'
     date_intervals = pd.DataFrame.from_dict(date_time, orient='index').reset_index()
+    data['index'] =  list(data['id'])
     data = data.merge(date_intervals, on='index').rename(columns={0: 'normalized_interval'})
     return data
 
@@ -116,12 +114,12 @@ def id_interval_extraction(data):
 
     idx = defaultdict()
     for row in data.iterrows():
-        index = row[1][1]
+        index = row[1][0]
         if index not in idx.keys():
             idx[index] = None
-        normilized_date = row[1][8]
+        normilized_date = row[1][7]
         if normilized_date:
-            idx[index] = row[1][8]
+            idx[index] = row[1][7]
     return idx
 
 
@@ -135,22 +133,22 @@ def discrete_date_plus_confidence(data):
     discrete_date = defaultdict(str)
     confidence = defaultdict(str)
     for row in data.iterrows():
-        intervals = [row[1][8]]
+        intervals = [row[1][7]]
         if intervals:
             intervals = intervals[0].split('\n')
             for interval in intervals:
                 if len(interval) > 0:
                     interval = interval.strip('\n')
                     if interval == 'None':
-                        discrete_date[row[1][1]] += 'None' + '\n'
-                        confidence[row[1][1]] += 'None' + '\n'
+                        discrete_date[row[1][0]] += 'None' + '\n'
+                        confidence[row[1][0]] += 'None' + '\n'
                     else:
                         date_start, date_end = interval.split('-')
                         date_start, date_end = parse(date_start), parse(date_end)
                         delta_hours = (date_end - date_start).total_seconds() / 60 / 60 / 2
                         date_start += relativedelta(hours=delta_hours)
-                        discrete_date[row[1][1]] += str(date_start.strftime("%Y/%m/%d, %H:%M")) + '\n'
-                        confidence[row[1][1]] = confidence[row[1][1]] + f'± {round(delta_hours, 2)} hours \n'
+                        discrete_date[row[1][0]] += str(date_start.strftime("%Y/%m/%d, %H:%M")) + '\n'
+                        confidence[row[1][0]] = confidence[row[1][0]] + f'± {round(delta_hours, 2)} hours \n'
 
     discrete_date = pd.DataFrame.from_dict(discrete_date, orient='index').reset_index().rename(
         columns={0: 'discrete_date'})
@@ -160,3 +158,13 @@ def discrete_date_plus_confidence(data):
     merged_columns = intervals.merge(discrete_date, on='index')
     merged_columns = merged_columns.merge(confidence, on='index')
     return merged_columns
+
+
+def get_final_result(clean_data, original_data):
+    original_data['id'] = list(range(len(original_data)))
+    prediction, prob = merge_locs_dates(clean_data, '../models/date_time.model')
+    filtered_data = data_filtering_post_processing(clean_data, prediction, prob)
+    merged_df = publication_gold_date_merge(original_data, original_data, filtered_data)
+    df_time_date = phrase_normalization(merged_df)
+    date_time_output = discrete_date_plus_confidence(df_time_date)
+    return date_time_output

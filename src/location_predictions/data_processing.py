@@ -80,6 +80,16 @@ def prepare_date(df):
     model_tagger = SequenceTagger.load('ner-ontonotes-fast')
     # non_dates = get_non_date(df)
     # df = update_date(df, non_dates, model_tagger)
+
     clean_data = get_test_data(df, model_tagger, model_nlp)
     return clean_data
 
+
+def get_final_result(original_data, loc, time):
+    original_data = original_data.reset_index()
+    loc_results = loc.reset_index()
+    original_data = original_data.merge(loc_results, on='index', how='left')
+    original_data = original_data.merge(time, on='index', how='left')
+    original_data = original_data.loc[original_data['category'] == 'pos']
+    original_data = original_data.drop(columns=['Unnamed: 0.1', 'Unnamed: 0', 'index', 'category', 'id'])
+    original_data.to_csv('../result.csv')

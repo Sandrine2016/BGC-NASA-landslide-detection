@@ -155,7 +155,7 @@ def predict(df):   # df=example, model=best_model
     -------
         a data frame with locations, the most likely location, latitude, longitude, diameter
     """
-    model = pickle.load(open('../../models/loc_model' , 'rb'))
+    model = pickle.load(open('../models/loc_model' , 'rb'))
     df = merge_locs_dates(df)
 
     # get predict_proba
@@ -191,6 +191,7 @@ def predict(df):   # df=example, model=best_model
             locs = list(filter(None, data['locations'][idx].split("|")))
             geolocs = []
             for loc in locs:
+
                 geocoded = geocoder.arcgis(loc).json
                 if geocoded:
                     geoloc = geocoded['bbox']

@@ -155,15 +155,50 @@ def id_interval_extraction(data):
     return idx
 
 
-def discrete_date_plus_confidence(data):
+# def discrete_date_plus_confidence(data):
+#
+#     """
+#     Given a df with calculated intervals, calculates the centroids of these intervals and their confidence interval,
+#     returns a df with document index, intervals, discrete values and confidence intervals
+#     """
+#
+#     discrete_date = defaultdict(str)
+#     confidence = defaultdict(str)
+#     for row in data.iterrows():
+#         intervals = [row[1][7]]
+#         if intervals:
+#             intervals = intervals[0].split('\n')
+#             for interval in intervals:
+#                 if len(interval) > 0:
+#                     interval = interval.strip('\n')
+#                     if interval == 'None':
+#                         discrete_date[row[1][0]] += 'None' + '\n'
+#                         confidence[row[1][0]] += 'None' + '\n'
+#                     else:
+#                         date_start, date_end = interval.split('-')
+#                         date_start, date_end = parse(date_start), parse(date_end)
+#                         delta_hours = (date_end - date_start).total_seconds() / 60 / 60 / 2
+#                         date_start += relativedelta(hours=delta_hours)
+#                         discrete_date[row[1][0]] += str(date_start.strftime("%Y/%m/%d, %H:%M")) + '\n'
+#                         confidence[row[1][0]] = confidence[row[1][0]] + f'± {round(delta_hours, 2)} hours \n'
+#
+#     discrete_date = pd.DataFrame.from_dict(discrete_date, orient='index').reset_index().rename(
+#         columns={0: 'discrete_date'})
+#     confidence = pd.DataFrame.from_dict(confidence, orient='index').reset_index().rename(columns={0: 'confidence'})
+#     intervals = id_interval_extraction(data)
+#     intervals = pd.DataFrame.from_dict(intervals, orient='index').reset_index().rename(columns={0: 'interval'})
+#     merged_columns = intervals.merge(discrete_date, on='index')
+#     merged_columns = merged_columns.merge(confidence, on='index')
+#     return merged_columns
 
-    """
-    Given a df with calculated intervals, calculates the centroids of these intervals and their confidence interval,
-    returns a df with document index, intervals, discrete values and confidence intervals
-    """
 
+def descrete_date_plus_confidence(data):
     discrete_date = defaultdict(str)
+    potential_discrete_dates = defaultdict(str)
     confidence = defaultdict(str)
+    potential_confidence = defaultdict(str)
+    interval_to_normalize = defaultdict(str)
+    potential_intervals = defaultdict(str)
     for row in data.iterrows():
         intervals = [row[1][7]]
         if intervals:
@@ -172,8 +207,10 @@ def discrete_date_plus_confidence(data):
                 if len(interval) > 0:
                     interval = interval.strip("\n")
                     if interval == "None":
-                        discrete_date[row[1][0]] += "None" + "\n"
-                        confidence[row[1][0]] += "None" + "\n"
+                        if discrete_date[row[1][0]]:
+                            potential_discrete_dates[row[1][0]] += "None" + "\n"
+                            potential_confidence[row[1][0]] += "None" + "\n"
+                            potential_intervals[row[1][0]] += interval + "\n"
                     else:
                         date_start, date_end = interval.split("-")
                         date_start, date_end = parse(date_start), parse(date_end)
@@ -181,23 +218,53 @@ def discrete_date_plus_confidence(data):
                             (date_end - date_start).total_seconds() / 60 / 60 / 2
                         )
                         date_start += relativedelta(hours=delta_hours)
-                        discrete_date[row[1][0]] += (
-                            str(date_start.strftime("%Y/%m/%d, %H:%M")) + "\n"
-                        )
-                        confidence[row[1][0]] = (
-                            confidence[row[1][0]]
-                            + f"± {round(delta_hours, 2)} hours \n"
-                        )
+                        if discrete_date[row[1][0]]:
+                            potential_discrete_dates[row[1][0]] += (
+                                str(date_start.strftime("%Y/%m/%d, %H:%M")) + "\n"
+                            )
+                            potential_confidence[
+                                row[1][0]
+                            ] += f"± {round(delta_hours, 2)} hours \n"
+                            potential_intervals[row[1][0]] += interval + "\n"
+                        else:
+                            interval_to_normalize[row[1][0]] += interval + "\n"
+                            discrete_date[row[1][0]] += (
+                                str(date_start.strftime("%Y/%m/%d, %H:%M")) + "\n"
+                            )
+                            confidence[row[1][0]] += (
+                                confidence[row[1][0]]
+                                + f"± {round(delta_hours, 2)} hours \n"
+                            )
 
     discrete_date = (
         pd.DataFrame.from_dict(discrete_date, orient="index")
         .reset_index()
         .rename(columns={0: "discrete_date"})
     )
+    potential_discrete_dates = (
+        pd.DataFrame.from_dict(potential_discrete_dates, orient="index")
+        .reset_index()
+        .rename(columns={0: "potential_discrete_dates"})
+    )
     confidence = (
         pd.DataFrame.from_dict(confidence, orient="index")
         .reset_index()
         .rename(columns={0: "confidence"})
+    )
+    interval_to_normalize = (
+        pd.DataFrame.from_dict(interval_to_normalize, orient="index")
+        .reset_index()
+        .rename(columns={0: "interval_to_normalize"})
+    )
+    potential_intervals = (
+        pd.DataFrame.from_dict(potential_intervals, orient="index")
+        .reset_index()
+        .rename(columns={0: "potential_intervals"})
+    )
+    potential_confidence = (
+        pd.DataFrame.from_dict(potential_confidence, orient="index")
+        .reset_index()
+        .rename(columns={0: "potential_confidence"})
     )
     intervals = id_interval_extraction(data)
     intervals = (
@@ -205,9 +272,26 @@ def discrete_date_plus_confidence(data):
         .reset_index()
         .rename(columns={0: "interval"})
     )
-    merged_columns = intervals.merge(discrete_date, on="index")
-    merged_columns = merged_columns.merge(confidence, on="index")
-    return merged_columns
+    merged_columns = (
+        intervals.merge(interval_to_normalize, on="index", how="outer")
+        .merge(potential_intervals, on="index", how="outer")
+        .merge(discrete_date, on="index", how="outer")
+        .merge(confidence, on="index", how="outer")
+        .merge(potential_discrete_dates, on="index", how="outer")
+        .merge(potential_confidence, on="index", how="outer")
+    )
+    merged_columns = merged_columns.fillna(value="None")
+    return merged_columns[
+        [
+            "index",
+            "interval_to_normalize",
+            "discrete_date",
+            "confidence",
+            "potential_intervals",
+            "potential_discrete_dates",
+            "potential_confidence",
+        ]
+    ]
 
 
 def get_final_result(clean_data, original_data):
@@ -216,5 +300,5 @@ def get_final_result(clean_data, original_data):
     filtered_data = data_filtering_post_processing(clean_data, prediction, prob)
     merged_df = publication_gold_date_merge(original_data, original_data, filtered_data)
     df_time_date = phrase_normalization(merged_df)
-    date_time_output = discrete_date_plus_confidence(df_time_date)
+    date_time_output = descrete_date_plus_confidence(df_time_date)
     return date_time_output

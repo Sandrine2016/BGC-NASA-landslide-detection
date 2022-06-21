@@ -4,6 +4,8 @@ import pandas as pd
 from flair.data import Sentence
 import spacy as spacy
 from flair.models import SequenceTagger
+from src.location_predictions import check_duplicates
+
 
 MAIN_PATH = os.path.join(
     os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
@@ -104,10 +106,12 @@ def prepare_date(df):
     return clean_data
 
 
-def get_final_result(original_data, loc, time):
+def get_final_result(original_data, loc, time, nasa):
     original_data = original_data.reset_index()
     loc_results = loc.reset_index()
-    original_data = original_data.merge(loc_results, on="index", how="left")
-    original_data = original_data.merge(time, on="index", how="left")
-    original_data = original_data.drop(columns=["index", "id"])
-    original_data.to_csv(os.path.join(DATA_PATH, "output", "result.csv"))
+    original_data = original_data.merge(loc_results, on='index', how='left')
+    original_data = original_data.merge(time, on='index', how='left')
+    original_data = original_data.loc[original_data['category'] == 'pos']
+    original_data = original_data.drop(columns=['Unnamed: 0.1', 'Unnamed: 0', 'index', 'category', 'id'])
+    original_data = check_duplicates.remove_duplicates(original_data, nasa)
+    original_data.to_csv('../result.csv')

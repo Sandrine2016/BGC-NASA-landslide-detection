@@ -3,14 +3,15 @@ import io
 import json
 import torch
 import pickle
-import geocoder
 import pandas as pd
 from bert_utils import *
 from dateutil import parser
 from datetime import datetime
 from joblib import Parallel, delayed
-from location_predictions import location as loc, data_processing
+from location_predictions.location import get_lat_lng_radius
+from location_predictions.check_duplicates import remove_duplicates
 from time_normalizer.time_main import time_date_normalization
+from time_normalizer.time_prediction import get_discrete_date_and_confidence
 from data_preprocessing import (
     add_articles_to_df,
     filter_articles,
@@ -38,18 +39,6 @@ def get_batch(iterable, n=1):
     l = len(iterable)
     for ndx in range(0, l, n):
         yield iterable[ndx : min(ndx + n, l)]
-
-
-def get_lat_lng_radius(location_name):
-    lat, lng, radius = None, None, None
-    geocoded = geocoder.arcgis(location_name).json
-    if geocoded:
-        geoloc = geocoded["bbox"]
-        lat, lng = geocoded["lat"], geocoded["lng"]
-        ne, sw = geoloc["northeast"], geoloc["southwest"]
-        radius = loc.get_radius(ne, sw)
-
-    return (lat, lng, radius)
 
 
 def get_config_interval():
@@ -98,9 +87,8 @@ def get_config_interval():
 
 
 def main():
-    # filtered_reddit_articles_df = pd.read_csv(
-    #     "./data/output/article_sample.tsv", sep="\t"
-    # )
+    # --------- Start by downloading data -----------
+
     start_date, end_date = get_config_interval()
 
     reddit_df = download_posts(start_date, end_date)
@@ -115,6 +103,8 @@ def main():
     filtered_reddit_articles_df["article_publish_date"] = filtered_reddit_articles_df[
         "article_publish_date"
     ].astype(str)
+
+    # --------- Predict using BERT model -----------
 
     with open(
         os.path.join(MODEL_PATH, "landslide_detection-QA-2-epoch_2-40.model"), "rb"
@@ -142,6 +132,8 @@ def main():
             for i, span in enumerate(spans):
                 preds_spans[i].extend(span)
 
+    # --------- Format the model's prediction -----------
+
     predicted_locations = preds_spans[SPAN_L2ID["LOC"]]
     predicted_times = preds_spans[SPAN_L2ID["TIME"]]
     predicted_dates = preds_spans[SPAN_L2ID["DATE"]]
@@ -160,14 +152,25 @@ def main():
         for predicted_date, publish_date in zip(predicted_dates, publish_dates)
     ]
 
+    interval_starts = []
+    interval_ends = []
+    discrete_dates = []
+    confidences = []
     for i, interval in enumerate(predicted_intervals):
         if not interval and predicted_times[i]:
             predicted_intervals[i] = time_date_normalization(
                 predicted_times[i], publish_dates[i]
             )
 
-    interval_start = [interval[0] for interval in predicted_intervals]
-    interval_end = [interval[1] for interval in predicted_intervals]
+        discrete_date, confidence = get_discrete_date_and_confidence(
+            interval[0], interval[1]
+        )
+        discrete_dates.append(discrete_date)
+        confidences.append(confidence)
+        interval_starts.append(interval[0])
+        interval_ends.append(interval[1])
+
+    # --------- Add the predictions to the final results -----------
 
     filtered_reddit_articles_df["landslide_category"] = preds_cats
     filtered_reddit_articles_df["landslide_trigger"] = preds_trigs
@@ -175,17 +178,22 @@ def main():
     filtered_reddit_articles_df["latitude"] = lats
     filtered_reddit_articles_df["longtitude"] = lngs
     filtered_reddit_articles_df["radius_km"] = radius
-    filtered_reddit_articles_df["interval_start"] = interval_start
-    filtered_reddit_articles_df["interval_end"] = interval_end
+    filtered_reddit_articles_df["interval_start"] = interval_starts
+    filtered_reddit_articles_df["interval_end"] = interval_ends
+    filtered_reddit_articles_df["discrete_date"] = discrete_dates
+    filtered_reddit_articles_df["confidence"] = confidences
     filtered_reddit_articles_df["cas"] = predicted_cas
 
-    filtered_reddit_articles_df.to_csv(os.path.join(DATA_PATH, "output", "result_bert.csv"))
+    # --------- Filter final results and save -----------
 
-    # loc_results = loc.predict(clean_data)
-    # time_results = time.get_final_result(clean_data, filtered_reddit_articles_df)
-    # data_processing.get_final_result(
-    # filtered_reddit_articles_df, loc_results, time_results
-    # )
+    filtered_reddit_articles_df = filtered_reddit_articles_df.dropna(
+        subset=["location", "latitude", "longtitude", "interval_start", "interval_end"]
+    )
+    nasa_df = pd.read_csv(
+        os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
+    )
+    final_df = remove_duplicates(filtered_reddit_articles_df, nasa_df)
+    final_df.to_csv(os.path.join(DATA_PATH, "output", "result_bert.csv"))
 
 
 if __name__ == "__main__":

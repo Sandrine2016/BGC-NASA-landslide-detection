@@ -127,6 +127,20 @@ def get_radius(p1, p2):
         return None
 
 
+def get_lat_lng_radius(location_name):
+    """Get the latitude, longtitude and radius or a region"""
+    lat, lng, radius = None, None, None
+    geocoded = geocoder.arcgis(location_name).json
+    if geocoded:
+        geoloc = geocoded["bbox"]
+        lat, lng = geocoded["lat"], geocoded["lng"]
+        ne, sw = geoloc["northeast"], geoloc["southwest"]
+        radius = get_radius(ne, sw)
+
+    return (lat, lng, radius)
+
+
+
 def get_outlier_idx(centroid, points):
     """
     Parameters:

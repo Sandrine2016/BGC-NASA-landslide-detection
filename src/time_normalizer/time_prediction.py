@@ -294,6 +294,23 @@ def descrete_date_plus_confidence(data):
     ]
 
 
+def get_discrete_date_and_confidence(date_start, date_end):
+    if date_start and date_end:
+        if type(date_start) == str:
+            date_start = parse(date_start)
+        if type(date_end) == str:
+            date_end = parse(date_end)
+        delta_hours = (date_end - date_start).total_seconds() / 60 / 60 / 2
+        date_start += relativedelta(hours=delta_hours)
+
+        discrete_date = str(date_start.strftime("%Y/%m/%d, %H:%M"))
+        confidence = round(delta_hours, 2)
+
+        return discrete_date, confidence
+    else:
+        return None, None
+
+
 def get_final_result(clean_data, original_data):
     original_data["id"] = list(range(len(original_data)))
     prediction, prob = merge_locs_dates(clean_data, "date_time.model")

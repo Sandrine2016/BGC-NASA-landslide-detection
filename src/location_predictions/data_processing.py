@@ -106,12 +106,14 @@ def prepare_date(df):
     return clean_data
 
 
-def get_final_result(original_data, loc, time, nasa):
+def get_final_result(original_data, loc, time):
+    nasa = pd.read_csv(
+        os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
+    )
     original_data = original_data.reset_index()
     loc_results = loc.reset_index()
-    original_data = original_data.merge(loc_results, on='index', how='left')
-    original_data = original_data.merge(time, on='index', how='left')
-    original_data = original_data.loc[original_data['category'] == 'pos']
-    original_data = original_data.drop(columns=['Unnamed: 0.1', 'Unnamed: 0', 'index', 'category', 'id'])
+    original_data = original_data.merge(loc_results, on="index", how="left")
+    original_data = original_data.merge(time, on="index", how="left")
+    original_data = original_data.drop(columns=["index", "id"])
     original_data = check_duplicates.remove_duplicates(original_data, nasa)
-    original_data.to_csv('../result.csv')
+    original_data.to_csv(os.path.join(DATA_PATH, "output", "result.csv"))

@@ -98,9 +98,13 @@ def get_potential_duplicates(pred, gold):
     
     for i in range(len(pred)):
         data = pred.iloc[[i]].merge(gold[['index','event_date']], how='cross')  # index: original nasa dataset index
-        if not pd.isnull(pred['interval_to_normalize'][i]) and "-" in pred['interval_to_normalize'][i]:   # If interval has valid date interval
+        if "interval_to_normalize" in pred and not pd.isnull(pred['interval_to_normalize'][i]) and "-" in pred['interval_to_normalize'][i]:   # If interval has valid date interval
             start, end = pred['interval_to_normalize'][i].split('-')  # pred['interval'][i].split('\n')[0].split('-')   start, end = '1997/01/01, 00:00', '1997/01/20, 00:00'
             start, end = datetime.strptime(start.strip(), '%Y/%m/%d, %H:%M'), datetime.strptime(end.strip(), '%Y/%m/%d, %H:%M')
+            ids = data.query('@start <= event_date <= @end').index.to_list()  # ids: data index      
+        elif "interval_start" in pred and "interval_end" in pred:
+            start = pred["interval_start"].iloc[i]
+            end = pred["interval_end"].iloc[i]
             ids = data.query('@start <= event_date <= @end').index.to_list()  # ids: data index      
         elif not pd.isnull(pred['article_publish_date'][i]): 
             date = datetime.strptime(pred['article_publish_date'][i][:10], '%Y-%m-%d')

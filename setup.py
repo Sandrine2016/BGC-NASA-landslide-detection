@@ -10,7 +10,15 @@ install_requires = [
     "sklearn",
     "geocoder",
     "geopy",
-    "spacy"
+    "spacy",
+    "gensim",
+    "fasttext",
+    "psaw",
+    "joblib",
+    "newspaper3k",
+    "nltk",
+    "torch",
+    "transfomers"
 ]
 
 dev_requires = [

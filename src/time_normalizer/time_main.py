@@ -1,4 +1,12 @@
-from src.time_normalizer.helpers import help_dict, week_days, times_of_day, months, months_reversed, seasons, vague_language
+from time_normalizer.helpers import (
+    help_dict,
+    week_days,
+    times_of_day,
+    months,
+    months_reversed,
+    seasons,
+    vague_language,
+)
 
 import datetime as dt
 from dateutil.relativedelta import relativedelta
@@ -41,15 +49,15 @@ def words_to_number_transformer(phrase):
 
 
 def parse_date_weekday(date, day_number, modifier):
-    '''
+    """
     given a number of the day of the week returns the difference between the date and this particular day
-    '''
+    """
     parsed_date = parser.parse(date).date()
     year = parsed_date.year
     month = parsed_date.month
     day = parsed_date.day
     weekday = parsed_date.weekday() + 1
-    if modifier == 'last':
+    if modifier == "last":
         delta = number_of_days_in_week + weekday - day_number
     else:
         delta = weekday - day_number
@@ -67,42 +75,42 @@ def seasons_interval(phrase, date_string):
     autumn = False
     last_season = False
 
-    if 'winter' in phrase:
+    if "winter" in phrase:
         winter = True
-    if 'autumn' in phrase or 'fall' in phrase:
+    if "autumn" in phrase or "fall" in phrase:
         autumn = True
-    if 'summer' in phrase:
+    if "summer" in phrase:
         summer = True
-    if 'spring' in phrase:
+    if "spring" in phrase:
         spring = True
-    if 'last' in phrase or 'past' in phrase:
+    if "last" in phrase or "past" in phrase:
         last_season = True
 
     if last_season:
         if winter:
-            date_1, date_2 = month_parsing('last ' + 'december', date_string)
+            date_1, date_2 = month_parsing("last " + "december", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
         if spring:
-            date_1, date_2 = month_parsing('last ' + 'march', date_string)
+            date_1, date_2 = month_parsing("last " + "march", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
         if summer:
-            date_1, date_2 = month_parsing('last ' + 'june', date_string)
+            date_1, date_2 = month_parsing("last " + "june", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
         if autumn:
-            date_1, date_2 = month_parsing('last ' + 'september', date_string)
+            date_1, date_2 = month_parsing("last " + "september", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
     else:
         if winter:
-            date_1, date_2 = month_parsing('this ' + 'december', date_string)
+            date_1, date_2 = month_parsing("this " + "december", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
         if spring:
-            date_1, date_2 = month_parsing('this ' + 'march', date_string)
+            date_1, date_2 = month_parsing("this " + "march", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
         if summer:
-            date_1, date_2 = month_parsing('this ' + 'june', date_string)
+            date_1, date_2 = month_parsing("this " + "june", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
         if autumn:
-            date_1, date_2 = month_parsing('this ' + 'september', date_string)
+            date_1, date_2 = month_parsing("this " + "september", date_string)
             date_2 = date_1 + season_delta - delta_to_subtract
 
     return date_1, date_2
@@ -115,17 +123,20 @@ def week(phrase, date_string):
     end = False
     last = False
     date_1 = None
-    split_phrase = phrase.split(' ')
+    split_phrase = phrase.split(" ")
     parsed_date = parser.parse(date_string).date()
     for i, word in enumerate(split_phrase):
-        if word == 'week' and i <= len(split_phrase) - 1 and (
-                split_phrase[i - 1] == 'last' or split_phrase[i - 1] == 'past'):
+        if (
+            word == "week"
+            and i <= len(split_phrase) - 1
+            and (split_phrase[i - 1] == "last" or split_phrase[i - 1] == "past")
+        ):
             last = True
-    if 'beginning' in phrase or 'early' in phrase:
+    if "beginning" in phrase or "early" in phrase:
         beginning = True
-    if 'middle' in phrase:
+    if "middle" in phrase:
         middle = True
-    if 'end ' in phrase or 'late' in phrase:
+    if "end " in phrase or "late" in phrase:
         end = True
     if last:
         date_1, _, _ = last_and_this_day_calculation("last monday", date_string)
@@ -154,15 +165,15 @@ def weekend(phrase, date_string):
     date_1 = None
     date_2 = None
 
-    if 'beginning' in phrase or 'early' in phrase:
+    if "beginning" in phrase or "early" in phrase:
         beginning = True
-    if 'middle' in phrase:
+    if "middle" in phrase:
         middle = True
-    if ' end' in phrase or 'late' in phrase:
+    if " end" in phrase or "late" in phrase:
         end = True
-    if 'last' in phrase or 'past' in phrase:
+    if "last" in phrase or "past" in phrase:
         last = True
-    if 'weekend' in phrase:
+    if "weekend" in phrase:
         if last:
             date_1, _, _ = last_and_this_day_calculation("last saturday", date_string)
             date_2, _, _ = last_and_this_day_calculation("last sunday", date_string)
@@ -171,7 +182,9 @@ def weekend(phrase, date_string):
             date_2, _, _ = last_and_this_day_calculation("sunday", date_string)
         parsed_date = parser.parse(date_string).date()
         date_1 = parsed_date - relativedelta(days=date_1)
-        date_2 = parsed_date - relativedelta(days=date_2) + one_day_delta - delta_to_subtract
+        date_2 = (
+            parsed_date - relativedelta(days=date_2) + one_day_delta - delta_to_subtract
+        )
         if beginning:
             date_2 = date_1 + half_day_delta
         if end:
@@ -189,13 +202,13 @@ def time(phrase):
     lst_time = []
     time_1 = None
     time_2 = None
-    if 'around' in phrase:
+    if "around" in phrase:
         around = True
-        phrase = phrase.replace('around', '')
-    if 'about' in phrase:
+        phrase = phrase.replace("around", "")
+    if "about" in phrase:
         about = True
-        phrase = phrase.replace('about', '')
-    if 'between' in phrase:
+        phrase = phrase.replace("about", "")
+    if "between" in phrase:
         between = True
     for result in re.finditer(regex_time, phrase):
         lst_time.append(result.group())
@@ -218,21 +231,21 @@ def month_parsing(phrase, date_string):
     phrase = phrase.lower()
     date = None
     detected_date = None
-    if 'month' in phrase:
+    if "month" in phrase:
         month = month_transformation(phrase, date_string)
-        phrase = phrase.replace('month', month)
-    phrase_list = phrase.split(' ')
+        phrase = phrase.replace("month", month)
+    phrase_list = phrase.split(" ")
 
     month = None
-    anchor = ''
+    anchor = ""
     last_year = False
     for i, word in enumerate(phrase_list):
         if word in months.keys():
 
             month = months[word.lower()]
-            if i - 1 >= 0 and phrase_list[i - 1] == 'last':
-                anchor = 'last'
-        if word == 'year' and i > 0 and phrase_list[i - 1] == 'last':
+            if i - 1 >= 0 and phrase_list[i - 1] == "last":
+                anchor = "last"
+        if word == "year" and i > 0 and phrase_list[i - 1] == "last":
             last_year = True
 
         try:
@@ -245,7 +258,7 @@ def month_parsing(phrase, date_string):
     parsed_date = parser.parse(date_string).date()
 
     if month > parsed_date.month:
-        anchor = 'last'
+        anchor = "last"
 
     if last_year == True or (month >= parsed_date.month and anchor):
         year = parsed_date.year - 1
@@ -258,34 +271,34 @@ def month_parsing(phrase, date_string):
     if date and detected_date:
         new_date_1 = dt.date(year, detected_date.month, detected_date.day)
         new_date_2 = new_date_1 + one_day_delta
-    if 'beginning' in phrase:
+    if "beginning" in phrase:
         new_date_2 = new_date_2 - beginning_middle_end_month_delta
-    elif 'middle' in phrase:
+    elif "middle" in phrase:
         new_date_1 = new_date_1 + beginning_middle_end_month_delta
         new_date_2 = new_date_2 - beginning_middle_end_month_delta
-    elif 'end' in phrase or 'late' in phrase:
+    elif "end" in phrase or "late" in phrase:
         new_date_1 = new_date_2 - beginning_middle_end_month_delta
-    elif 'late' in phrase or 'later' in phrase:
+    elif "late" in phrase or "later" in phrase:
         new_date_1 = new_date_1 + half_month_delta
-    elif 'early' in phrase or 'earlier' in phrase:
+    elif "early" in phrase or "earlier" in phrase:
         new_date_2 = new_date_1 + half_month_delta
 
     return new_date_1, new_date_2 - delta_to_subtract
 
 
 def month_transformation(month_phrase, date_string):
-    '''
+    """
     given the date, identifies what month is meant in the str phrase
-    '''
-    phrase_list = month_phrase.split(' ')
+    """
+    phrase_list = month_phrase.split(" ")
     month = None
-    anchor = ''
+    anchor = ""
     month_index = len(phrase_list) - 1
     for i, word in enumerate(phrase_list):
-        if word == 'month':
+        if word == "month":
             month_index = i
-        if i >= 1 and phrase_list[i - 1] == 'last' and word == 'month':
-            anchor = 'last'
+        if i >= 1 and phrase_list[i - 1] == "last" and word == "month":
+            anchor = "last"
     parsed_date = parser.parse(date_string).date()
     if anchor:
         month = parsed_date - month_delta
@@ -294,9 +307,10 @@ def month_transformation(month_phrase, date_string):
         month = parsed_date.month
         return months_reversed[month]
 
+
 def date_and_time_identifier(phrase):
     phrase = phrase.lower()
-    phrase_list = phrase.split(' ')
+    phrase_list = phrase.split(" ")
     date = None
     date_phrase = None
     time = None
@@ -312,27 +326,27 @@ def date_and_time_identifier(phrase):
 
 
 def last_and_this_day_calculation(phrase, date_string):
-    '''
+    """
     given a date, returns a tuple with a time delta between the str date and the one mentioned in the phrase,
     the hour for the start_date and the hour for the end_date
 
-    '''
+    """
     phrase = phrase.lower()
     time_phrase, date_phrase = date_and_time_identifier(phrase)
     days_delta, time_start, time_delta = None, None, None
     if date_phrase:
         day_number = week_days[date_phrase]
         current_weekday = parse(date_string).weekday() + 1
-        if 'last' in phrase or 'previous' in phrase or day_number >= current_weekday:
-            days_delta = parse_date_weekday(date_string, day_number, 'last')
+        if "last" in phrase or "previous" in phrase or day_number >= current_weekday:
+            days_delta = parse_date_weekday(date_string, day_number, "last")
         else:
-            days_delta = parse_date_weekday(date_string, day_number, '')
-    if 'next' in phrase:
+            days_delta = parse_date_weekday(date_string, day_number, "")
+    if "next" in phrase:
         days_delta = None
     if time_phrase and not date_phrase:
-        if 'last' in phrase:
+        if "last" in phrase:
             days_delta = 1
-        if 'this' in phrase:
+        if "this" in phrase:
             days_delta = 0
     if time_phrase:
         time_start = times_of_day[time_phrase][0]
@@ -342,9 +356,9 @@ def last_and_this_day_calculation(phrase, date_string):
         else:
             time_delta = time_end - time_start
 
-        if 'early' in phrase:
+        if "early" in phrase:
             time_delta = time_delta / 2
-        if 'late' in phrase:
+        if "late" in phrase:
             time_delta = time_delta / 2
             time_start = time_start + time_delta
 
@@ -352,7 +366,9 @@ def last_and_this_day_calculation(phrase, date_string):
 
 
 def days_time_triplet(phrase, date_string):
-    days_delta, time_start, time_delta = last_and_this_day_calculation(phrase, date_string)
+    days_delta, time_start, time_delta = last_and_this_day_calculation(
+        phrase, date_string
+    )
     event_date = None
     date_start, date_end = None, None
     publication_date = parse(date_string).date()
@@ -364,27 +380,32 @@ def days_time_triplet(phrase, date_string):
         date_start = event_date + relativedelta(hours=time_start)
         date_end = date_start + relativedelta(hours=time_delta)
     elif time_start:
-        date_start = dt.date(publication_date.year, publication_date.month, publication_date.day) + relativedelta(hours=time_start)
+        date_start = dt.date(
+            publication_date.year, publication_date.month, publication_date.day
+        ) + relativedelta(hours=time_start)
         date_end = date_start + relativedelta(hours=time_delta)
 
     return date_start, date_end
 
 
 def exact_date(phrase, date_string):
-    'given the date in the past in a string, returns time delta between this string and parsed date'
+    "given the date in the past in a string, returns time delta between this string and parsed date"
 
     parsed_phrase = parse(phrase)
     phrase_month = parsed_phrase.month
     phrase_day = parsed_phrase.day
     phrase_year = parsed_phrase.year
     parsed_date = parser.parse(date_string)
-    current_year = parse('now').year
+    current_year = parse("now").year
 
     if current_year != phrase_year:
         phrase_date = dt.date(phrase_year, phrase_month, phrase_day)
     else:
         if parsed_date.month - phrase_month <= 0:
-            if parsed_date.month - phrase_month == 0 and parsed_date.day - phrase_day > 0:
+            if (
+                parsed_date.month - phrase_month == 0
+                and parsed_date.day - phrase_day > 0
+            ):
                 phrase_date = dt.date(parsed_date.year, phrase_month, phrase_day)
             else:
 
@@ -407,9 +428,9 @@ def days_count(phrase, date_string):
     if is_today():
         return None
 
-    if 'yesterday' in phrase:
+    if "yesterday" in phrase:
         return 1
-    elif 'today' in phrase or 'tonight' in phrase:
+    elif "today" in phrase or "tonight" in phrase:
         return 0
 
     unit = None
@@ -418,28 +439,32 @@ def days_count(phrase, date_string):
         return days
     except:
         pass
-    tokenized_phrase = phrase.split(' ')
+    tokenized_phrase = phrase.split(" ")
     for i in range(len(tokenized_phrase)):
-        if words_to_number_transformer(tokenized_phrase[i]) or tokenized_phrase[i] in help_dict.keys():
+        if (
+            words_to_number_transformer(tokenized_phrase[i])
+            or tokenized_phrase[i] in help_dict.keys()
+        ):
             if words_to_number_transformer(tokenized_phrase[i]):
                 tokenized_phrase[i] = words_to_number_transformer(tokenized_phrase[i])
             else:
                 tokenized_phrase[i] = help_dict[tokenized_phrase[i]]
-    if 'ago' in phrase or 'from now' in phrase or 'before' in phrase:
+    if "ago" in phrase or "from now" in phrase or "before" in phrase:
 
-        if 'day' in tokenized_phrase or 'days' in tokenized_phrase:
+        if "day" in tokenized_phrase or "days" in tokenized_phrase:
             unit = first_day
-        elif 'week' in tokenized_phrase or 'weeks' in tokenized_phrase:
+        elif "week" in tokenized_phrase or "weeks" in tokenized_phrase:
             unit = number_of_days_in_week
-        elif 'month' in tokenized_phrase or 'months' in tokenized_phrase:
+        elif "month" in tokenized_phrase or "months" in tokenized_phrase:
             unit = days_in_month
-        elif 'year' in tokenized_phrase or 'years' in tokenized_phrase:
+        elif "year" in tokenized_phrase or "years" in tokenized_phrase:
             unit = days_in_year
         for item in tokenized_phrase:
             if type(item) == int:
                 return unit * item
     else:
         return None
+
 
 def specific_year(phrase):
     try:
@@ -467,7 +492,7 @@ def between_phrase(phrase, date_string):
     for result in re.finditer(between_regex, phrase):
         date_phrases.append(result.group())
     try:
-        date_phrases = date_phrases[0].replace('and', ',').split(',')
+        date_phrases = date_phrases[0].replace("and", ",").split(",")
     except:
         return None, None
     month_count = set()
@@ -517,39 +542,51 @@ def between_phrase(phrase, date_string):
         _, date_end = specific_year(date_phrases[1])
     return date_start, date_end
 
+
 def years_interval(phrase, date_string):
     phrase = phrase.lower()
     vague_phrase = False
     index = None
-    phrase_list = phrase.split(' ')
+    phrase_list = phrase.split(" ")
     time_unit = None
     for i, word in enumerate(phrase_list):
-        if word == 'years':
-            time_unit = 'years'
+        if word == "years":
+            time_unit = "years"
             index = i
-        elif word == 'months':
-            time_unit = 'months'
+        elif word == "months":
+            time_unit = "months"
             index = i
-        elif word == 'weeks':
-            time_unit = 'weeks'
+        elif word == "weeks":
+            time_unit = "weeks"
             index = i
-        elif word == 'days':
-            time_unit = 'days'
+        elif word == "days":
+            time_unit = "days"
             index = i
-    phrase_before = ' '.join(phrase_list[0:i+1])
-    if 'several' in phrase_before or 'couple' in phrase_before or 'some' in phrase_before:
+    phrase_before = " ".join(phrase_list[0 : i + 1])
+    if (
+        "several" in phrase_before
+        or "couple" in phrase_before
+        or "some" in phrase_before
+    ):
         vague_phrase = True
     if vague_phrase:
-        date_start, _ = time_interval_with_number_of_days(f'six {time_unit} ago', date_string)
-        _, date_end = time_interval_with_number_of_days(f'three {time_unit} ago', date_string)
+        date_start, _ = time_interval_with_number_of_days(
+            f"six {time_unit} ago", date_string
+        )
+        _, date_end = time_interval_with_number_of_days(
+            f"three {time_unit} ago", date_string
+        )
     return date_start, date_end
+
 
 def time_interval_with_number_of_days(phrase, date_string):
     try:
         number_of_days_to_subtract = days_count(phrase, date_string)
         if number_of_days_to_subtract < 0:
             return None, None
-        date_start = parser.parse(date_string).date() - relativedelta(days=number_of_days_to_subtract)
+        date_start = parser.parse(date_string).date() - relativedelta(
+            days=number_of_days_to_subtract
+        )
         date_end = date_start + one_day_delta - delta_to_subtract
         return date_start, date_end
     except:
@@ -567,36 +604,43 @@ def week_month(phrase, date_string):
     date_beginning = None
     date_end = None
 
-    split_phrase = phrase.split(' ')
+    split_phrase = phrase.split(" ")
     for i, word in enumerate(split_phrase):
-        if word == 'week' and i > 0:
-            if split_phrase[i - 1] == 'last':
+        if word == "week" and i > 0:
+            if split_phrase[i - 1] == "last":
                 last_week = True
-            elif split_phrase[i - 1] == 'first':
+            elif split_phrase[i - 1] == "first":
                 first = True
-            elif split_phrase[i - 1] == 'second':
+            elif split_phrase[i - 1] == "second":
                 second = True
-            elif split_phrase[i - 1] == 'third':
+            elif split_phrase[i - 1] == "third":
                 third = True
-        if word == 'week' and ('last' in split_phrase[i:] or 'past' in split_phrase[i:]):
+        if word == "week" and (
+            "last" in split_phrase[i:] or "past" in split_phrase[i:]
+        ):
             last_month = True
         if word in months.keys():
             month = word
-    if 'month' in phrase:
+    if "month" in phrase:
         month = month_transformation(phrase, date_string)
 
     if last_month:
-        date_1, date_2 = month_parsing('last ' + month, date_string)
+        date_1, date_2 = month_parsing("last " + month, date_string)
     else:
-        date_1, date_2 = month_parsing('this ' + month, date_string)
+        date_1, date_2 = month_parsing("this " + month, date_string)
 
     date_beginning, date_end = date_1, date_2
 
     if date_1.weekday() <= middle_of_week:
-        partial_date_2 = date_1 + relativedelta(days=programmatic_number_of_days_in_week - date_1.weekday())
+        partial_date_2 = date_1 + relativedelta(
+            days=programmatic_number_of_days_in_week - date_1.weekday()
+        )
     else:
         partial_date_2 = date_1 + relativedelta(
-            days=programmatic_number_of_days_in_week - date_1.weekday() + number_of_days_in_week)
+            days=programmatic_number_of_days_in_week
+            - date_1.weekday()
+            + number_of_days_in_week
+        )
     if first:
         date_2 = partial_date_2
 
@@ -611,7 +655,9 @@ def week_month(phrase, date_string):
     if last_week:
 
         if date_2.weekday() <= middle_of_week:
-            date_1 = date_2 - relativedelta(days=(date_2.weekday() + number_of_days_in_week))
+            date_1 = date_2 - relativedelta(
+                days=(date_2.weekday() + number_of_days_in_week)
+            )
         else:
             date_1 = date_2 - relativedelta(days=date_2.weekday())
 
@@ -636,27 +682,29 @@ def weekend_month(phrase, date_string):
     date_beginning = None
     date_end = None
 
-    split_phrase = phrase.split(' ')
+    split_phrase = phrase.split(" ")
     for i, word in enumerate(split_phrase):
-        if word == 'weekend' and i > 0:
-            if split_phrase[i - 1] == 'last':
+        if word == "weekend" and i > 0:
+            if split_phrase[i - 1] == "last":
                 last_weekend = True
-            elif split_phrase[i - 1] == 'first':
+            elif split_phrase[i - 1] == "first":
                 first_weekend = True
-            elif split_phrase[i - 1] == 'second':
+            elif split_phrase[i - 1] == "second":
                 second_weekend = True
-            elif split_phrase[i - 1] == 'third':
+            elif split_phrase[i - 1] == "third":
                 third_weekend = True
-        if word == 'weekend' and ('last' in split_phrase[i:] or 'past' in split_phrase[i:]):
+        if word == "weekend" and (
+            "last" in split_phrase[i:] or "past" in split_phrase[i:]
+        ):
             last_month = True
         if word in months.keys():
             month = word
-    if 'month' in phrase:
+    if "month" in phrase:
         month = month_transformation(phrase, date_string)
     if last_month:
-        date_1, date_2 = month_parsing('last ' + month, date_string)
+        date_1, date_2 = month_parsing("last " + month, date_string)
     else:
-        date_1, date_2 = month_parsing('this ' + month, date_string)
+        date_1, date_2 = month_parsing("this " + month, date_string)
 
     date_beginning, date_end = date_1, date_2
     current_weekday = date_beginning.weekday()
@@ -665,7 +713,9 @@ def weekend_month(phrase, date_string):
     if current_weekday < end_of_week:
         first_weekend_date = date_1 + relativedelta(days=end_of_week - current_weekday)
     else:
-        first_weekend_date = date_1 + relativedelta(days=number_of_days_in_week + end_of_week - current_weekday)
+        first_weekend_date = date_1 + relativedelta(
+            days=number_of_days_in_week + end_of_week - current_weekday
+        )
 
     if first_weekend:
         date_1 = first_weekend_date
@@ -686,19 +736,29 @@ def weekend_month(phrase, date_string):
 
     return date_1, date_2
 
+
 def specfied_time_intergation(date_start, date_end, time_start, time_end, date_string):
 
     if date_start and date_end:
-        date_start_updated = dt.date(date_start.year, date_start.month, date_start.day) + relativedelta(hours=time_start.hour, minutes=time_start.minute)
-        date_end_updated = dt.date(date_end.year, date_end.month, date_end.day) + relativedelta(hours=time_end.hour, minutes=time_end.minute)
+        date_start_updated = dt.date(
+            date_start.year, date_start.month, date_start.day
+        ) + relativedelta(hours=time_start.hour, minutes=time_start.minute)
+        date_end_updated = dt.date(
+            date_end.year, date_end.month, date_end.day
+        ) + relativedelta(hours=time_end.hour, minutes=time_end.minute)
     else:
         date_start = parse(date_string)
-        date_start_updated = dt.date(date_start.year, date_start.month, date_start.day) + relativedelta(hours=time_start.hour, minutes=time_start.minute)
-        date_end_updated = dt.date(date_start.year, date_start.month, date_start.day) + relativedelta(hours=time_end.hour, minutes=time_end.minute)
+        date_start_updated = dt.date(
+            date_start.year, date_start.month, date_start.day
+        ) + relativedelta(hours=time_start.hour, minutes=time_start.minute)
+        date_end_updated = dt.date(
+            date_start.year, date_start.month, date_start.day
+        ) + relativedelta(hours=time_end.hour, minutes=time_end.minute)
     return date_start_updated, date_end_updated
 
+
 def exact_date_checker(phrase):
-    date_definer = ['ago', 'from now', 'before', 'yesterday', 'today', 'tonight']
+    date_definer = ["ago", "from now", "before", "yesterday", "today", "tonight"]
     if any(word in phrase for word in date_definer):
         return True
     try:
@@ -709,8 +769,8 @@ def exact_date_checker(phrase):
 
 def time_date_normalization(phrase, date_string):
 
-    phrase = phrase.replace(': ', ':').replace(' :', ':')
-    if 'next' in phrase:
+    phrase = phrase.replace(": ", ":").replace(" :", ":")
+    if "next" in phrase:
         return None, None
     # publication_date = parse(date_string).replace(tzinfo=None)
     weekday = False
@@ -730,7 +790,7 @@ def time_date_normalization(phrase, date_string):
     date_start, date_end = None, None
     time_start, time_end = None, None
 
-    split_phrase = phrase.split(' ')
+    split_phrase = phrase.split(" ")
     if re.search(regex_time, phrase):
         exact_time = True
 
@@ -741,11 +801,11 @@ def time_date_normalization(phrase, date_string):
         pass
 
     for word in split_phrase:
-        if word == 'weekend':
+        if word == "weekend":
             weekend_in_phrase = True
-        elif word == 'week':
+        elif word == "week":
             week_in_phrase = True
-        elif word == 'month':
+        elif word == "month":
             month_in_phrase = True
         elif word.lower() in times_of_day.keys():
             day_time = True
@@ -755,10 +815,10 @@ def time_date_normalization(phrase, date_string):
             weekday = True
         elif word.lower() in seasons.keys():
             season = True
-        elif 'between' in word:
+        elif "between" in word:
             between_in_phrase = True
-        elif word in vague_language and 'ago' in phrase:
-             vague_phrase = True
+        elif word in vague_language and "ago" in phrase:
+            vague_phrase = True
         try:
             possible_year_or_date = int(word)
             if len(word) == 4:
@@ -768,11 +828,20 @@ def time_date_normalization(phrase, date_string):
             pass
 
     if exact_date and not (
-            vague_phrase or weekday and weekend_in_phrase and month_in_phrase and between_phrase and season and week):
+        vague_phrase
+        or weekday
+        and weekend_in_phrase
+        and month_in_phrase
+        and between_phrase
+        and season
+        and week
+    ):
         #         print(0)
         date_start, date_end = time_interval_with_number_of_days(phrase, date_string)
 
-    elif between_in_phrase and (month_name or month_in_phrase or year or season or day_time):
+    elif between_in_phrase and (
+        month_name or month_in_phrase or year or season or day_time
+    ):
         #         print(1)
         date_start, date_end = between_phrase(phrase, date_string)
 
@@ -794,17 +863,47 @@ def time_date_normalization(phrase, date_string):
         date_start, date_end = month_parsing(phrase, date_string)
 
     elif weekend_in_phrase and not (
-            weekday and week_in_phrase and month_name and month_in_phrase and day_time and exact_date and between_phrase and exact_time and year and season):
+        weekday
+        and week_in_phrase
+        and month_name
+        and month_in_phrase
+        and day_time
+        and exact_date
+        and between_phrase
+        and exact_time
+        and year
+        and season
+    ):
         #         print(6)
         date_start, date_end = weekend(phrase, date_string)
 
     elif week_in_phrase and not (
-            weekday and weekend_in_phrase and month_name and month_in_phrase and day_time and exact_date and between_phrase and exact_time and year and season):
+        weekday
+        and weekend_in_phrase
+        and month_name
+        and month_in_phrase
+        and day_time
+        and exact_date
+        and between_phrase
+        and exact_time
+        and year
+        and season
+    ):
         #         print(7)
         date_start, date_end = week(phrase, date_string)
 
     elif season and not (
-            weekday and weekend_in_phrase and month_name and month_in_phrase and day_time and exact_date and between_phrase and exact_time and year and week):
+        weekday
+        and weekend_in_phrase
+        and month_name
+        and month_in_phrase
+        and day_time
+        and exact_date
+        and between_phrase
+        and exact_time
+        and year
+        and week
+    ):
         #         print(8)
         date_start, date_end = seasons_interval(phrase, date_string)
 
@@ -823,8 +922,9 @@ def time_date_normalization(phrase, date_string):
         date_start, date_end = days_time_triplet(phrase, date_string)
 
     if time_start and time_end:
-        date_start_updated, date_end_updated = specfied_time_intergation(date_start, date_end, time_start,
-                                                                          time_end, date_string)
+        date_start_updated, date_end_updated = specfied_time_intergation(
+            date_start, date_end, time_start, time_end, date_string
+        )
         return date_start_updated, date_end_updated
     else:
         if date_start and date_end:
@@ -850,7 +950,6 @@ def time_date_normalization(phrase, date_string):
     # else:
     #     return None, None
     # return datetime.combine(date_start, datetime.min.time()), date_end
-
 
 
 # c = Normalizer()
@@ -897,8 +996,3 @@ def time_date_normalization(phrase, date_string):
 # print(time_date_normalization("friday", '2015-08-22T14:30:00'))
 # print(time_date_normalization("3 : 30 am today", '2015-06-24T14:30:00'))
 # print(time_date_normalization("next week", '2015-06-24T14:30:00'))
-
-
-
-
-

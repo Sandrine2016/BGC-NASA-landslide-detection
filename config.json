@@ -1,0 +1,12 @@
+{
+    "interval" : {
+        "default" : "no",
+        "start" : {
+            "date" : "2022-06-10"
+        },
+        "end" : {
+            "now" : "yes",
+            "date" : "2022-06-11"
+        }
+    }
+}

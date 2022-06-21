@@ -1,4 +1,4 @@
-,source_link,article_title,article_publish_date,article_text,locations,location,latitude,longitude,radius_km,interval,discrete_date,confidence
+,source_link,article_title,article_publish_date,article_text,locations,location,latitude,longitude,radius_km,interval_to_normalize,discrete_date,confidence,potential_intervals,potential_discrete_dates,potential_confidence
 0,https://kdvr.com/2019/05/25/massive-rockslide-closes-colorado-highway-indefinitely/,Massive rockslide closes Colorado highway ‘indefinitely’,2019-05-25 00:00:00,"This is an archived article and the information in the article may be outdated. Please look at the time stamp on the story to see when it was last updated.
 
 CORTEZ, Colo. — A pair of massive boulders rolled off a Colorado mountainside and smashed into a highway, destroying the pavement and leaving a house-sized rock across the roadway that will have to be blasted apart, state transportation officials said Saturday.
@@ -12,15 +12,19 @@ It’s relatively common for boulders and smaller rocks to fall on mountain high
 But Friday’s afternoon rock slide along state Highway 145 between Cortez and Telluride was unusual in that it began about 1,000 feet above the highway , in a cliff band at the top of a slope leading down to the highway.
 
 Once the slope above is deemed safe, crews will seek to build a shoulder along the damaged roadway so at least a single lane of traffic can be opened, Schwantes said.",Cortez|Telluride|,Telluride,37.93580000000003,-107.84804999999994,0.708,"2019/05/24, 00:00-2019/05/24, 23:59
-2019/05/25, 12:00-2019/05/25, 17:00
 ","2019/05/24, 11:59
-2019/05/25, 14:30
-2019/05/24, 11:59
-2019/05/25, 14:30
-2019/05/24, 11:59
-2019/05/25, 14:30
 ","± 11.99 hours 
-± 2.5 hours 
+","2019/05/25, 12:00-2019/05/25, 17:00
+2019/05/24, 00:00-2019/05/24, 23:59
+2019/05/25, 12:00-2019/05/25, 17:00
+2019/05/24, 00:00-2019/05/24, 23:59
+2019/05/25, 12:00-2019/05/25, 17:00
+","2019/05/25, 14:30
+2019/05/24, 11:59
+2019/05/25, 14:30
+2019/05/24, 11:59
+2019/05/25, 14:30
+","± 2.5 hours 
 ± 11.99 hours 
 ± 2.5 hours 
 ± 11.99 hours 
@@ -40,8 +44,8 @@ Other fish movement options being enacted are physically moving rocks from the s
 
 The fish will be monitored on their journey, including through blood samples taken to assess their energy reserves once they have passed the obstruction.
 
-(This story refiles to correct spelling of sockeye in paragraph three)",Lillooet|British Columbia|the Fraser River,Lillooet,50.68333288800005,-121.93332988899999,7.2485,,,
-3,https://indianexpress.com/article/india/kerala-mosque-opens-doors-for-autopsy-of-landslide-victims-5906319/,Kerala: Mosque opens doors for autopsy of landslide victims,2019-08-15 06:49:52+05:30,"When disaster came in the form of a collapsing hill at Kavalapara in Kerala’s Malappuram district last week, it not only levelled a village, but also the boundaries of religion.
+(This story refiles to correct spelling of sockeye in paragraph three)",Lillooet|British Columbia|the Fraser River,Lillooet,50.68333288800005,-121.93332988899999,7.2485,None,None,None,None,None,None
+2,https://indianexpress.com/article/india/kerala-mosque-opens-doors-for-autopsy-of-landslide-victims-5906319/,Kerala: Mosque opens doors for autopsy of landslide victims,2019-08-15 06:49:52+05:30,"When disaster came in the form of a collapsing hill at Kavalapara in Kerala’s Malappuram district last week, it not only levelled a village, but also the boundaries of religion.
 
 As the bodies of 59 people, who were buried alive in the landslide, are being retrieved one after the other since last Friday, their post-mortem is being conducted in the building of a nearby mosque. Masjid Al-Mujahidin mosque at Pothukal has opened its doors to the dead — to Hindus, Muslims and Christians. The mosque committee has handed over its premises used by women to offer namaz for conducting post-mortem of the victims.
 
@@ -53,8 +57,8 @@ Pothukal panchayat member Sulaiman Haji said the nearest government hospital whe
 
 Mosque committee secretary Kareem Kavanaseri said, “Humanity is above everything, including religion. When officials sought for a place to conduct post-mortem, I showed them a room attached to the mosque. After a day, the doctors sought more space. Then we decided to hand over the halls where women offer namaz. We have also provided the facility for cleaning the bodies after they are retrieved,” said Kareem, who is also a trader.
 
-The post-mortem proceedings also continued on Monday, when Eid was observed. Kareem said no one in the community had objected to the gesture. “In this hour of crisis, we can’t think anything else,’’ he said. The mosque is managed by Kerala Nadvathul Mujahideen.",Kavalapara|Kerala|Malappuram|,Kavalapara,10.768050000000073,76.30274000000003,1.5555,,,
-4,https://www.reuters.com/article/us-nepal-landslides/landslides-in-nepal-kill-12-people-at-least-21-missing-idUSKBN2640IU?feedType=mktg&amp;feedName=worldNews&amp;WT.mc_id=Partner-Google,"Landslides in Nepal kill 12 people, at least 21 missing",2020-09-13 13:02:39+00:00,"KATHMANDU (Reuters) - Landslides triggered by torrential rain swept through two villages in Nepal on Sunday, killing at least 12 people, a government official said.
+The post-mortem proceedings also continued on Monday, when Eid was observed. Kareem said no one in the community had objected to the gesture. “In this hour of crisis, we can’t think anything else,’’ he said. The mosque is managed by Kerala Nadvathul Mujahideen.",Kavalapara|Kerala|Malappuram|,Kavalapara,10.768050000000073,76.30274000000003,1.5555,None,None,None,None,None,None
+3,https://www.reuters.com/article/us-nepal-landslides/landslides-in-nepal-kill-12-people-at-least-21-missing-idUSKBN2640IU?feedType=mktg&amp;feedName=worldNews&amp;WT.mc_id=Partner-Google,"Landslides in Nepal kill 12 people, at least 21 missing",2020-09-13 13:02:39+00:00,"KATHMANDU (Reuters) - Landslides triggered by torrential rain swept through two villages in Nepal on Sunday, killing at least 12 people, a government official said.
 
 Ten people were killed and 21 are missing after a massive landslide swept away homes and people in Barahbise, 100 km (62 miles) east of Kathmandu near the border with the Tibet region of China, Nepali government official Murari Wasti said.
 
@@ -64,14 +68,21 @@ Both landslides struck the villages before dawn and people could not escape to s
 
 “Rescuers are looking for those who are missing,” Wasti told Reuters.
 
-The latest fatalities took the death toll from landslides and flash floods in the June-September monsoon season to 314. At least 111 people remain missing and 160 have been injured, Wasti said.",Baglung|,Baglung,28.27189000000004,83.58976000000007,2.9605,,,
-6,https://www.manilatimes.net/2020/07/04/news/world/massive-landslide-kills-162-in-myanmar/737386/,Massive landslide kills 162 in Myanmar,2020-07-04 00:00:00,"YANGON: The death toll of a massive jade mine landslide in Myanmar’s northernmost Kachin state has risen to 162, the Information Ministry said.
+The latest fatalities took the death toll from landslides and flash floods in the June-September monsoon season to 314. At least 111 people remain missing and 160 have been injured, Wasti said.",Baglung|,Baglung,28.27189000000004,83.58976000000007,2.9605,None,None,None,None,None,None
+4,https://www.manilatimes.net/2020/07/04/news/world/massive-landslide-kills-162-in-myanmar/737386/,Massive landslide kills 162 in Myanmar,2020-07-04 00:00:00,"YANGON: The death toll of a massive jade mine landslide in Myanmar’s northernmost Kachin state has risen to 162, the Information Ministry said.
 
 The number of injured people reached 31, said a statement from the Office of the Commander-in-Chief of the Defense Services. Caused by the monsoon rains, the landslide hit a jade mining site in Sate Mu village tract of Hpakant township at 8 a.m. (6:30 a.m. in Manila) Thursday.",Sate Mu village|Hpakant township|Manila|,Sate Mu village,37.17250000000007,128.3171000000001,1.4215,"2020/07/02, 00:00-2020/07/02, 23:59
+","2020/07/02, 11:59
+","± 11.99 hours 
+","2020/07/04, 07:30-2020/07/04, 08:30
+2020/07/04, 06:00-2020/07/04, 07:00
+2020/07/02, 00:00-2020/07/02, 23:59
 2020/07/04, 07:30-2020/07/04, 08:30
 2020/07/04, 06:00-2020/07/04, 07:00
-","2020/07/02, 11:59
-2020/07/04, 08:00
+2020/07/02, 00:00-2020/07/02, 23:59
+2020/07/04, 07:30-2020/07/04, 08:30
+2020/07/04, 06:00-2020/07/04, 07:00
+","2020/07/04, 08:00
 2020/07/04, 06:30
 2020/07/02, 11:59
 2020/07/04, 08:00
@@ -79,8 +90,7 @@ The number of injured people reached 31, said a statement from the Office of the
 2020/07/02, 11:59
 2020/07/04, 08:00
 2020/07/04, 06:30
-","± 11.99 hours 
-± 0.5 hours 
+","± 0.5 hours 
 ± 0.5 hours 
 ± 11.99 hours 
 ± 0.5 hours 
@@ -89,7 +99,7 @@ The number of injured people reached 31, said a statement from the Office of the
 ± 0.5 hours 
 ± 0.5 hours 
 "
-7,https://www.cbs17.com/news/north-carolina-news/i-40-in-nc-mountains-still-closed-by-mudslide-lanes-will-remain-blocked-for-weeks/1803783116,I-40 in NC mountains still closed by mudslide; lanes will remain blocked for weeks,2019-02-23 19:52:01+00:00,"HAYWOOD COUNTY, N.C. (WSPA) — North Carolina Department of Transportation announced Saturday that part of Interstate 40 in the mountains will remain closed for a week following a mudslide.
+5,https://www.cbs17.com/news/north-carolina-news/i-40-in-nc-mountains-still-closed-by-mudslide-lanes-will-remain-blocked-for-weeks/1803783116,I-40 in NC mountains still closed by mudslide; lanes will remain blocked for weeks,2019-02-23 19:52:01+00:00,"HAYWOOD COUNTY, N.C. (WSPA) — North Carolina Department of Transportation announced Saturday that part of Interstate 40 in the mountains will remain closed for a week following a mudslide.
 
 The slide happened Friday evening at mile marker 7.5 near the Tennessee state line.
 
@@ -113,15 +123,15 @@ Drivers will need to plan for extra travel time.
 
 NCDOT said the detour that utilizes a combination of I-40, I-240, I-26, and I-81 through Asheville and Johnson City is about 50 miles longer than driving through the Pigeon River Gorge.
 
-UPDATE: Rockslide will keep I-40 in NC mountains closed until Saturday, officials say",HAYWOOD COUNTY|N.C.|North Carolina|,N.C.,35.53934433500007,-79.18541791299998,415.6415,,,
-8,https://www.euronews.com/2019/05/01/bolivia-residents-watch-as-landslide-sweeps-away-houses,Bolivia: residents watch as landslide sweeps away houses,2019-05-01 00:00:00,"Over a dozen houses were destroyed in La Paz, Bolivia on Tuesday (April 30) after a landslide in a hilly suburban area in La Periferica district at the city's outskirts. No deaths were reported as authorities had cleared the area amidst fears of collapse after heavy rains.",La Paz|Bolivia|La Periferica|,La Paz,-16.499079999999935,-68.13377999999994,56.587,"2019/04/30, 00:00-2019/04/30, 23:59
-2019/04/30, 00:00-2019/04/30, 23:59
+UPDATE: Rockslide will keep I-40 in NC mountains closed until Saturday, officials say",HAYWOOD COUNTY|N.C.|North Carolina|,N.C.,35.53934433500007,-79.18541791299998,415.6415,None,None,None,None,None,None
+6,https://www.euronews.com/2019/05/01/bolivia-residents-watch-as-landslide-sweeps-away-houses,Bolivia: residents watch as landslide sweeps away houses,2019-05-01 00:00:00,"Over a dozen houses were destroyed in La Paz, Bolivia on Tuesday (April 30) after a landslide in a hilly suburban area in La Periferica district at the city's outskirts. No deaths were reported as authorities had cleared the area amidst fears of collapse after heavy rains.",La Paz|Bolivia|La Periferica|,La Paz,-16.499079999999935,-68.13377999999994,56.587,"2019/04/30, 00:00-2019/04/30, 23:59
 ","2019/04/30, 11:59
-2019/04/30, 11:59
 ","± 11.99 hours 
-± 11.99 hours 
+","2019/04/30, 00:00-2019/04/30, 23:59
+","2019/04/30, 11:59
+","± 11.99 hours 
 "
-11,https://www.knoxnews.com/story/news/local/tennessee/2019/06/10/rock-slide-closes-40-west-near-north-carolina-tennessee-border/1411254001/,Rockslide closes I-40 West near North Carolina-Tennessee border,2019-06-10 00:00:00,"UPDATE: The highway is open once again. Here's the latest news on the road.
+7,https://www.knoxnews.com/story/news/local/tennessee/2019/06/10/rock-slide-closes-40-west-near-north-carolina-tennessee-border/1411254001/,Rockslide closes I-40 West near North Carolina-Tennessee border,2019-06-10 00:00:00,"UPDATE: The highway is open once again. Here's the latest news on the road.
 
 For the second time this year, a landslide after heavy rains prompted officials to close part of Interstate 40 near the Tennessee-North Carolina state line.
 
@@ -139,8 +149,8 @@ The rockslide follows a much larger landslide in late February, which occurred i
 
 After that landslide, workers installed rock anchors and wire mesh along the route, built a retaining wall, resurfaced the road and poured a new concrete median.
 
-Reach Travis Dorman at 865-342-6315 or at travis.dorman@knoxnews.com. Follow him on Twitter @travdorman.",Tennessee-North Carolina|,Tennessee-North Carolina,35.622929000000056,-83.42748199999994,0.143,,,
-13,https://www.adn.com/alaska-news/2019/08/17/mudslides-leave-300-tourists-stranded-in-denali-national-park/,"Crews reopen Denali Park Road after mudslides, water damage; stranded tourists leave",2019-08-17 00:00:00,"A line of tourist buses stop to look at caribou along the park road in Denali National Park and Preserve on Thursday, May 19, 2016. (Bob Hallinen / ADN archive)
+Reach Travis Dorman at 865-342-6315 or at travis.dorman@knoxnews.com. Follow him on Twitter @travdorman.",Tennessee-North Carolina|,Tennessee-North Carolina,35.622929000000056,-83.42748199999994,0.143,None,None,None,None,None,None
+8,https://www.adn.com/alaska-news/2019/08/17/mudslides-leave-300-tourists-stranded-in-denali-national-park/,"Crews reopen Denali Park Road after mudslides, water damage; stranded tourists leave",2019-08-17 00:00:00,"A line of tourist buses stop to look at caribou along the park road in Denali National Park and Preserve on Thursday, May 19, 2016. (Bob Hallinen / ADN archive)
 
 DENALI NATIONAL PARK — Road crews have cleared one lane in Alaska’s Denali National Park and Preserve, and buses returned about 300 stranded tourists to the park entrance safely.
 
@@ -162,8 +172,8 @@ Also on Friday, the Alaska Railroad said in a release that it has halted service
 
 Passenger and freight service will be suspended through the area until late Monday at the earliest, the railroad said in a statement.
 
-The railroad added that passengers traveling north to or south from Denali Park on the Alaska Railroad or on an Alaska Railroad provided service through Holland America/Princess or Premier Alaska Tours should expect delays.",Alaska|,Alaska,64.80808789800005,-151.00415781499996,2147.47,,,
-14,https://www.telegraph.co.uk/news/2021/02/23/italy-landslide-drags-200-coffins-sea-near-popular-tourist-resort/,Italy landslide drags 200 coffins into the sea near popular tourist resort,2021-02-23 00:00:00,"Hundreds of coffins were carried away and plunged into the seas after a landslide on Tuesday hit a graveyard in a village near Genoa.
+The railroad added that passengers traveling north to or south from Denali Park on the Alaska Railroad or on an Alaska Railroad provided service through Holland America/Princess or Premier Alaska Tours should expect delays.",Alaska|,Alaska,64.80808789800005,-151.00415781499996,2147.47,None,None,None,None,None,None
+9,https://www.telegraph.co.uk/news/2021/02/23/italy-landslide-drags-200-coffins-sea-near-popular-tourist-resort/,Italy landslide drags 200 coffins into the sea near popular tourist resort,2021-02-23 00:00:00,"Hundreds of coffins were carried away and plunged into the seas after a landslide on Tuesday hit a graveyard in a village near Genoa.
 
 Firemen and rescuers in Camogli, a cliff-side village near the northern city of Genoa, scrambled to rescue the coffins, many of which were damaged or destroyed after falling on the rocks about 50 metres below the cemetery.
 
@@ -179,8 +189,8 @@ Local news reports suggested that the slope at Camogli had started to suffer fro
 
 Families who lost their relatives' remains at sea will be offered support, Camogli's mayor said.
 
-“We’ll do our best to identify the bodies also using DNA tests,” said Francesco Olivari. “We are also planning to create a team that would provide psychological support to those people, who are understandably under shock.”",Genoa|,Genoa,44.410480000000064,8.939170000000047,19.414,,,
-15,https://www.thenewsminute.com/article/bodies-woman-and-child-trapped-malappuram-mudslide-recovered-107046,"Bodies of mother and child recovered in Kerala, her protective hand still holding him",2019-08-12 13:01:00+05:30,"Bodies of mother and child recovered in Kerala, her protective hand still holding him
+“We’ll do our best to identify the bodies also using DNA tests,” said Francesco Olivari. “We are also planning to create a team that would provide psychological support to those people, who are understandably under shock.”",Genoa|,Genoa,44.410480000000064,8.939170000000047,19.414,None,None,None,None,None,None
+10,https://www.thenewsminute.com/article/bodies-woman-and-child-trapped-malappuram-mudslide-recovered-107046,"Bodies of mother and child recovered in Kerala, her protective hand still holding him",2019-08-12 13:01:00+05:30,"Bodies of mother and child recovered in Kerala, her protective hand still holding him
 
 The woman’s husband had narrowly escaped the sudden mudslide on Friday, and his mother's body was recovered on Monday.
 
@@ -202,8 +212,8 @@ The CCTV recording had showed a disturbing video of Sarath, walking with an umbr
 
 The search operations were disrupted twice due to unfavourable weather conditions. Since there was no rain in Malappuram on Sunday, the rescue team was able to resume the search and recover the bodies of Geethu and Dhruvan. The bodies have been taken to Manjeri Government Medical College.
 
-Malappuram has been one of the worst affected districts in the rain. At least 63 people, including children, are feared to be trapped underground after a major landslide occurred in Kavalappara. Nine bodies have been found so far and rescue operations are still on. The total number of people reported to have died in rain-related incidents in the state is 63.",Kavalappara|,Kavalappara,10.767180000000053,76.30038000000008,0.778,,,
-16,https://www.thedrive.com/news/27792/how-california-is-fixing-angeles-crest-highway-after-its-worst-landslide-in-decades,How California Is Fixing Angeles Crest Highway After Its Worst Landslide in Decades,2019-05-13 12:03:46,"The rock was pressed into existence at least half a billion years ago deep underground. Eons of tectonic transit ended here in southern California sometime in the late Cenozoic with it lodged in the violent seam between the Pacific and North American plates. Those crushing forces lofted the ancient mass thousands of feet into the sky as the San Gabriel Mountains. And in February, about ten million pounds of it came crashing down on Angeles Crest Highway, where it finally became Christopher Harris' problem.
+Malappuram has been one of the worst affected districts in the rain. At least 63 people, including children, are feared to be trapped underground after a major landslide occurred in Kavalappara. Nine bodies have been found so far and rescue operations are still on. The total number of people reported to have died in rain-related incidents in the state is 63.",Kavalappara|,Kavalappara,10.767180000000053,76.30038000000008,0.778,None,None,None,None,None,None
+11,https://www.thedrive.com/news/27792/how-california-is-fixing-angeles-crest-highway-after-its-worst-landslide-in-decades,How California Is Fixing Angeles Crest Highway After Its Worst Landslide in Decades,2019-05-13 12:03:46,"The rock was pressed into existence at least half a billion years ago deep underground. Eons of tectonic transit ended here in southern California sometime in the late Cenozoic with it lodged in the violent seam between the Pacific and North American plates. Those crushing forces lofted the ancient mass thousands of feet into the sky as the San Gabriel Mountains. And in February, about ten million pounds of it came crashing down on Angeles Crest Highway, where it finally became Christopher Harris' problem.
 
 Harris is a senior geologist with the California Department of Transportation, or Caltrans, and he's not much for complaining as he stands at the site in late April and stares at the ragged scar left by the landslide. But it's hard to think of thirty feet of rubble—an entire chunk of the mountain, dismembered—sitting atop a road he's tasked with protecting in any other fashion. Angeles Crest is the only path traversing the entire San Gabriel range, a historic trail paved with the can-do determination of an optimistic country, a critical link for the remote businesses and residents perched among the peaks, and a world-famous enthusiast playground 20 minutes from Los Angeles. It also doubles as State Route 2, which means Caltrans is locked in a Sisyphean battle to maintain 66 miles of a road surface suitable for 55-mph traffic through a mountain range that’s actively trying to destroy it.
 
@@ -285,8 +295,8 @@ I glanced over at Harris, who was wearing a look of...not satisfaction, but vind
 
 That is ultimately his number one concern: Not the lost tourism dollars, not the inconvenienced enthusiasts, not the repair's extended timeline, but the fragile illusion of safety on which modern life functions. At the earliest, the road might open at the beginning of June—or it might not. Like the landslide itself, the recovery timeline is being dictated by forces that human beings can only hope to influence, let alone control. And besides, for anyone really itching to run that particular four-mile stretch of Angeles Crest, Harris has a simple question: ""Would you want to be driving your family in your nice convertible with the top down through here right now?"" The answer is no.
 
-Got a tip? Email the author: kyle@thedrive.com",Big Sur|,Big Sur,36.27068000000003,-121.80814999999996,1.428,,,
-17,https://www.kiro7.com/news/local/five-year-observance-of-oso-mudslide-to-be-held-friday/932809671,Friday marks 5 years since 43 killed in Oso mudslide,2019-03-21 19:07:45+00:00,"VIDEO: Remembrance ceremony held for victims of Oso landslide VIDEO: Remembrance ceremony held for victims of Oso landslide
+Got a tip? Email the author: kyle@thedrive.com",Big Sur|,Big Sur,36.27068000000003,-121.80814999999996,1.428,None,None,None,None,None,None
+12,https://www.kiro7.com/news/local/five-year-observance-of-oso-mudslide-to-be-held-friday/932809671,Friday marks 5 years since 43 killed in Oso mudslide,2019-03-21 19:07:45+00:00,"VIDEO: Remembrance ceremony held for victims of Oso landslide VIDEO: Remembrance ceremony held for victims of Oso landslide
 
 OSO, Wash. — The families of victims in the Oso Mudslide hosted a remembrance ceremony on Friday – five years to the day since a mudslide killed 43 people.
 
@@ -302,8 +312,8 @@ More news from KIRO 7
 
 DOWNLOAD OUR FREE NEWS APP
 
-Cox Media Group",Wash .|,Wash .,38.890370000000075,-77.03195999999997,14.653,,,
-18,https://www.9news.com/article/traffic/boulder-canyon-closure-rockslide/73-dd16b7e2-9618-4c53-acff-a2b46ae7fd28,1 lane of CO 119 in Boulder County reopens after massive rockfall,2019-09-11 14:53:00,"The highway through Boulder Canyon closed after a planned blast for a flood construction project inadvertently brought down 20 times more rock than it should have.
+Cox Media Group",Wash .|,Wash .,38.890370000000075,-77.03195999999997,14.653,None,None,None,None,None,None
+13,https://www.9news.com/article/traffic/boulder-canyon-closure-rockslide/73-dd16b7e2-9618-4c53-acff-a2b46ae7fd28,1 lane of CO 119 in Boulder County reopens after massive rockfall,2019-09-11 14:53:00,"The highway through Boulder Canyon closed after a planned blast for a flood construction project inadvertently brought down 20 times more rock than it should have.
 
 Example video title will go here for this video
 
@@ -329,8 +339,8 @@ A northern alternate route can be taken via CO 7, US 36 and CO 72.
 
 A southern alternate route is available via CO 93 and CO 72.
 
-Drivers heading to the Denver area can continue south on CO 72 and CO 119 the east on US 6 into Golden.",Colo|Boulder Canyon|,Boulder Canyon,40.01356000000004,-105.30049999999994,0.7005,,,
-19,https://www.citizen-times.com/story/news/local/2019/02/22/rockslide-closes-40-both-directions-near-nc-tennessee-line/2958619002/,NCDOT works to open I-40 'as soon as possible' after rockslide blocks all lanes in Haywood,2019-02-22 00:00:00,"""Our goal is to get this cleaned up as soon as possible,"" said NC Department of Transportation construction engineer Ted Adams.
+Drivers heading to the Denver area can continue south on CO 72 and CO 119 the east on US 6 into Golden.",Colo|Boulder Canyon|,Boulder Canyon,40.01356000000004,-105.30049999999994,0.7005,None,None,None,None,None,None
+14,https://www.citizen-times.com/story/news/local/2019/02/22/rockslide-closes-40-both-directions-near-nc-tennessee-line/2958619002/,NCDOT works to open I-40 'as soon as possible' after rockslide blocks all lanes in Haywood,2019-02-22 00:00:00,"""Our goal is to get this cleaned up as soon as possible,"" said NC Department of Transportation construction engineer Ted Adams.
 
 The slide generated a miles of backup for hours on Interstate 40 on Friday night.
 
@@ -392,8 +402,8 @@ But a much bigger slide occurred in 2009, closing the major trucking route for s
 
 At that time, engineers installed 543 bolts into the rock face, designed to keep the rock wall from sheering off in the future. The 150-foot-tall rockslide closed the interstate near the Tennessee line on Oct. 25, 2009. Nearly 20,000 vehicles a day had used that stretch of interstate, at the time.
 
-For updated traffic information,check NC DOT's traffic information site.",Tennessee|,Tennessee,35.84300269700003,-86.34305117699995,370.4405,,,
-22,https://www.kvue.com/article/news/local/landslide-at-shoal-creek-worsens-public-asked-to-stay-away/269-8d918fdc-1e3e-44cc-af09-2cec99cc7744,Landslide at Shoal Creek worsens; public asked to stay away,2019-05-10 08:32:00,"The landslide is located on the west side of Shoal Creek between 24th Street and Shoal Creek Boulevard.
+For updated traffic information,check NC DOT's traffic information site.",Tennessee|,Tennessee,35.84300269700003,-86.34305117699995,370.4405,None,None,None,None,None,None
+15,https://www.kvue.com/article/news/local/landslide-at-shoal-creek-worsens-public-asked-to-stay-away/269-8d918fdc-1e3e-44cc-af09-2cec99cc7744,Landslide at Shoal Creek worsens; public asked to stay away,2019-05-10 08:32:00,"The landslide is located on the west side of Shoal Creek between 24th Street and Shoal Creek Boulevard.
 
 Example video title will go here for this video
 
@@ -415,8 +425,8 @@ The public should keep using the sidewalk on Lamar Boulevard as a detour from th
 
 This additional movement comes after a landslide last May after heavy storms that took out a few neighbor's backyards above and west of the creek.
 
-The city has already spent more than a million dollars to fix the trail, including the landslide area.",|Shoal Creek,Shoal Creek,33.957340000000045,-83.32515999999998,2.8875,,,
-24,https://ktla.com/2019/10/22/angeles-crest-highway-reopens-after-rock-slide-that-prompted-8-month-closure-of-19-mile-stretch/,Angeles Crest Highway Reopens After Rock Slide That Prompted 8-Month Closure of 19 Mile Stretch,2019-10-22 00:00:00,"This is an archived article and the information in the article may be outdated. Please look at the time stamp on the story to see when it was last updated.
+The city has already spent more than a million dollars to fix the trail, including the landslide area.",|Shoal Creek,Shoal Creek,33.957340000000045,-83.32515999999998,2.8875,None,None,None,None,None,None
+16,https://ktla.com/2019/10/22/angeles-crest-highway-reopens-after-rock-slide-that-prompted-8-month-closure-of-19-mile-stretch/,Angeles Crest Highway Reopens After Rock Slide That Prompted 8-Month Closure of 19 Mile Stretch,2019-10-22 00:00:00,"This is an archived article and the information in the article may be outdated. Please look at the time stamp on the story to see when it was last updated.
 
 The Angeles Crest Highway has finally reopened after months of repairs.
 
@@ -436,8 +446,8 @@ Campsites in the area remained open throughout the closure and were expected to 
 
 THE GATES ARE OPEN! After months of hard work to clear a slide from a winter storm, pave the highway shoulder, & install a rock fence… Caltrans has officially OPENED ANGELES CREST HIGHWAY to motorists and cyclists! Expect intermittent closures as we complete the retaining wall. pic.twitter.com/bPhjVFhEpE — Caltrans District 7 (@CaltransDist7) October 22, 2019
 
-34.288004 -117.651606",|the San Gabriel Mountains,the San Gabriel Mountains,19.066670000000045,-103.81666999999999,76.371,,,
-25,https://www.somersetlive.co.uk/news/somerset-news/massive-landslide-sends-cliff-crashing-4703173,Massive landslide sends cliff crashing onto beach after crack appears on famous coastal path,2020-11-15 14:16:45+00:00,"See our privacy notice
+34.288004 -117.651606",|the San Gabriel Mountains,the San Gabriel Mountains,19.066670000000045,-103.81666999999999,76.371,None,None,None,None,None,None
+17,https://www.somersetlive.co.uk/news/somerset-news/massive-landslide-sends-cliff-crashing-4703173,Massive landslide sends cliff crashing onto beach after crack appears on famous coastal path,2020-11-15 14:16:45+00:00,"See our privacy notice
 
 A massive cliff on what has been described as the UK’s longest and best-loved national trail came crashing down onto the beach in the early hours of this morning.
 
@@ -465,8 +475,8 @@ She said: ""Fortunately, the adjacent landowner – Highlands End Holiday Park �
 
 ""They recognise this stretch is particularly important for local people from Eype and West Bay who regularly walk this path connecting the two communities.
 
-""We just ask that walkers are mindful that they are walking within the boundary of the holiday park and keep to the permissive path, with dogs on leads at all times.""",UK|,UK,53.40838660500003,-1.9695595439999352,691.216,,,
-26,https://www.chicagotribune.com/nation-world/ct-aud-nw-nyt-italian-cliffside-cemetary-carried-landslide-20210224-h3ogf2wsd5bntmmtfvks36k5z4-story.html,"Italian cliffside cemetery, and its coffins, carried away by a landslide",2021-02-24 00:00:00,"ROME — A landslide carried away a cemetery on the edge of a cliff in the northern Italian region of Liguria, scattering about 200 coffins and bodies across a hillside and into the Mediterranean Sea.
+""We just ask that walkers are mindful that they are walking within the boundary of the holiday park and keep to the permissive path, with dogs on leads at all times.""",UK|,UK,53.40838660500003,-1.9695595439999352,691.216,None,None,None,None,None,None
+18,https://www.chicagotribune.com/nation-world/ct-aud-nw-nyt-italian-cliffside-cemetary-carried-landslide-20210224-h3ogf2wsd5bntmmtfvks36k5z4-story.html,"Italian cliffside cemetery, and its coffins, carried away by a landslide",2021-02-24 00:00:00,"ROME — A landslide carried away a cemetery on the edge of a cliff in the northern Italian region of Liguria, scattering about 200 coffins and bodies across a hillside and into the Mediterranean Sea.
 
 Scuba divers managed to retrieve 12 coffins from the sea by Wednesday after the landslide in the town of Camogli, about 8 miles north of Portofino, two days earlier. Most of the coffins from the cemetery remained strewn around and under the rubble caused by the landslide.
 
@@ -504,40 +514,13 @@ Regional authorities asked for help from national rescue services since the oper
 
 For now, scuba divers can only rescue coffins floating in the sea as most of the others are buried under the rubble of the landslide, said Giacomo Giampedrone, the top regional civil protection official.
 
-c.2021 The New York Times Company",Camogli|Portofino|,Portofino,44.30439000000007,9.207100000000025,2.3255,,,
-28,https://www.9news.com/mobile/article/traffic/boulder-canyon-closure-rockslide/73-dd16b7e2-9618-4c53-acff-a2b46ae7fd28,1 lane of CO 119 in Boulder County reopens after massive rockfall,2019-09-11 14:53:00,"The highway through Boulder Canyon closed after a planned blast for a flood construction project inadvertently brought down 20 times more rock than it should have.
-
-Example video title will go here for this video
-
-BOULDER, Colo. — A planned blast inadvertently brought down the equivalent of 8,000 washing machine-sized rocks onto CO 119 in Boulder Canyon on Wednesday afternoon, the Colorado Department of Transportation (CDOT) said in a news release.
-
-The highway was closed for hours but reopened with one lane of alternating traffic at about 4 a.m. Thursday after geotech experts determined the slope was stable and additional blasting was not needed on part of the rockface, CDOT said.
-
-To clear the road for one lane of traffic, crews spent the overnight hours blasting several large boulders into smaller pieces that could be hauled away.
-
-The road will close again at 10 a.m. to allow crews to continue cleanup efforts, according to CDOT. It will reopen with at least one lane again at 2 p.m.
-
-“We thank everyone for their continued patience as we work through a technically complex effort,” Colorado Department of Transportation Executive Director Shoshana Lew said. “This work is important for keeping people safe when driving in mountain areas, but it’s difficult work and we know that it causes inconvenience for the traveling public during construction.”
-
-No one was injured during the incident, which was part of a flood construction project that involved blasting the mountain to move more of the road onto bedrock so it will be more stable in the event of rising waters, CDOT said.
-
-A regular blast typically brings down around 400 cubic yards of rock each time. This blast brought 8,000 cubic yards of rock down the side of the mountain and onto the road. To put that into perspective, CDOT said each cubic yard is the size of a normal washing machine.
-
-Rocks that size are too large to be moved as they are, according to CDOT, which means the agency needed to conduct additional blasts to clear them.
-
-Travelers are asked to avoid the Boulder Canyon route, if possible. CDOT recommends these detours:
-
-A northern alternate route can be taken via CO 7, US 36 and CO 72.
-
-A southern alternate route is available via CO 93 and CO 72.
-
-Drivers heading to the Denver area can continue south on CO 72 and CO 119 the east on US 6 into Golden.",Colo|Boulder Canyon|,Boulder Canyon,40.01356000000004,-105.30049999999994,0.7005,,,
-29,https://gripped.com/gripped-outdoors/watch-massive-rockfall-in-zion-that-injured-three/?fbclid=IwAR1gqi9J2YZhFNZq8KPUpTgsnHU3KuTJqRW4H-V_eCrxWaf6beF4VCaZYVQ,Watch Massive Rockfall in Zion that Injured Three,2019-08-27 17:05:47+00:00,"There’s been a lot of rockfall this year, from the Bugaboos to Squamish to Yosemite and now we can add Zion National Park to the list. Three people were injured, including one who was transported to a hospital.
+c.2021 The New York Times Company",Camogli|Portofino|,Portofino,44.30439000000007,9.207100000000025,2.3255,None,None,None,None,None,None
+19,https://gripped.com/gripped-outdoors/watch-massive-rockfall-in-zion-that-injured-three/?fbclid=IwAR1gqi9J2YZhFNZq8KPUpTgsnHU3KuTJqRW4H-V_eCrxWaf6beF4VCaZYVQ,Watch Massive Rockfall in Zion that Injured Three,2019-08-27 17:05:47+00:00,"There’s been a lot of rockfall this year, from the Bugaboos to Squamish to Yosemite and now we can add Zion National Park to the list. Three people were injured, including one who was transported to a hospital.
 
 “A substantial piece of rock broke off Cable Mountain around 3,000 feet above Weeping Rock,” the park said in a statement. The rockfall felled trees and showered tourists with smaller rocks and branches. The rock struck the East Rim Trail, which had been previously closed.
 
-Zion Rockfall",|Cable Mountain|Weeping Rock,Weeping Rock,37.27028000000007,-112.93969999999996,0.7105,,,
-30,https://www.mtpr.org/post/child-killed-rockslide-glacier-national-park,Child Killed By Rockslide In Glacier National Park,2019-08-13 22:08:57,"A 14-year-old girl died Monday evening from injuries she received after a rockslide struck her family’s vehicle on Glacier National Park’s Going-to-the-Sun-Road.
+Zion Rockfall",|Cable Mountain|Weeping Rock,Weeping Rock,37.27028000000007,-112.93969999999996,0.7105,None,None,None,None,None,None
+20,https://www.mtpr.org/post/child-killed-rockslide-glacier-national-park,Child Killed By Rockslide In Glacier National Park,2019-08-13 22:08:57,"A 14-year-old girl died Monday evening from injuries she received after a rockslide struck her family’s vehicle on Glacier National Park’s Going-to-the-Sun-Road.
 
 Park spokeswoman Lauren Alley describes the rockfall near the East Tunnel as ""significant.""
 
@@ -557,15 +540,15 @@ The mountains above Going-to-the-Sun Road are very steep and Alley says precisel
 
 Ally says the park, while safe for the vast majority of visitors, can sometimes be an unpredictable place where hazardous things can happen in an instant.
 
-Going-to-the-Sun Road was closed at the East Tunnel for about three hours Monday night while crews cleared the scene.",Logan Pass|Rimrocks,Rimrocks,45.80217000000005,-108.57957999999996,0.678,,,
-31,https://www.nytimes.com/2020/09/13/world/asia/nepal-landslides.html,Dozens Feared Dead as Nepal Landslides Wipe Out Homes,2020-09-13 00:00:00,"KATHMANDU, Nepal — Landslides set off by heavy rainfall this weekend killed at least 11 people and left many more missing in a hilly region of Nepal that borders Tibet, officials said, bringing a renewed crisis to an area that was hit hard by a devastating 2015 earthquake.
+Going-to-the-Sun Road was closed at the East Tunnel for about three hours Monday night while crews cleared the scene.",Logan Pass|Rimrocks,Rimrocks,45.80217000000005,-108.57957999999996,0.678,None,None,None,None,None,None
+21,https://www.nytimes.com/2020/09/13/world/asia/nepal-landslides.html,Dozens Feared Dead as Nepal Landslides Wipe Out Homes,2020-09-13 00:00:00,"KATHMANDU, Nepal — Landslides set off by heavy rainfall this weekend killed at least 11 people and left many more missing in a hilly region of Nepal that borders Tibet, officials said, bringing a renewed crisis to an area that was hit hard by a devastating 2015 earthquake.
 
 Many locals had only recently rebuilt their homes in a district that since the earthquake has emerged as one of Nepal’s most vulnerable to landslides. Nepal is also being battered by an economic crisis and widespread unemployment brought on by the coronavirus pandemic, which has left 336 people dead in the country.
 
 As many as 20 people from the village of Barhabise were missing on Sunday after the landslides, which washed away 28 homes in the region on Saturday night, leaving rescuers racing to find survivors and dig them out.
 
-“Rescuers are working hard, but rescuing the missing people alive seems impossible,” said Shreedhar Neupane, a press secretary to the speaker of Nepal’s House of Representatives, Agni Prasad Sapkota.",Barhabise|,Barhabise,27.428260000000023,87.30150000000003,9.2075,,,
-32,https://weather.com/forecast/regional/news/2019-02-26-california-sierra-feet-of-snow-february-records,"Atmospheric River Is Pummeling California's Sierra With Feet of Snow, Topping February Records",2019-02-26 00:00:00,"At a Glance February snow records are falling in the Sierra.
+“Rescuers are working hard, but rescuing the missing people alive seems impossible,” said Shreedhar Neupane, a press secretary to the speaker of Nepal’s House of Representatives, Agni Prasad Sapkota.",Barhabise|,Barhabise,27.428260000000023,87.30150000000003,9.2075,None,None,None,None,None,None
+22,https://weather.com/forecast/regional/news/2019-02-26-california-sierra-feet-of-snow-february-records,"Atmospheric River Is Pummeling California's Sierra With Feet of Snow, Topping February Records",2019-02-26 00:00:00,"At a Glance February snow records are falling in the Sierra.
 
 The combination of this, plus high winds, is shutting down travel in the Sierra. Another atmospheric river event is pummeling California with feet of snow in the Sierra Nevada Mountains, shattering February snow records at some ski resorts while also triggering flooding, rockslides and mudslides in lower elevations.
 
@@ -617,8 +600,8 @@ Most importantly, the Sierra is an important source of water for California when
 
 According to the California Department of Water Resources, the statewide water content of the Sierra snowpack was estimated to be 41 percent above average for Feb. 26.
 
-Most state reservoirs were above their average levels for late February as well.",|Sierra ski,Sierra ski,45.53496300000006,-122.86354099999994,0.136,,,
-33,https://www.straitstimes.com/world/africa/at-least-42-people-killed-in-cameroon-landslide?utm_source=social&amp;utm_medium=web&amp;utm_campaign=stz,At least 42 people killed in Cameroon landslide,2019-10-30 07:49:26+08:00,"DOUALA, CAMEROON (REUTERS) - A landslide caused by heavy rains in western Cameroon killed at least 42 people overnight, state media reported on Tuesday (Oct 29).
+Most state reservoirs were above their average levels for late February as well.",|Sierra ski,Sierra ski,45.53496300000006,-122.86354099999994,0.136,None,None,None,None,None,None
+23,https://www.straitstimes.com/world/africa/at-least-42-people-killed-in-cameroon-landslide?utm_source=social&amp;utm_medium=web&amp;utm_campaign=stz,At least 42 people killed in Cameroon landslide,2019-10-30 07:49:26+08:00,"DOUALA, CAMEROON (REUTERS) - A landslide caused by heavy rains in western Cameroon killed at least 42 people overnight, state media reported on Tuesday (Oct 29).
 
 Rescue teams spent the day scouring the rubble of destroyed houses in the town of Bafoussam in the western highlands. Among the bodies recovered were those of 26 children, Cameroon Radio Television (CRTV) reported.
 
@@ -630,7 +613,13 @@ Heavy rains have continued beyond the end of Central Africa's rainy season, caus
 
 The United Nations children's agency Unicef said last week that exceptionally heavy rain in South Sudan had destroyed health centres and roads, making access to food and water more difficult for nearly one million people.",CAMEROON|REUTERS|Cameroon|,CAMEROON,5.67370947400002,12.738395758000024,747.603,"2019/10/21, 00:00-2019/10/27, 23:59
 ","2019/10/24, 11:59
-2019/10/24, 11:59
+","± 83.99 hours 
+","2019/10/21, 00:00-2019/10/27, 23:59
+2019/10/21, 00:00-2019/10/27, 23:59
+2019/10/21, 00:00-2019/10/27, 23:59
+2019/10/21, 00:00-2019/10/27, 23:59
+2019/10/21, 00:00-2019/10/27, 23:59
+","2019/10/24, 11:59
 2019/10/24, 11:59
 2019/10/24, 11:59
 2019/10/24, 11:59
@@ -640,26 +629,27 @@ The United Nations children's agency Unicef said last week that exceptionally he
 ± 83.99 hours 
 ± 83.99 hours 
 ± 83.99 hours 
-± 83.99 hours 
 "
-34,https://www.newshub.co.nz/home/new-zealand/2019/02/massive-400m-landslide-closes-west-coast-s-state-highway-6.html,Massive 400m landslide closes West Coast's State Highway 6,2019-02-22 16:17:55+13:00,"A massive slip of trees, rocks and soil has come down covering almost half a kilometre of the main trunk line to the West Coast's glaciers.
+24,https://www.newshub.co.nz/home/new-zealand/2019/02/massive-400m-landslide-closes-west-coast-s-state-highway-6.html,Massive 400m landslide closes West Coast's State Highway 6,2019-02-22 16:17:55+13:00,"A massive slip of trees, rocks and soil has come down covering almost half a kilometre of the main trunk line to the West Coast's glaciers.
 
 The landslide estimated to be around 400 metres long cascaded down over State Highway 6 between Harihari and Whataroa on Thursday evening.
 
 The area was hit with 180mm of rain causing the land to give way, blocking the northen access to Franz Josef Glacier and Fox Glacier.
 
 Whataroa acting fire chief Ian Philips told Newshub two vehicles with five people in them became wedged between two sections of the major landslide.",Harihari|Whataroa|,Harihari,-43.14363331499993,170.57006760000002,24.923,"2019/02/21, 00:00-2019/02/21, 23:59
-2019/02/22, 18:00-2019/02/22, 22:00
 ","2019/02/21, 11:59
-2019/02/22, 20:00
+","± 11.99 hours 
+","2019/02/22, 18:00-2019/02/22, 22:00
+2019/02/21, 00:00-2019/02/21, 23:59
+2019/02/22, 18:00-2019/02/22, 22:00
+","2019/02/22, 20:00
 2019/02/21, 11:59
 2019/02/22, 20:00
-","± 11.99 hours 
-± 2.0 hours 
+","± 2.0 hours 
 ± 11.99 hours 
 ± 2.0 hours 
 "
-35,https://climateandeconomy.com/2020/12/18/18th-december-2020-todays-round-up-of-climate-news/,18th December 2020 Today’s Round-Up of Climate News,2020-12-18 00:00:00,"18th December 2020 Today’s Round-Up of Climate News
+25,https://climateandeconomy.com/2020/12/18/18th-december-2020-todays-round-up-of-climate-news/,18th December 2020 Today’s Round-Up of Climate News,2020-12-18 00:00:00,"18th December 2020 Today’s Round-Up of Climate News
 
 “Residents of Presidente Getúlio [Brazil] are still trying to understand everything they saw in the tragedy that struck the city at dawn this Thursday (17th).
 
@@ -829,8 +819,8 @@ https://www.aljazeera.com/opinions/2020/12/16/amazon-must-stop-flooding-our-ocea
 
 You can read the previous ‘Climate’ thread here. I’ll be back over the weekend with an ‘Economic’ thread.
 
-If you found value in this content, please help me continue this work by becoming a patron of my work via patreon.com.",Las Vegas Valley|,Las Vegas Valley,35.91220000000004,-115.11998999999997,286.003,,,
-36,https://www.staradvertiser.com/2019/09/02/hawaii-news/for-first-time-in-months-pali-highway-opens-in-both-directions/,"For first time in months, Pali Highway opens in both directions",2019-09-02 00:00:00,"Windward Oahu residents welcomed the Sunday 1 p.m. opening of Pali Highway in both directions for the first time since a February rockslide closed the popular road.
+If you found value in this content, please help me continue this work by becoming a patron of my work via patreon.com.",Las Vegas Valley|,Las Vegas Valley,35.91220000000004,-115.11998999999997,286.003,None,None,None,None,None,None
+26,https://www.staradvertiser.com/2019/09/02/hawaii-news/for-first-time-in-months-pali-highway-opens-in-both-directions/,"For first time in months, Pali Highway opens in both directions",2019-09-02 00:00:00,"Windward Oahu residents welcomed the Sunday 1 p.m. opening of Pali Highway in both directions for the first time since a February rockslide closed the popular road.
 
 The Pali is now open in both directions from 5 a.m. to 7 p.m. Sundays through Fridays. The highway will remain closed on Saturdays through early November to allow further repairs to be completed.
 
@@ -838,8 +828,8 @@ Access to the Pali, a major route connecting Windward Oahu to town, has been lim
 
 The work includes slope stabilization as well as the new concrete structure, or “rock shed,” that extends the second Honolulu-bound tunnel’s entrance by about 80 feet to shield motorists from future rockfalls.
 
-Access hours to the highway have gradually increased as repairs were completed, but there has been a three-month delay in fully opening the highway, originally anticipated to happen in August. Additional slope work — as well as work on top of the rock shed — will require nighttime closures until November.",|Windward Oahu,Windward Oahu,-9.96411999999998,-150.20056999999997,1553.149,,,
-37,http://www.hawaiinewsnow.com/2019/02/23/pali-highway-declared-disaster-area-under-emergency-declaration/,Pali Highway declared disaster area; closure ongoing,2019-02-23 00:00:00,"HONOLULU (HawaiiNewsNow) - The Pali Highway has been declared a disaster area following several landslides that send large boulders and debris raining down onto lanes.
+Access hours to the highway have gradually increased as repairs were completed, but there has been a three-month delay in fully opening the highway, originally anticipated to happen in August. Additional slope work — as well as work on top of the rock shed — will require nighttime closures until November.",|Windward Oahu,Windward Oahu,-9.96411999999998,-150.20056999999997,1553.149,None,None,None,None,None,None
+27,http://www.hawaiinewsnow.com/2019/02/23/pali-highway-declared-disaster-area-under-emergency-declaration/,Pali Highway declared disaster area; closure ongoing,2019-02-23 00:00:00,"HONOLULU (HawaiiNewsNow) - The Pali Highway has been declared a disaster area following several landslides that send large boulders and debris raining down onto lanes.
 
 Lt. Gov. Josh Green, acting on the governor’s behalf, issued an emergency declaration Friday for the thoroughfare.
 
@@ -855,8 +845,8 @@ Green is acting governor as Gov. David Ige is in Washington, D.C. for the Nation
 
 Autoplay Caption
 
-Copyright 2019 Hawaii News Now. All rights reserved.",HONOLULU|HawaiiNewsNow|,HawaiiNewsNow,-6.139059999999972,106.73032000000006,0.7825,,,
-38,https://www.reuters.com/article/us-indonesia-landslide/rescuers-hunt-for-survivors-after-indonesia-landslide-idUSKBN2AP0GH,Rescuers hunt for survivors after Indonesia landslide,2021-02-25 05:29:29+00:00,"JAKARTA (Reuters) - Rescue teams in Indonesia’s Central Sulawesi province searched for survivors on Thursday after a landslide in an illegal gold mining area killed six people, the search and rescue agency said.
+Copyright 2019 Hawaii News Now. All rights reserved.",HONOLULU|HawaiiNewsNow|,HawaiiNewsNow,-6.139059999999972,106.73032000000006,0.7825,None,None,None,None,None,None
+28,https://www.reuters.com/article/us-indonesia-landslide/rescuers-hunt-for-survivors-after-indonesia-landslide-idUSKBN2AP0GH,Rescuers hunt for survivors after Indonesia landslide,2021-02-25 05:29:29+00:00,"JAKARTA (Reuters) - Rescue teams in Indonesia’s Central Sulawesi province searched for survivors on Thursday after a landslide in an illegal gold mining area killed six people, the search and rescue agency said.
 
 Teams comprised of police, military and the local disaster agency deployed heavy machinery to help the search in the village of Buranga after the landslide on Wednesday evening.
 
@@ -864,8 +854,8 @@ At least 15 survivors had been found as of Thursday.
 
 Fatmawati, a spokeswoman from the search and rescue agency in the provincial capital Palu, who goes by one name, said at least one person was missing.
 
-Disaster officials said intense rainfall and unstable soil structure at the illegal mining site may have contributed to the landslide.",JAKARTA|Indonesia|Central Sulawesi,Central Sulawesi,-0.9165999999999599,122.35380000000009,363.9445,,,
-39,https://www.cincinnati.com/story/news/2019/03/05/landslides-climate-change-bring-more-cincinnati/2931026002/,'It's like someone put a bomb in your yard.' Landslides in Greater Cincinnati are bad. And they'll probably get worse.,2019-03-05 00:00:00,"When Tom Gerrein left for Mass on Easter Sunday in 2010, he had a flat backyard.
+Disaster officials said intense rainfall and unstable soil structure at the illegal mining site may have contributed to the landslide.",JAKARTA|Indonesia|Central Sulawesi,Central Sulawesi,-0.9165999999999599,122.35380000000009,363.9445,None,None,None,None,None,None
+29,https://www.cincinnati.com/story/news/2019/03/05/landslides-climate-change-bring-more-cincinnati/2931026002/,'It's like someone put a bomb in your yard.' Landslides in Greater Cincinnati are bad. And they'll probably get worse.,2019-03-05 00:00:00,"When Tom Gerrein left for Mass on Easter Sunday in 2010, he had a flat backyard.
 
 When he returned home, he did not.
 
@@ -983,8 +973,8 @@ Work started in January and was supposed to be finished by now, but it keeps get
 
 It ended up better than what he was initially facing, but it’s still been tough.
 
-“Nobody’s expecting a $100,000 hit,” he said. “I’m just wishing it’s over. Get it done with, and we’ll be OK.”",|Greater Cincinnati,Greater Cincinnati,39.19355600000006,-84.40100099999995,0.1405,,,
-40,https://www.rte.ie/news/ireland/2020/0630/1150528-leitrim-mudslides/,Leitrim farmlands deluged after massive mudslide,2020-06-30 11:50:20+01:00,"We need your consent to load this YouTube contentWe use YouTube to manage extra content that can set cookies on your device and collect data about your activity. Please review their details and accept them to load the content. Manage Preferences
+“Nobody’s expecting a $100,000 hit,” he said. “I’m just wishing it’s over. Get it done with, and we’ll be OK.”",|Greater Cincinnati,Greater Cincinnati,39.19355600000006,-84.40100099999995,0.1405,None,None,None,None,None,None
+30,https://www.rte.ie/news/ireland/2020/0630/1150528-leitrim-mudslides/,Leitrim farmlands deluged after massive mudslide,2020-06-30 11:50:20+01:00,"We need your consent to load this YouTube contentWe use YouTube to manage extra content that can set cookies on your device and collect data about your activity. Please review their details and accept them to load the content. Manage Preferences
 
 Engineers from Leitrim County Council are monitoring the impact of significant mudslides near Drumkeeran, which were caused by heavy rain over the weekend.
 
@@ -1010,27 +1000,8 @@ Sinn Féin Councillor Padraig Fallon complimented Leitrim County Council staff w
 
 However, he said intervention is needed from the Government, including a hardship fund for the farmers affected.
 
-In a statement this afternoon, Leitrim County Council said it ""continues to assess the situation and monitor the direct impacts. Through this monitoring should emergency actions be identified, appropriate actions will be carried out.""",Drumkeeran|,Drumkeeran,54.16896000000003,-8.144019999999955,1.2905,,,
-41,https://www.knoxnews.com/story/news/local/tennessee/2019/06/10/rock-slide-closes-40-west-near-north-carolina-tennessee-border/1411254001/?fbclid=IwAR1O6btdxmiNI03NAMyQAiEOsqV8eckvDvvxIT87mwGWtYbBjKL3xCXBHwc,Rockslide closes I-40 West near North Carolina-Tennessee border,2019-06-10 00:00:00,"UPDATE: The highway is open once again. Here's the latest news on the road.
-
-For the second time this year, a landslide after heavy rains prompted officials to close part of Interstate 40 near the Tennessee-North Carolina state line.
-
-This slide, however, was much smaller than the last, said David Uchiyama, spokesman for the North Carolina Department of Transportation.
-
-Crews responding to the rockslide early Monday afternoon shut down both westbound lanes of I-40 at mile marker 7.5 in Haywood County, North Carolina, after finding three boulders in a ditch beside the road and several more on the mountainside that could pose a danger to motorists, Uchiyama said.
-
-By 5:30 p.m., workers had moved the rocks, and one westbound lane had reopened.
-
-""Traffic sitting in that queue will be allowed through, then traffic stopped at exit 20 will be allowed through,"" Uchiyama said. ""It will remain in a one-lane pattern overnight.""
-
-Experts plan to visit the site Tuesday morning to help determine when the second lane can reopen.
-
-The rockslide follows a much larger landslide in late February, which occurred in the same area and stopped all traffic on I-40 near the state line. The interstate reopened after six days, but traffic was restricted to one lane in each direction for several weeks as crews worked to clear more than 10,000 tons of debris.
-
-After that landslide, workers installed rock anchors and wire mesh along the route, built a retaining wall, resurfaced the road and poured a new concrete median.
-
-Reach Travis Dorman at 865-342-6315 or at travis.dorman@knoxnews.com. Follow him on Twitter @travdorman.",Tennessee-North Carolina|,Tennessee-North Carolina,35.622929000000056,-83.42748199999994,0.143,,,
-44,https://www.malaymail.com/news/malaysia/2021/08/20/yan-flash-floods-caused-by-debris-flow-after-heavy-rainfall-says-expert/1999221,"Yan flash floods caused by debris flow after heavy rainfall, says expert",2021-08-20 00:00:00,"Damaged chalets are pictured near Titi Hayun following flash floods in Yan, Kedah August 19, 2021. — Bernama pic
+In a statement this afternoon, Leitrim County Council said it ""continues to assess the situation and monitor the direct impacts. Through this monitoring should emergency actions be identified, appropriate actions will be carried out.""",Drumkeeran|,Drumkeeran,54.16896000000003,-8.144019999999955,1.2905,None,None,None,None,None,None
+31,https://www.malaymail.com/news/malaysia/2021/08/20/yan-flash-floods-caused-by-debris-flow-after-heavy-rainfall-says-expert/1999221,"Yan flash floods caused by debris flow after heavy rainfall, says expert",2021-08-20 00:00:00,"Damaged chalets are pictured near Titi Hayun following flash floods in Yan, Kedah August 19, 2021. — Bernama pic
 
 ALOR SETAR, Aug 20 — The incident in the Gunung Jerai area that resulted in mudslides and floods on Wednesday was not caused by the water surge phenomenon but is attributed to a debris flow incident which is a common occurrence in mountainous areas.
 
@@ -1064,8 +1035,8 @@ He said rainfall distribution at the rainfall stations in Gunung Jerai and Kampu
 
 Meanwhile, Institute of Geology Malaysia (IGM) president Abd Rasid Jaapar in a statement said a thorough study and action plan must be developed utilising the concept of disaster risk reduction in line with good international practices as outlined by the Sendai Framework for Disaster Risk Reduction 2015-2030 by the United Nations Office for Disaster Risk Reduction (UNDRR).
 
-He said a complete and independent geology disaster study should be carried out in Gunung Jerai and the surrounding area. ― AFP",|Gunung Jerai,Gunung Jerai,5.787560000000042,100.43394000000006,78.2555,,,
-46,https://www.khon2.com/news/local-news/an-upclose-look-at-the-work-on-the-pali-highway/1836845830,An upclose look at the work on the Pali Highway,2019-03-09 02:28:45+00:00,"The danger is real for crews working to make the Pali Highway safe. More than 2/3 of one portion the Old Pali Road is missing. It crumbled, landing on the Pali Highway below. The initial rockslide came down on February 18, 2019 forcing the highway to close.
+He said a complete and independent geology disaster study should be carried out in Gunung Jerai and the surrounding area. ― AFP",|Gunung Jerai,Gunung Jerai,5.787560000000042,100.43394000000006,78.2555,None,None,None,None,None,None
+32,https://www.khon2.com/news/local-news/an-upclose-look-at-the-work-on-the-pali-highway/1836845830,An upclose look at the work on the Pali Highway,2019-03-09 02:28:45+00:00,"The danger is real for crews working to make the Pali Highway safe. More than 2/3 of one portion the Old Pali Road is missing. It crumbled, landing on the Pali Highway below. The initial rockslide came down on February 18, 2019 forcing the highway to close.
 
 Standing near portion of the Old Pali Road that collapsed, you can see the rebar sticking out of what’s left of the concrete wall.
 
@@ -1093,35 +1064,8 @@ Crews even pointed a stress-crack in the mountainside directly over the slope th
 
 Sakahara said that crews are doing what they can to mitigate the problem.
 
-The department of transportation said the work stabilizing the mountainside should be completed by the end of April and crews are expected to have the new tunnel built by the end of August.",Pali|Sakahara|,Sakahara,25.069990000000075,87.05785000000003,1.4985,,,
-48,https://www.thepigeonexpress.com/landslide-collapses-100-year-old-italian-cemetery-into-the-ligurian-sea/,Landslide collapses 100-year-old Italian cemetery into the Ligurian Sea • The Pigeon Express,2021-02-24 06:50:42+00:00,"A landslide on the Italian coast near Genoa caused the collapse of a cemetery, leading to hundreds of coffins falling into the sea.
-
-The Camogli cemetery, built more than 100 years ago, is situated along an area of rocky seaside cliffs. Francesco Olivari, the mayor of Camogli, called the collapse an “unimaginable catastrophe.”
-
-It is estimated that 200 coffins had fallen, but only 10 have been recovered, according to Giacomo Giampedrone, regional assessor of civil protection. Recovering the rest of them “will depend on the sea in the coming days,” he added.
-
-
-
-
-
-
-
-
-
-On Saturday, maintenance being performed along the area of fragile coastline was abruptly stopped when workers noticed cracks in the rock.
-
-A team of geologists with the department is using drones to get a better sense of the damage and determine if there is danger of another.
-
-Port officials closed a section of the coast below the cemetery to keep the coffins from floating out to sea.
-
-
-
-
-
-
-
-On Tuesday after surveying the site, officials said they will continue work on recovering the coffins and corpses.",Genoa|,Genoa,44.410480000000064,8.939170000000047,19.414,,,
-49,https://www.visaliatimesdelta.com/story/news/local/visalia/2019/08/29/rockslides-close-pacific-crest-trail-near-lake-isabella/2141733001/,Rockslides close Pacific Crest Trail near Lake Isabella,2019-08-29 00:00:00,"Rockslides triggered by the Ridgecrest quakes and recent seismic activity has closed portions of Pacific Ridge Trail near Lake Isabella, according to the Bureau of Land Management.
+The department of transportation said the work stabilizing the mountainside should be completed by the end of April and crews are expected to have the new tunnel built by the end of August.",Pali|Sakahara|,Sakahara,25.069990000000075,87.05785000000003,1.4985,None,None,None,None,None,None
+33,https://www.visaliatimesdelta.com/story/news/local/visalia/2019/08/29/rockslides-close-pacific-crest-trail-near-lake-isabella/2141733001/,Rockslides close Pacific Crest Trail near Lake Isabella,2019-08-29 00:00:00,"Rockslides triggered by the Ridgecrest quakes and recent seismic activity has closed portions of Pacific Ridge Trail near Lake Isabella, according to the Bureau of Land Management.
 
 Three sections of the state's most popular trail are buried under tons of boulders, rock and dirt from the steep, stony slopes of the Owens Peak ridgeline, approximately eight miles north of Walker Pass in Kern County.
 
@@ -1143,7 +1087,18 @@ The Pacific Crest Trail was designated by President Lyndon B. Johnson in 1968. T
 
 Joshua Yeager covers water, agriculture, parks and housing for the Visalia Times-Delta and Tulare Advance-Register newspapers. Follow him on Twitter @VTD_Joshy. Get alerts and keep up on all things Tulare County for as little as $1 a month. Subscribe today.",Kern County|Owens Peak|Walker Pass,Owens Peak,35.73828000000003,-117.99701999999996,71.5775,"2019/08/29, 00:00-2019/08/29, 23:59
 ","2019/08/29, 11:59
-2019/08/29, 11:59
+","± 11.99 hours 
+","2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+2019/08/29, 00:00-2019/08/29, 23:59
+","2019/08/29, 11:59
 2019/08/29, 11:59
 2019/08/29, 11:59
 2019/08/29, 11:59
@@ -1163,16 +1118,8 @@ Joshua Yeager covers water, agriculture, parks and housing for the Visalia Times
 ± 11.99 hours 
 ± 11.99 hours 
 ± 11.99 hours 
-± 11.99 hours 
 "
-50,https://www.nytimes.com/2020/09/13/world/asia/nepal-landslides.html?partner=IFTTT,Dozens Feared Dead as Nepal Landslides Wipe Out Homes,2020-09-13 00:00:00,"KATHMANDU, Nepal — Landslides set off by heavy rainfall this weekend killed at least 11 people and left many more missing in a hilly region of Nepal that borders Tibet, officials said, bringing a renewed crisis to an area that was hit hard by a devastating 2015 earthquake.
-
-Many locals had only recently rebuilt their homes in a district that since the earthquake has emerged as one of Nepal’s most vulnerable to landslides. Nepal is also being battered by an economic crisis and widespread unemployment brought on by the coronavirus pandemic, which has left 336 people dead in the country.
-
-As many as 20 people from the village of Barhabise were missing on Sunday after the landslides, which washed away 28 homes in the region on Saturday night, leaving rescuers racing to find survivors and dig them out.
-
-“Rescuers are working hard, but rescuing the missing people alive seems impossible,” said Shreedhar Neupane, a press secretary to the speaker of Nepal’s House of Representatives, Agni Prasad Sapkota.",Barhabise|,Barhabise,27.428260000000023,87.30150000000003,9.2075,,,
-51,https://www.theguardian.com/world/2019/aug/29/canada-salmon-fraser-river-british-columbia,Canada: workers race to free millions of salmon trapped after huge landslide,2019-08-29 00:00:00,"Helicopters, heavy machinery and nearly 200 workers are frantically working to free millions of salmon trapped by a landslide in western Canada.
+34,https://www.theguardian.com/world/2019/aug/29/canada-salmon-fraser-river-british-columbia,Canada: workers race to free millions of salmon trapped after huge landslide,2019-08-29 00:00:00,"Helicopters, heavy machinery and nearly 200 workers are frantically working to free millions of salmon trapped by a landslide in western Canada.
 
 Government crews in the area have worked relentlessly along the banks of the Fraser River to clear debris after a rockslide, discovered in a late June, created an impassable 5m-high waterfall.
 
@@ -1192,8 +1139,8 @@ The landslide, and the frantic effort to clear it, highlights the barriers – n
 
 In much of western North America, hydroelectric dams have blocked critical spawning routes. In recent years, the plight of displaced salmon has prompted increasingly dramatic attempts to move the fish, including the “salmon cannon” – footage of which recently went viral.
 
-The efforts in British Columbia to free the trapped salmon comes amid a difficult times for the fish: recent data suggests sockeye salmon have plummeted 75% over the last century in Canada. Last week, the department of fisheries and oceans confirmed the dire state of sockeye when it warned only 600,000 were expected to spawn this year, as apposed to the normal return of five million. Chinook salmon, which are also stranded in the river, are also endangered.",Canada|,Canada,60.108670000000075,-113.64257999999995,2453.1505,,,
-53,https://www.reuters.com/article/us-myanmar-mine/police-among-18-feared-killed-in-landslide-at-myanmar-jade-mine-idUSKCN1UN05V?il=0,Police among 18 feared killed in landslide at Myanmar jade mine,2019-07-28 06:59:27+00:00,"YANGON (Reuters) - A landslide at a Myanmar jade mine killed 14 people including at least one policemen in the early hours of Sunday as earth and mud engulfed a guard post, and four people were missing and feared dead, police said.
+The efforts in British Columbia to free the trapped salmon comes amid a difficult times for the fish: recent data suggests sockeye salmon have plummeted 75% over the last century in Canada. Last week, the department of fisheries and oceans confirmed the dire state of sockeye when it warned only 600,000 were expected to spawn this year, as apposed to the normal return of five million. Chinook salmon, which are also stranded in the river, are also endangered.",Canada|,Canada,60.108670000000075,-113.64257999999995,2453.1505,None,None,None,None,None,None
+35,https://www.reuters.com/article/us-myanmar-mine/police-among-18-feared-killed-in-landslide-at-myanmar-jade-mine-idUSKCN1UN05V?il=0,Police among 18 feared killed in landslide at Myanmar jade mine,2019-07-28 06:59:27+00:00,"YANGON (Reuters) - A landslide at a Myanmar jade mine killed 14 people including at least one policemen in the early hours of Sunday as earth and mud engulfed a guard post, and four people were missing and feared dead, police said.
 
 The jade hub of Hpakant, in Kachin State in the north of the north of the country, is frequently hit by deadly accidents, despite government pledges to clean up the lucrative mining industry.
 
@@ -1215,8 +1162,8 @@ Yau Dau, 25, who lives next to the mining site, said the landslide happened afte
 
 Official sales of jade in Myanmar were worth 671 million euros ($750.04 million) in 2016-17, according to the most recent data published by the government as part of an Extractive Industries Transparency Initiative.
 
-But analysts believe the true value of the industry, which mainly exports to China, is much larger.",YANGON|Reuters|Myanmar|,YANGON,16.80528000000004,96.15611000000007,16.441,,,
-54,https://www.cyber-rt.info/news/cameron-highland-road-closed-due-to-landslides/,Cameron Highland road closed due to landslides,2019-05-25 07:01:46+00:00,"CAMERON HIGHLANDS, 25 May 2019:
+But analysts believe the true value of the industry, which mainly exports to China, is much larger.",YANGON|Reuters|Myanmar|,YANGON,16.80528000000004,96.15611000000007,16.441,None,None,None,None,None,None
+36,https://www.cyber-rt.info/news/cameron-highland-road-closed-due-to-landslides/,Cameron Highland road closed due to landslides,2019-05-25 07:01:46+00:00,"CAMERON HIGHLANDS, 25 May 2019:
 
 Two landslide incidents occurred here early this morning, but no casualties were reported, said Cameron Highlands police chief DSP Ashari Abu Samah.
 
@@ -1230,8 +1177,8 @@ Ashari added that the other incident occurred at 9.30am near a quarry at Jalan R
 
 He said here the landslide covered a 32m stretch and as at 1pm today only one lane was opened to vehicles and cleaning works were still underway.
 
-– Bernama",CAMERON HIGHLANDS|,CAMERON HIGHLANDS,4.473862161000056,101.47775291100004,22.4035,,,
-55,http://www.hawaiinewsnow.com/2019/02/19/landslide-leads-closure-pali-highway-kailua-bound/,"Contraflow on Pali Highway begins, paving the way for a smoother commute",2019-02-19 00:00:00,"PALI HIGHWAY (HawaiiNewsNow) - It appeared to be a smoother commute for Windward Oahu drivers on Thursday morning after the state reopened lanes of the Pali Highway for Honolulu-bound commuters.
+– Bernama",CAMERON HIGHLANDS|,CAMERON HIGHLANDS,4.473862161000056,101.47775291100004,22.4035,None,None,None,None,None,None
+37,http://www.hawaiinewsnow.com/2019/02/19/landslide-leads-closure-pali-highway-kailua-bound/,"Contraflow on Pali Highway begins, paving the way for a smoother commute",2019-02-19 00:00:00,"PALI HIGHWAY (HawaiiNewsNow) - It appeared to be a smoother commute for Windward Oahu drivers on Thursday morning after the state reopened lanes of the Pali Highway for Honolulu-bound commuters.
 
 Starting at 5 a.m., the state contraflowed Kailua-bound lanes to be used for town-bound commuters. The contraflow lasted until 9 a.m. with no major problems reported.
 
@@ -1297,8 +1244,8 @@ Autoplay Caption
 
 This story will be updated.
 
-Copyright 2019 Hawaii News Now. All rights reserved.",Kailua-bound|,Kailua-bound,21.396880000000067,-157.73945999999998,6.8265,,,
-57,https://indianexpress.com/article/north-east-india/assam-landslides-floods-barak-valley-deaths6438809/,"Assam: Landslides, triggered by continuous rainfall, kill 21 in Barak Valley",2020-06-02 20:09:32+05:30,"The landslides in Barak Valley took place in the early hours of Tuesday morning. (Source: Special Arrangement)
+Copyright 2019 Hawaii News Now. All rights reserved.",Kailua-bound|,Kailua-bound,21.396880000000067,-157.73945999999998,6.8265,None,None,None,None,None,None
+38,https://indianexpress.com/article/north-east-india/assam-landslides-floods-barak-valley-deaths6438809/,"Assam: Landslides, triggered by continuous rainfall, kill 21 in Barak Valley",2020-06-02 20:09:32+05:30,"The landslides in Barak Valley took place in the early hours of Tuesday morning. (Source: Special Arrangement)
 
 At least 21 persons were killed, including children, in a series of rain-induced landslides that took place in three districts of southern Assam’s Barak Valley—Cachar, Karimganj and Hailakandi—on Tuesday morning.
 
@@ -1322,8 +1269,8 @@ Nagaon: Villagers watch a washed away road after flooding by Borpani River due t
 
 The bodies have been recovered and sent for an autopsy.
 
-Incessant rainfall has caused several districts of Assam to flood in the past week. As of June 1, more than two lakh people have been affected and nine people have been killed.",|Barak Valley,Barak Valley,24.813130000000058,92.79785000000004,0.75,,,
-58,https://www.npr.org/2020/07/02/886963705/landslide-at-myanmar-jade-mine-kills-at-least-162,Landslide At Myanmar Jade Mine Kills At Least 162,2020-07-02 00:00:00,"Landslide At Myanmar Jade Mine Kills At Least 162
+Incessant rainfall has caused several districts of Assam to flood in the past week. As of June 1, more than two lakh people have been affected and nine people have been killed.",|Barak Valley,Barak Valley,24.813130000000058,92.79785000000004,0.75,None,None,None,None,None,None
+39,https://www.npr.org/2020/07/02/886963705/landslide-at-myanmar-jade-mine-kills-at-least-162,Landslide At Myanmar Jade Mine Kills At Least 162,2020-07-02 00:00:00,"Landslide At Myanmar Jade Mine Kills At Least 162
 
 Enlarge this image toggle caption BBC video/NPR screengrab BBC video/NPR screengrab
 
@@ -1345,16 +1292,13 @@ Maung Khaing, a 38-year-old miner from the area who witnessed the accident, told
 
 ""I still have goose bumps,"" he said. ""There were people stuck in the mud shouting for help but no one could help them.""
 
-According to Reuters, a local official had warned people not to go to the mine on Thursday because of heavy rain.",Myanmar|,Myanmar,21.100640956000063,96.50375235400008,1059.0975,,,
-59,http://www.dogtreatsmart.com/dog-survives-massive-landslide-that-swept-8-buildings-into-sea/,Dog survives massive landslide that swept 8 buildings into sea,2020-06-19 21:04:57-05:00,"Alta, Norway – Drones in Norway have captured shocking footage of a portion of the city of Alta’s coastline being sucked into the sea in a matter of minutes.
+According to Reuters, a local official had warned people not to go to the mine on Thursday because of heavy rain.",Myanmar|,Myanmar,21.100640956000063,96.50375235400008,1059.0975,None,None,None,None,None,None
+40,http://www.dogtreatsmart.com/dog-survives-massive-landslide-that-swept-8-buildings-into-sea/,Dog survives massive landslide that swept 8 buildings into sea,2020-06-19 21:04:57-05:00,"Alta, Norway – Drones in Norway have captured shocking footage of a portion of the city of Alta’s coastline being sucked into the sea in a matter of minutes.
 
 A dog was also swept away in the disaster but heroically swam back to the mainland. An emergency rescue team was able to retrieve the muddied pup via helicopter.
 
-Source: nypost.com",Norway|Norway|Alta|,Norway,62.00000000000006,10.000000000000057,1213.8205,"None
-","None
-","None
-"
-60,https://www.staradvertiser.com/2019/04/10/hawaii-news/nearly-1-year-after-flood-aina-haina-library-reopens/?HSA=f6e29161be004580ce0f8a9549506b4f77569b94,"Nearly 1 year after flood, Aina Haina library reopens",2019-04-10 00:00:00,"Mahalo for supporting Honolulu Star-Advertiser. Enjoy this free story!
+Source: nypost.com",Norway|Norway|Alta|,Norway,62.00000000000006,10.000000000000057,1213.8205,None,,None,None,None,None
+41,https://www.staradvertiser.com/2019/04/10/hawaii-news/nearly-1-year-after-flood-aina-haina-library-reopens/?HSA=f6e29161be004580ce0f8a9549506b4f77569b94,"Nearly 1 year after flood, Aina Haina library reopens",2019-04-10 00:00:00,"Mahalo for supporting Honolulu Star-Advertiser. Enjoy this free story!
 
 Almost a year after damage from record rainfall and flooding forced its closure, Aina Haina Public Library reopened Tuesday. Read more
 
@@ -1390,8 +1334,8 @@ Waters expressed concern about current flood mitigation efforts in the area.
 
 He said he’s reached out to city officials but has yet to hear back.
 
-Correction: Clarification: An earlier version of this story said Wailupe stream’s flooding last year was mostly due to poor maintenance, which some residents contend. City officials, however, say that it was due to debris build-up in the stream.",Kauai|East Oahu,East Oahu,36.26351484000003,136.2888037900001,0.4285,,,
-61,https://sanfrancisco.cbslocal.com/2019/02/26/los-gatos-braces-for-more-mudslides-with-bolted-barriers/,Los Gatos Braces For More Mudslides With Bolted Barriers,2019-02-26 00:00:00,"LOS GATOS (KPIX 5) -- Santa Clara County and Caltrans crews are keeping an eye on unstable hillsides on Hicks Rd. near Los Gatos. Crews have placed concrete barriers bolted together as a quick fix to stop mudslides from blocking the road during Monday's storm.
+Correction: Clarification: An earlier version of this story said Wailupe stream’s flooding last year was mostly due to poor maintenance, which some residents contend. City officials, however, say that it was due to debris build-up in the stream.",Kauai|East Oahu,East Oahu,36.26351484000003,136.2888037900001,0.4285,None,None,None,None,None,None
+42,https://sanfrancisco.cbslocal.com/2019/02/26/los-gatos-braces-for-more-mudslides-with-bolted-barriers/,Los Gatos Braces For More Mudslides With Bolted Barriers,2019-02-26 00:00:00,"LOS GATOS (KPIX 5) -- Santa Clara County and Caltrans crews are keeping an eye on unstable hillsides on Hicks Rd. near Los Gatos. Crews have placed concrete barriers bolted together as a quick fix to stop mudslides from blocking the road during Monday's storm.
 
 Drivers are happy with the temporary solution, which will save them from having to detour all the way around the road if it lasts through the storm.
 
@@ -1411,8 +1355,8 @@ One driver trying to reach her grandchildren in Palo Alto told KPIX 5 she had to
 
 As for the reopening of Highway 35, the best estimate officials had was for one lane to be open at the end of February, but that likely will not happen until early or mid-March.
 
-Keep up with the atmospheric river on CBS San Francisco Weather.",LOS GATOS|Santa Clara County|Los Gatos|Hicks Rd.,LOS GATOS,37.221310000000074,-121.97926999999999,5.684,,,
-63,https://www.nation.co.ke/news/africa/Dozens-missing-after-Uganda-landslides/1066-5145868-14q3cem/index.html,"5 dead, dozens missing in Uganda landslides: Red Cross",2020-07-03 12:09:35+00:00,"KAMPALA,
+Keep up with the atmospheric river on CBS San Francisco Weather.",LOS GATOS|Santa Clara County|Los Gatos|Hicks Rd.,LOS GATOS,37.221310000000074,-121.97926999999999,5.684,None,None,None,None,None,None
+43,https://www.nation.co.ke/news/africa/Dozens-missing-after-Uganda-landslides/1066-5145868-14q3cem/index.html,"5 dead, dozens missing in Uganda landslides: Red Cross",2020-07-03 12:09:35+00:00,"KAMPALA,
 
 Five people have died and dozens are missing after heavy rains triggered a series of landslides in eastern Uganda's mountainous Bududa district, the Red Cross said on Wednesday.
 
@@ -1442,8 +1386,8 @@ A statement from the office of Prime Minister Ruhakana Rugunda said that ""there
 
 After the 2010 landslide, the government said that the region, where people live on extremely steep slopes, was too dangerous to be lived in and that a programme was under way to re-locate residents.
 
-However similar disasters claimed lives in 2011, 2012 and 2016.",KAMPALA|Uganda|Bududa,KAMPALA,0.31589000000002443,32.57501000000008,14.9055,,,
-64,https://www.nytimes.com/2019/08/11/world/asia/myanmar-landslide.html?partner=IFTTT,"Landslide Kills at Least 51 in Myanmar, With More Heavy Rain on the Way",2019-08-11 00:00:00,"MANDALAY, Myanmar — Monsoon downpours that set off flooding and a landslide in Myanmar late last week have killed at least 51 people and left dozens more missing, the authorities said, in the deadliest natural disaster to strike a part of the nation’s southeast in decades.
+However similar disasters claimed lives in 2011, 2012 and 2016.",KAMPALA|Uganda|Bududa,KAMPALA,0.31589000000002443,32.57501000000008,14.9055,None,None,None,None,None,None
+44,https://www.nytimes.com/2019/08/11/world/asia/myanmar-landslide.html?partner=IFTTT,"Landslide Kills at Least 51 in Myanmar, With More Heavy Rain on the Way",2019-08-11 00:00:00,"MANDALAY, Myanmar — Monsoon downpours that set off flooding and a landslide in Myanmar late last week have killed at least 51 people and left dozens more missing, the authorities said, in the deadliest natural disaster to strike a part of the nation’s southeast in decades.
 
 “This year’s flood is the worst in my life,” U Zaw Zaw Htoo, a member of Parliament from Paung Township in Mon State, which includes the area devastated by the landslide, said on Sunday.
 
@@ -1457,8 +1401,8 @@ Ma Htay Htay, a resident of Thaphyu Kone, said she had just left for work on Fri
 
 Eight members of her family are missing, she said on Sunday, adding, “I’m praying hard that I will see them alive, but I don’t really have hope.”
 
-More than 105,000 people across Myanmar have been displaced because of flooding since June, according to the United Nations Office for the Coordination of Humanitarian Affairs.",Thaphyu Kone|Mon State|,Thaphyu Kone,-21.059509999999932,164.8658200000001,12.1485,,,
-65,https://blogs.agu.org/landslideblog/2021/03/04/char-dham-1/,The Char Dham Project: landslides associated with road widening in northern India,2021-03-04 00:00:00,"The Char Dham Project: landslides associated with road widening in northern India
+More than 105,000 people across Myanmar have been displaced because of flooding since June, according to the United Nations Office for the Coordination of Humanitarian Affairs.",Thaphyu Kone|Mon State|,Thaphyu Kone,-21.059509999999932,164.8658200000001,12.1485,None,None,None,None,None,None
+45,https://blogs.agu.org/landslideblog/2021/03/04/char-dham-1/,The Char Dham Project: landslides associated with road widening in northern India,2021-03-04 00:00:00,"The Char Dham Project: landslides associated with road widening in northern India
 
 The dreadful landslide disaster last month in northern India has served to highlight, very clearly, the threat posed by poor awareness of slope issues in the Hindu Kush Himalayas. Regular readers will be bored of my repeatedly making the point that we are failing to adequately consider, or manage, these threats across a range of human activities as development continues apace.
 
@@ -1474,8 +1418,8 @@ There is an interesting article on the environmental costs of the Char Dham proj
 
 SANDRP also has a good article about this project.
 
-Whilst the Char Dham project is undoubtedly important both strategically and in development terms, it is undeniable that the practises shown above are deeply problematic. Their legacy is likely to last for a long time.",Uttarakhand|,Uttarakhand,30.15484779700006,79.20762054800008,228.789,,,
-66,https://www.nbcnews.com/news/us-news/pet-cat-feared-dead-2018-california-mudslide-found-alive-n1254108,Pet cat feared dead in 2018 California mudslide is found alive,2021-01-13 17:26:00+00:00,"SANTA BARBARA, Calif. — A pet cat believed killed along with her owner in a huge mudslide has been found three years later.
+Whilst the Char Dham project is undoubtedly important both strategically and in development terms, it is undeniable that the practises shown above are deeply problematic. Their legacy is likely to last for a long time.",Uttarakhand|,Uttarakhand,30.15484779700006,79.20762054800008,228.789,None,None,None,None,None,None
+46,https://www.nbcnews.com/news/us-news/pet-cat-feared-dead-2018-california-mudslide-found-alive-n1254108,Pet cat feared dead in 2018 California mudslide is found alive,2021-01-13 17:26:00+00:00,"SANTA BARBARA, Calif. — A pet cat believed killed along with her owner in a huge mudslide has been found three years later.
 
 The Animal Shelter Assistance Program in Santa Barbara County says the calico named Patches was brought in as a stray last month and a microchip scan revealed her identity.
 
@@ -1491,8 +1435,8 @@ She was reunited with Gower’s partner, Norm Borgatello, on New Year’s Eve.
 
 “Though we don’t know exactly what she’s been doing with her life for the past three years, we can see that both Patches and Norm are thrilled to be reunited,” the shelter said in a Facebook post.
 
-A livestream ceremony to remember the 23 victims was held last week on the third anniversary of what has become known as the “1/9 Debris Flow.”",SANTA BARBARA|Calif|,SANTA BARBARA,34.41938000000005,-119.69904999999994,9.797,,,
-67,https://www.staradvertiser.com/2019/02/22/hawaii-news/workers-commute-is-worst-blow-of-pali-shutdown-kailua-merchants-say/?HSA=bab88a5d6e7cd617ec9ede1f5c25a8ae9e5aac3e,"Workers’ commute is worst blow of Pali shutdown, Kailua merchants say",2019-02-22 00:00:00,"Mahalo for supporting Honolulu Star-Advertiser. Enjoy this free story!
+A livestream ceremony to remember the 23 victims was held last week on the third anniversary of what has become known as the “1/9 Debris Flow.”",SANTA BARBARA|Calif|,SANTA BARBARA,34.41938000000005,-119.69904999999994,9.797,None,None,None,None,None,None
+47,https://www.staradvertiser.com/2019/02/22/hawaii-news/workers-commute-is-worst-blow-of-pali-shutdown-kailua-merchants-say/?HSA=bab88a5d6e7cd617ec9ede1f5c25a8ae9e5aac3e,"Workers’ commute is worst blow of Pali shutdown, Kailua merchants say",2019-02-22 00:00:00,"Mahalo for supporting Honolulu Star-Advertiser. Enjoy this free story!
 
 The closure of Pali Highway due to multiple landslides is affecting foot traffic for some Kailua businesses, but mostly it’s an inconvenience for those who live and work in the area. Read more
 
@@ -1526,8 +1470,8 @@ Kuulei Neher, a sales associate at Bikinibird, said sales over the past few days
 
 The Maunawili resident works in Kailua and is a senior at Punahou School, so commuting back and forth is “really difficult.”
 
-“It’s already been difficult going on the Likelike, especially because I live at the bottom of the Pali, so it’s like super irritating,” Neher said, adding that it is taking her about 40 minutes instead of 20 minutes to get to school. “I actually spent the night at my auntie’s house in town — the past three nights — because of just the craziness ’cause I didn’t want to have to deal with it. Some of my friends who live in Kailua and go to school at Punahou, it took them two hours to get to school. It’s just unfortunate like how one highway can affect so many people’s lives, not even just the Kailua people, but everyone in town as well ’cause it causes more traffic. I just hope they get it done as quickly as possible.”",Hawaii|,Hawaii,21.439542579000033,-157.94363192999998,1247.82,,,
-69,https://www.reuters.com/article/us-colombia-landslide/landslide-in-southwestern-colombia-kills-at-least-14-idUSKCN1RX0IO?feedType=RSS&amp;feedName=worldNews,Landslide in southwestern Colombia kills 17,2019-04-21 16:13:09+00:00,"BOGOTA (Reuters) - Seventeen people have been killed and five injured in a landslide in the southwestern Colombian province of Cauca, the country’s disaster relief agency said on Sunday.
+“It’s already been difficult going on the Likelike, especially because I live at the bottom of the Pali, so it’s like super irritating,” Neher said, adding that it is taking her about 40 minutes instead of 20 minutes to get to school. “I actually spent the night at my auntie’s house in town — the past three nights — because of just the craziness ’cause I didn’t want to have to deal with it. Some of my friends who live in Kailua and go to school at Punahou, it took them two hours to get to school. It’s just unfortunate like how one highway can affect so many people’s lives, not even just the Kailua people, but everyone in town as well ’cause it causes more traffic. I just hope they get it done as quickly as possible.”",Hawaii|,Hawaii,21.439542579000033,-157.94363192999998,1247.82,None,None,None,None,None,None
+48,https://www.reuters.com/article/us-colombia-landslide/landslide-in-southwestern-colombia-kills-at-least-14-idUSKCN1RX0IO?feedType=RSS&amp;feedName=worldNews,Landslide in southwestern Colombia kills 17,2019-04-21 16:13:09+00:00,"BOGOTA (Reuters) - Seventeen people have been killed and five injured in a landslide in the southwestern Colombian province of Cauca, the country’s disaster relief agency said on Sunday.
 
 The landslide, which was caused by heavy rains, occurred early on Sunday in a rural area of Rosas municipality, the agency said in a statement.
 
@@ -1537,8 +1481,8 @@ Five people were hospitalized and eight houses were destroyed. A portion of the 
 
 President Ivan Duque will visit the area on Sunday evening with the housing and transport ministers to meet with relief officials, his office said in a statement.
 
-Landslides are common in mountainous Colombia, especially during rainy season and in areas where precarious informal housing and narrow roadways are constructed on deforested Andean hillsides.",Cauca|,Cauca,2.3954891190000467,-76.82991232199998,188.824,,,
-70,https://www.reuters.com/article/us-colombia-landslide/death-toll-from-colombia-landslide-rises-to-28-idUSKCN1RZ04H?feedType=RSS&amp;feedName=worldNews,Death toll from Colombia landslide rises to 28,2019-04-23 02:00:08+00:00,"BOGOTA (Reuters) - The death toll from a weekend landslide in the southwestern Colombian province of Cauca has risen to 28 people, the country’s disaster relief agency said on Monday.
+Landslides are common in mountainous Colombia, especially during rainy season and in areas where precarious informal housing and narrow roadways are constructed on deforested Andean hillsides.",Cauca|,Cauca,2.3954891190000467,-76.82991232199998,188.824,None,None,None,None,None,None
+49,https://www.reuters.com/article/us-colombia-landslide/death-toll-from-colombia-landslide-rises-to-28-idUSKCN1RZ04H?feedType=RSS&amp;feedName=worldNews,Death toll from Colombia landslide rises to 28,2019-04-23 02:00:08+00:00,"BOGOTA (Reuters) - The death toll from a weekend landslide in the southwestern Colombian province of Cauca has risen to 28 people, the country’s disaster relief agency said on Monday.
 
 The landslide, caused by heavy rains, occurred early on Sunday morning in a rural area of Rosas municipality.
 
@@ -1548,8 +1492,8 @@ At least five people were hospitalized and eight houses were destroyed. A portio
 
 President Ivan Duque visited the area on Sunday evening and said the government would stand with the victims and provide housing and other help.
 
-Landslides are common in mountainous Colombia, especially during rainy season and in areas where precarious informal housing and narrow roadways are constructed on deforested Andean hillsides.",Rosas|,Rosas,2.2612100000000623,-76.74025999999998,12.861,,,
-71,https://www.civilbeat.org/2019/02/landslide-closes-pali-highway-and-seriously-injures-woman/,Landslide Closes Pali Highway And Seriously Injures Woman - Honolulu Civil Beat,2019-02-20 05:15:52+00:00,"AP
+Landslides are common in mountainous Colombia, especially during rainy season and in areas where precarious informal housing and narrow roadways are constructed on deforested Andean hillsides.",Rosas|,Rosas,2.2612100000000623,-76.74025999999998,12.861,None,None,None,None,None,None
+50,https://www.civilbeat.org/2019/02/landslide-closes-pali-highway-and-seriously-injures-woman/,Landslide Closes Pali Highway And Seriously Injures Woman - Honolulu Civil Beat,2019-02-20 05:15:52+00:00,"AP
 
 The Honolulu-bound lanes remained open. But about an hour later, another landslide struck nearby, sending huge rocks and debris crashing onto the open lanes where a pickup truck was passing into a tunnel.
 
@@ -1563,22 +1507,32 @@ Pieces of concrete from Old Pali Road, the original route from Honolulu to the w
 
 In August, a landslide covered the same area of the Honolulu-bound lanes of the highway during the morning rush-hour commute. Falling rocks damaged four vehicles during that landslide, but no one was injured.
 
-The highway was closed in both directions as officials inspected the hillside. But the road was cleared and reopened before the afternoon commute.",Honolulu|Oahu,Oahu,-27.17178999999993,-51.503799999999956,0.7435,"2018/08/17, 00:00-2018/08/17, 23:59
-2019/02/20, 05:00-2019/02/20, 11:00
-","2018/08/17, 11:59
-2019/02/20, 08:00
-2018/08/17, 11:59
-2019/02/20, 08:00
-2018/08/17, 11:59
-2019/02/20, 08:00
-2018/08/17, 11:59
-2019/02/20, 08:00
-2018/08/17, 11:59
-2019/02/20, 08:00
-2018/08/17, 11:59
-2019/02/20, 08:00
+The highway was closed in both directions as officials inspected the hillside. But the road was cleared and reopened before the afternoon commute.",Honolulu|Oahu,Oahu,-27.17178999999993,-51.503799999999956,0.7435,"2018/08/21, 00:00-2018/08/21, 23:59
+","2018/08/21, 11:59
 ","± 11.99 hours 
-± 3.0 hours 
+","2019/02/20, 05:00-2019/02/20, 11:00
+2018/08/21, 00:00-2018/08/21, 23:59
+2019/02/20, 05:00-2019/02/20, 11:00
+2018/08/21, 00:00-2018/08/21, 23:59
+2019/02/20, 05:00-2019/02/20, 11:00
+2018/08/21, 00:00-2018/08/21, 23:59
+2019/02/20, 05:00-2019/02/20, 11:00
+2018/08/21, 00:00-2018/08/21, 23:59
+2019/02/20, 05:00-2019/02/20, 11:00
+2018/08/21, 00:00-2018/08/21, 23:59
+2019/02/20, 05:00-2019/02/20, 11:00
+","2019/02/20, 08:00
+2018/08/21, 11:59
+2019/02/20, 08:00
+2018/08/21, 11:59
+2019/02/20, 08:00
+2018/08/21, 11:59
+2019/02/20, 08:00
+2018/08/21, 11:59
+2019/02/20, 08:00
+2018/08/21, 11:59
+2019/02/20, 08:00
+","± 3.0 hours 
 ± 11.99 hours 
 ± 3.0 hours 
 ± 11.99 hours 
@@ -1590,7 +1544,7 @@ The highway was closed in both directions as officials inspected the hillside. B
 ± 11.99 hours 
 ± 3.0 hours 
 "
-73,https://www.staradvertiser.com/2019/03/08/hawaii-news/tour-of-pali-highway-landslide-area-highlights-amount-of-work-left-to-be-done/,Tour of Pali Highway landslide area highlights amount of work left to be done,2019-03-08 00:00:00,"A media tour of Pali Highway on Friday morning offered a closer view of the extent of damage done to the area around the tunnels and on Old Pali Road.
+51,https://www.staradvertiser.com/2019/03/08/hawaii-news/tour-of-pali-highway-landslide-area-highlights-amount-of-work-left-to-be-done/,Tour of Pali Highway landslide area highlights amount of work left to be done,2019-03-08 00:00:00,"A media tour of Pali Highway on Friday morning offered a closer view of the extent of damage done to the area around the tunnels and on Old Pali Road.
 
 As state officials announced Thursday, Pali Highway is expected to remain closed for repairs until at least August as crews carry out a two-part plan to make it safer at an estimated cost of $15 million.
 
@@ -1626,8 +1580,8 @@ The distance between the two tunnels on Pali Highway town-bound is about 475 fee
 
 The Pali Lookout, meanwhile, remains closed. The state also urges the public to avoid trails in the area, including the Likeke Falls hike between the lookout and the Koolau Golf Course.
 
-Access to Pali Highway will remain the same as in previous weeks for the rest of March. Two contra-flow lanes of Honolulu-bound traffic will be open from 5 to 9 a.m. weekdays, and all lanes of Kailua/Kaneohe­-bound traffic will be open from 3 to 7 p.m. weekdays.",Pali|,Pali,25.772760000000062,73.32335000000006,7.4725,,,
-75,https://news.mongabay.com/2021/02/philippine-quarries-under-scrutiny-after-deadly-mudflow-buries-homes/,Philippine quarries under scrutiny after deadly mudflow buries homes,2021-02-19 07:17:27+00:00,"When Typhoon Goni, the world’s strongest last year, hit the Philippines in November, it triggered an avalanche of volcanic mud that buried 300 homes, killed 13 people and left three missing in the province of Albay.
+Access to Pali Highway will remain the same as in previous weeks for the rest of March. Two contra-flow lanes of Honolulu-bound traffic will be open from 5 to 9 a.m. weekdays, and all lanes of Kailua/Kaneohe­-bound traffic will be open from 3 to 7 p.m. weekdays.",Pali|,Pali,25.772760000000062,73.32335000000006,7.4725,None,None,None,None,None,None
+52,https://news.mongabay.com/2021/02/philippine-quarries-under-scrutiny-after-deadly-mudflow-buries-homes/,Philippine quarries under scrutiny after deadly mudflow buries homes,2021-02-19 07:17:27+00:00,"When Typhoon Goni, the world’s strongest last year, hit the Philippines in November, it triggered an avalanche of volcanic mud that buried 300 homes, killed 13 people and left three missing in the province of Albay.
 
 While such mudflows, known as lahar, are common in regions with high volcanic activity, experts and activists say the impact in Albay was exacerbated by the loose material left by quarrying operations.
 
@@ -1703,8 +1657,8 @@ Environmental planner Panesa, who hails from Guinobatan, says the income from qu
 
 Banner image of a quarry site within the determined permanent danger zone of the Mayon volcano in Albay, Philippines. Image contributed by a concerned citizen.
 
-FEEDBACK: Use this form to send a message to the author of this post. If you want to post a public comment, you can do that at the bottom of the page.",Albay|Legazpi City|Daraga|,Daraga,13.131060000000048,123.6957000000001,10.9985,,,
-79,https://www.knoxnews.com/story/news/local/2019/02/21/hawkins-co-mudslide-injures-one-crews-waiting-continue-search/2936352002/,Man dies of injuries after Hawkins Co. mudslide wreck; TDOT announces detour routes,2019-02-21 00:00:00,"This story is being provided free to all readers as a public service by the Knoxville News Sentinel. Please consider supporting local journalism by subscribing.
+FEEDBACK: Use this form to send a message to the author of this post. If you want to post a public comment, you can do that at the bottom of the page.",Albay|Legazpi City|Daraga|,Daraga,13.131060000000048,123.6957000000001,10.9985,None,None,None,None,None,None
+53,https://www.knoxnews.com/story/news/local/2019/02/21/hawkins-co-mudslide-injures-one-crews-waiting-continue-search/2936352002/,Man dies of injuries after Hawkins Co. mudslide wreck; TDOT announces detour routes,2019-02-21 00:00:00,"This story is being provided free to all readers as a public service by the Knoxville News Sentinel. Please consider supporting local journalism by subscribing.
 
 A man injured in a mudslide on State Route 70 in Hawkins County early Thursday morning has died, Tennessee Highway Patrol reports.
 
@@ -1725,21 +1679,31 @@ TDOT spokesperson Mark Nagi said the slide is about a mile from the area where a
 Emergency responders form the Kingsport Fire Department were also on the scene Thursday morning to help assist in rescuing the people involved in the landslide.
 
 Follow Andrew Capps for breaking news and updates on Twitter. Find more at bit.ly/jandrewcapps.",Hawkins County|,Hawkins County,36.44110415400007,-82.94465081799996,37.092,"2019/02/14, 00:00-2019/02/14, 23:59
-2019/02/21, 05:00-2019/02/21, 11:00
 ","2019/02/14, 11:59
-2019/02/21, 08:00
-2019/02/14, 11:59
-2019/02/21, 08:00
-2019/02/14, 11:59
-2019/02/21, 08:00
-2019/02/14, 11:59
-2019/02/21, 08:00
-2019/02/14, 11:59
-2019/02/21, 08:00
-2019/02/14, 11:59
-2019/02/21, 08:00
 ","± 11.99 hours 
-± 3.0 hours 
+","2019/02/21, 05:00-2019/02/21, 11:00
+2019/02/14, 00:00-2019/02/14, 23:59
+2019/02/21, 05:00-2019/02/21, 11:00
+2019/02/14, 00:00-2019/02/14, 23:59
+2019/02/21, 05:00-2019/02/21, 11:00
+2019/02/14, 00:00-2019/02/14, 23:59
+2019/02/21, 05:00-2019/02/21, 11:00
+2019/02/14, 00:00-2019/02/14, 23:59
+2019/02/21, 05:00-2019/02/21, 11:00
+2019/02/14, 00:00-2019/02/14, 23:59
+2019/02/21, 05:00-2019/02/21, 11:00
+","2019/02/21, 08:00
+2019/02/14, 11:59
+2019/02/21, 08:00
+2019/02/14, 11:59
+2019/02/21, 08:00
+2019/02/14, 11:59
+2019/02/21, 08:00
+2019/02/14, 11:59
+2019/02/21, 08:00
+2019/02/14, 11:59
+2019/02/21, 08:00
+","± 3.0 hours 
 ± 11.99 hours 
 ± 3.0 hours 
 ± 11.99 hours 
@@ -1751,7 +1715,7 @@ Follow Andrew Capps for breaking news and updates on Twitter. Find more at bit.l
 ± 11.99 hours 
 ± 3.0 hours 
 "
-80,https://www.indiatoday.in/india/story/incessant-rains-trigger-landslides-life-standstill-arunachal-pradesh-1567116-2019-07-11?utm_source=rss,"Incessant rains trigger landslides, bring life to a standstill in Arunachal Pradesh",2019-07-11 00:00:00,"Landslides, triggered by incessant rains over the past couple of days and have disrupted road communication in several parts of Arunachal Pradesh and also hit normal life, official sources said Thursday.
+54,https://www.indiatoday.in/india/story/incessant-rains-trigger-landslides-life-standstill-arunachal-pradesh-1567116-2019-07-11?utm_source=rss,"Incessant rains trigger landslides, bring life to a standstill in Arunachal Pradesh",2019-07-11 00:00:00,"Landslides, triggered by incessant rains over the past couple of days and have disrupted road communication in several parts of Arunachal Pradesh and also hit normal life, official sources said Thursday.
 
 The Bhalukpong-Charduar-Tawang road in West Kameng district had remained closed for the fifth day on Thursday due to massive landslides at several stretches of the road.
 
@@ -1765,8 +1729,8 @@ Landslides and flash floods due to heavy downpour have wreaked havoc in the capi
 
 The traffic along national highway-415 between Itanagar and Naharlagun was halted due to the overflow of rainwater over the road, another official report said.
 
-The water level in Pare river is on the rise, forcing residents on both banks to evacuate to safer places, a report from Doimukh said.",|Lower Dibang Valley,Lower Dibang Valley,28.254330410000023,95.87343741900008,62.91,,,
-81,https://www.reuters.com/article/us-morocco-accident/landslide-kills-15-in-moroccos-atlas-mountains-authorities-say-idUSKCN1UL1H7?feedType=RSS&amp;feedName=worldNews,"Landslide kills 15 in Morocco’s Atlas Mountains, authorities say",2019-07-26 11:57:50+00:00,"RABAT (Reuters) - A landslide killed 15 people riding in a van in the Atlas Mountains south of Marrakech, local authorities said on Friday.
+The water level in Pare river is on the rise, forcing residents on both banks to evacuate to safer places, a report from Doimukh said.",|Lower Dibang Valley,Lower Dibang Valley,28.254330410000023,95.87343741900008,62.91,None,None,None,None,None,None
+55,https://www.reuters.com/article/us-morocco-accident/landslide-kills-15-in-moroccos-atlas-mountains-authorities-say-idUSKCN1UL1H7?feedType=RSS&amp;feedName=worldNews,"Landslide kills 15 in Morocco’s Atlas Mountains, authorities say",2019-07-26 11:57:50+00:00,"RABAT (Reuters) - A landslide killed 15 people riding in a van in the Atlas Mountains south of Marrakech, local authorities said on Friday.
 
 The landslide, caused by heavy rain, buried the van on Wednesday evening in the area of Asni.
 
@@ -1774,41 +1738,8 @@ The bodies of 11 women, three men and a child were extracted overnight from the 
 
 The van was carrying passengers from Casablanca to the village of Taliouine, 670 km south of Rabat, witnesses said.
 
-The landslide created a pile of earth and mud 20 meters high that blocked the mountainous road.",Asni|,Asni,25.52792000000005,84.59164000000004,1.496,,,
-87,https://www.reuters.com/article/us-myanmar-landslides/everything-is-gone-dozens-dead-missing-after-myanmar-landslide-idUSKCN1UZ1VW?feedType=RSS&amp;feedName=worldNews,"'Everything is gone': Dozens dead, missing after Myanmar landslide",2019-08-09 15:57:53+00:00,"THAPHYU KONE VILLAGE, Myanmar (Reuters) - Rescue workers pulled bodies from the rubble of homes in a village in Myanmar on Saturday where a landslide a day earlier killed at least 32 people, with dozens still missing.
-
-Slideshow ( 5 images )
-
-Heavy rain caused the landslide in Thaphyu Kone village, in the southern Mon state, sending mud crashing into a cluster of houses and burying residents.
-
-“The rescue team found 22 bodies yesterday and seven more this morning,” Tin Maung Ni, the director of Mon state’s fire department, told Reuters, adding that 28 survivors had been freed.
-
-As he spoke, three more bodies were pulled from the mud.
-
-Severe rainfall has pummeled southern Myanmar for days, causing flooding that has displaced at least 12,000 people, according to the United Nations.
-
-Standing beside the ruins of her house, 35-year-old Nyo Nyo Win said, “This was my home. Now, everything is gone. We have nothing left.”
-
-Nine members of her family were killed, including her son and father, she said.
-
-First, lamp posts on the road started to fall off and then villagers ran toward their homes for fear of being electrocuted, she said.
-
-“All the people who made it to their homes were buried, including my father and eight children who were at home. It happened so fast, just in seconds.”
-
-Survivors were sent to a hospital in the nearest major town, Mawlamyine.
-
-“First, I heard a ‘boom’ sound and I was under the mud,” said 35-year-old Phyo Ko Ko Oo.
-
-His left leg was badly scraped as he struggled to free himself.
-
-Chan Aye, 42, said he, his son and wife had been dragged to the river by the landslide.
-
-“I hugged them as we were dragged along with the landslide,” he said.
-
-The U.N. Office for the Coordination of Humanitarian Affairs said in a statement that houses and a school have been washed away in other townships affected by the flooding.
-
-More heavy rainfall is expected in the coming days.",Thaphyu Kone|Mon|,Thaphyu Kone,-21.059509999999932,164.8658200000001,12.1485,,,
-88,https://www.staradvertiser.com/2019/02/22/breaking-news/state-declares-pali-highway-a-disaster-area-after-landslides/,State declares Pali Highway disaster area after landslides,2019-02-22 00:00:00,"Lt. Gov. Josh Green, acting on behalf of Gov. David Ige who is in Washington, D.C., issued an emergency proclamation today designating the location of the Pali Highway landslides a disaster area and providing relief for related damage and losses.
+The landslide created a pile of earth and mud 20 meters high that blocked the mountainous road.",Asni|,Asni,25.52792000000005,84.59164000000004,1.496,None,None,None,None,None,None
+56,https://www.staradvertiser.com/2019/02/22/breaking-news/state-declares-pali-highway-a-disaster-area-after-landslides/,State declares Pali Highway disaster area after landslides,2019-02-22 00:00:00,"Lt. Gov. Josh Green, acting on behalf of Gov. David Ige who is in Washington, D.C., issued an emergency proclamation today designating the location of the Pali Highway landslides a disaster area and providing relief for related damage and losses.
 
 The proclamation authorizes the use of state funds to address extensive damage to the slopes along the highway and gives the governor the power to expedite emergency management functions, according to the governor’s office. The proclamation is effective immediately and extends through April 22.
 
@@ -1832,7 +1763,21 @@ Transportation officials said they expect to issue an update on proposed slope s
 
 Lt Gov Proclamation by on Scribd",Pali|,Pali,25.772760000000062,73.32335000000006,7.4725,"2018/03/01, 00:00-2018/03/31, 23:59
 ","2018/03/16, 11:59
-2018/03/16, 11:59
+","± 371.99 hours 
+","2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+2018/03/01, 00:00-2018/03/31, 23:59
+","2018/03/16, 11:59
 2018/03/16, 11:59
 2018/03/16, 11:59
 2018/03/16, 11:59
@@ -1858,9 +1803,8 @@ Lt Gov Proclamation by on Scribd",Pali|,Pali,25.772760000000062,73.3233500000000
 ± 371.99 hours 
 ± 371.99 hours 
 ± 371.99 hours 
-± 371.99 hours 
 "
-89,https://www.reuters.com/article/us-myanmar-mine/lives-are-cheap-grief-anger-as-landslide-rocks-myanmars-jade-hills-idUSKCN1SN0NB?feedType=RSS&amp;feedName=worldNews,"'Lives are cheap': Grief, anger as landslide rocks Myanmar's jade hills",2019-05-17 07:06:38+00:00,"HPAKANT, Myanmar/YANGON (Reuters) - When Brang Aung left home in early April, his wife pleaded for him to stay for their newborn son’s naming ceremony, just a few weeks later.
+57,https://www.reuters.com/article/us-myanmar-mine/lives-are-cheap-grief-anger-as-landslide-rocks-myanmars-jade-hills-idUSKCN1SN0NB?feedType=RSS&amp;feedName=worldNews,"'Lives are cheap': Grief, anger as landslide rocks Myanmar's jade hills",2019-05-17 07:06:38+00:00,"HPAKANT, Myanmar/YANGON (Reuters) - When Brang Aung left home in early April, his wife pleaded for him to stay for their newborn son’s naming ceremony, just a few weeks later.
 
 The wife of Lamung Brang Aung, a miner whose body cannot be retrieved from the collapsed mud pond, poses for a photo with their child in Hpakant, Kachin, Myanmar April 28, 2019. REUTERS/Shoon Naing
 
@@ -1950,41 +1894,12 @@ The New York-based Natural Resource Governance Institute (NRGI) estimates that b
 
 Regulators remain underfunded and unable to inspect the hundreds of mining operations, said Maw Htun Aung, NRGI’s Myanmar country manager.
 
-“Nobody follows the safety procedure,” he said of the state of the industry in Hpakant. “Lives are really cheap.”",Hpakant|,Hpakant,25.616670000000056,96.31667000000004,1.4955,,,
-90,http://www.hawaiinewsnow.com/2019/02/20/drivers-describe-scary-moments-landslides-send-rocks-dirt-raining-down-cars/,Drivers describe ‘scary’ moments as landslides send rocks raining down on cars,2019-02-20 00:00:00,"HONOLULU (HawaiiNewsNow) - Two families caught off guard by the falling debris from landslides on the Pali Highway on Monday afternoon are counting their blessings.
-
-The highway remains closed in both directions as the Hawaii Department of Transportation inspects the slopes near the tunnels.
-
-Athena Zamora was heading to Kailua with her two daughters.
-
-She said they passed the tunnels and made it through just before most of the mud and large rocks started coming down on the right lane.
-
-Some dirt and debris struck her car, but she had to keep driving until she reached a runaway truck ramp to pull over and call police.
-
-Zamora was relieved that there was only a small dent on her vehicle.
-
-“It was a pretty scary event, something that I probably won’t soon forget. The sound, it was pretty significant,"" she said. “My daughters were pretty shaken up. We’re fine. We’re thankful and grateful with the outcome.”
-
-Authorities closed the right lane and later shut down all Kailua-bound lanes of the highway at Waokanaka Street.
-
-A larger landslide came down near the tunnels in the opposite direction at about 4:15 p.m.
-
-The debris struck a truck driven by Kaneohe resident Yoster Loney.
-
-Two of his five children who were riding with him in the cab suffered minor injuries.
-
-His girlfriend, who was sitting in the bed of the truck, was seriously hurt.
-
-“(There was) mud on the windshield and on the backside mud, too, rocks and small kind of wood,” said Loney.
-
-The three victims were released from the Queen’s Medical Center late Monday night.
-
-Copyright 2019 Hawaii News Now. All rights reserved.",HONOLULU|HawaiiNewsNow|,HawaiiNewsNow,-6.139059999999972,106.73032000000006,0.7825,,,
-92,https://www.wral.com/caught-on-camera-a-half-mile-long-landslide-in-norway-buildings-collapse/19131096/,"Caught on camera: A half-mile long landslide in Norway, buildings collapse :: WRAL.com",2020-06-05 07:15:00-04:00,"Eight buildings and a caravan slide into the sea in Alta, Norway on June 3 -- and miraculously, no one was hurt. Buildings and debris were left floating as other parts of the eroded land continued to crumble nearby. Local media outlets reported that one person was evacuated and a dog was swept into the see but he swam ashore. (Video source: Jan Egil Bakkerby).",Alta|Norway|,Alta,55.16950925700007,-114.51104221099996,671.599,"2020/06/03, 00:00-2020/06/03, 23:59
+“Nobody follows the safety procedure,” he said of the state of the industry in Hpakant. “Lives are really cheap.”",Hpakant|,Hpakant,25.616670000000056,96.31667000000004,1.4955,None,None,None,None,None,None
+58,https://www.wral.com/caught-on-camera-a-half-mile-long-landslide-in-norway-buildings-collapse/19131096/,"Caught on camera: A half-mile long landslide in Norway, buildings collapse :: WRAL.com",2020-06-05 07:15:00-04:00,"Eight buildings and a caravan slide into the sea in Alta, Norway on June 3 -- and miraculously, no one was hurt. Buildings and debris were left floating as other parts of the eroded land continued to crumble nearby. Local media outlets reported that one person was evacuated and a dog was swept into the see but he swam ashore. (Video source: Jan Egil Bakkerby).",Alta|Norway|,Alta,55.16950925700007,-114.51104221099996,671.599,"2020/06/03, 00:00-2020/06/03, 23:59
 ","2020/06/03, 11:59
 ","± 11.99 hours 
-"
-93,https://www.npr.org/2021/02/08/965515638/landslide-in-northern-india-leaves-at-least-24-dead-more-missing?t=1612842431005,"Landslide In Northern India Leaves At Least 24 Dead, More Missing",2021-02-08 00:00:00,"Landslide In Northern India Leaves At Least 24 Dead, More Missing
+",None,None,None
+59,https://www.npr.org/2021/02/08/965515638/landslide-in-northern-india-leaves-at-least-24-dead-more-missing?t=1612842431005,"Landslide In Northern India Leaves At Least 24 Dead, More Missing",2021-02-08 00:00:00,"Landslide In Northern India Leaves At Least 24 Dead, More Missing
 
 A landslide in the Himalayas in Northern India has killed at least two dozen people and more than 150 are missing.
 
@@ -2024,8 +1939,8 @@ Lauren Frayer, NPR News, Mumbai.
 
 Copyright © 2021 NPR. All rights reserved. Visit our website terms of use and permissions pages at www.npr.org for further information.
 
-NPR transcripts are created on a rush deadline by an NPR contractor. This text may not be in its final form and may be updated or revised in the future. Accuracy and availability may vary. The authoritative record of NPR’s programming is the audio record.",India|,India,23.379379735000043,79.44332654800007,2223.326,,,
-95,https://www.reuters.com/article/us-chad-mining-landslide/about-30-killed-in-landslide-at-chad-gold-mine-idUSKBN1WB17X,About 30 killed in landslide at Chad gold mine,2019-09-26 10:26:37+00:00,"N’DJAMENA (Reuters) - A landslide at an illegal gold mine in Chad has killed about 30 people, a government minister said on Thursday.
+NPR transcripts are created on a rush deadline by an NPR contractor. This text may not be in its final form and may be updated or revised in the future. Accuracy and availability may vary. The authoritative record of NPR’s programming is the audio record.",India|,India,23.379379735000043,79.44332654800007,2223.326,None,None,None,None,None,None
+60,https://www.reuters.com/article/us-chad-mining-landslide/about-30-killed-in-landslide-at-chad-gold-mine-idUSKBN1WB17X,About 30 killed in landslide at Chad gold mine,2019-09-26 10:26:37+00:00,"N’DJAMENA (Reuters) - A landslide at an illegal gold mine in Chad has killed about 30 people, a government minister said on Thursday.
 
 The mine in the Tibesti region near the Libyan border collapsed early on Tuesday and more victims might still be buried in the rubble, defense minister Mahamat Sala told Reuters.
 
@@ -2033,8 +1948,8 @@ Tibesti has witnessed rapid growth in illegal mining in recent years, often by r
 
 Unsafe methods and a lack of oversight mean accidents are common at such mines in Africa, where impoverished communities seek a share of the vast resources that are usually dug up by international companies, processed and sent overseas.
 
-Last June, more than 40 people died when part of a Glencore copper and cobalt mine collapsed in southeast Congo.",Chad|,Chad,15.376264850000041,18.674165747000075,1021.538,,,
-96,https://www.thevibes.com/articles/news/50065/450-people-rescued-from-floods-landslides-along-karak-highway,"450 people rescued from floods, landslides along Karak highway",2021-12-20 07:05:00+08:00,"KUANTAN – About 450 drivers and passengers of vehicles stranded on the Kuala Lumpur-Karak Highway due to landslides and floods yesterday were rescued in stages, beginning early yesterday.
+Last June, more than 40 people died when part of a Glencore copper and cobalt mine collapsed in southeast Congo.",Chad|,Chad,15.376264850000041,18.674165747000075,1021.538,None,None,None,None,None,None
+61,https://www.thevibes.com/articles/news/50065/450-people-rescued-from-floods-landslides-along-karak-highway,"450 people rescued from floods, landslides along Karak highway",2021-12-20 07:05:00+08:00,"KUANTAN – About 450 drivers and passengers of vehicles stranded on the Kuala Lumpur-Karak Highway due to landslides and floods yesterday were rescued in stages, beginning early yesterday.
 
 A spokesman for Anih Bhd said that a tow truck service will be used today to remove vehicles stranded at the location.
 
@@ -2050,8 +1965,8 @@ He said following the shutdown of the LRAs, a total of 53,916 user accounts expe
 
 “The closure started yesterday with four LRAs, but increased to 13 LRAs due to rising river water levels as well as power outages from Tenaga Nasional Bhd.
 
-“Assistance in the form of clean water supply and static tanks has been mobilised to the affected relief centres, but there are still many areas that are flooded, causing difficulty in delivering treated water via tankers,” he said in a statement last night. – Bernama, December 20, 2021",Karak-Temerloh|,Karak-Temerloh,3.4999862792535916,102.18619736974341,0.157,,,
-98,https://www.itv.com/news/2019-04-27/cyclone-kenneth-five-dead-as-flooding-and-mudslides-hit-mozambique-after-storms/,Cyclone Kenneth: Five dead as flooding and mudslides hit Mozambique after storms,2019-04-27 00:00:00,"Mozambique's government has urged many people to immediately seek higher ground after at least five people were killed in Cyclone Kenneth.
+“Assistance in the form of clean water supply and static tanks has been mobilised to the affected relief centres, but there are still many areas that are flooded, causing difficulty in delivering treated water via tankers,” he said in a statement last night. – Bernama, December 20, 2021",Karak-Temerloh|,Karak-Temerloh,3.4999862792535916,102.18619736974341,0.157,None,None,None,None,None,None
+62,https://www.itv.com/news/2019-04-27/cyclone-kenneth-five-dead-as-flooding-and-mudslides-hit-mozambique-after-storms/,Cyclone Kenneth: Five dead as flooding and mudslides hit Mozambique after storms,2019-04-27 00:00:00,"Mozambique's government has urged many people to immediately seek higher ground after at least five people were killed in Cyclone Kenneth.
 
 Authorities fear flooding and mudslides in the days ahead after heavy rain lashed the region.
 
@@ -2103,8 +2018,8 @@ People left homeless tried to patch together shelters from the rain.
 
 ""I'm looking for someone to lend me a porch so I can clean it up and stay with my family,"" one Macomia resident, Wild Eusebio, told the Portuguese news agency Lusa.
 
-Another family of 13 people, including eight children, was living in an improvised plastic tent, the report said.",Pemba city|Macomia district|Ibo island,Pemba city,-12.963639999999941,40.50007000000005,10.847,,,
-100,https://www.npr.org/2019/10/12/769766429/typhoon-hagibis-leaves-2-dead-as-flooding-and-landslides-threaten-more-lives?utm_medium=RSS&amp;utm_campaign=news,Typhoon Hagibis Leaves 2 Dead As Flooding And Landslides Threaten More Lives,2019-10-12 00:00:00,"Typhoon Hagibis Leaves 2 Dead As Flooding And Landslides Threaten More Lives
+Another family of 13 people, including eight children, was living in an improvised plastic tent, the report said.",Pemba city|Macomia district|Ibo island,Pemba city,-12.963639999999941,40.50007000000005,10.847,None,None,None,None,None,None
+63,https://www.npr.org/2019/10/12/769766429/typhoon-hagibis-leaves-2-dead-as-flooding-and-landslides-threaten-more-lives?utm_medium=RSS&amp;utm_campaign=news,Typhoon Hagibis Leaves 2 Dead As Flooding And Landslides Threaten More Lives,2019-10-12 00:00:00,"Typhoon Hagibis Leaves 2 Dead As Flooding And Landslides Threaten More Lives
 
 Enlarge this image toggle caption Jae C. Hong/AP Jae C. Hong/AP
 
@@ -2130,8 +2045,8 @@ The storm has also forced the cancellation of Rugby World Cup games as the event
 
 Typhoon Faxai ripped through Tokyo about a month ago, killing three and injuring 147 after it made landfall in Chiba prefecture. The Japan Times reported that the Abe administration was heavily criticized in the aftermath of that storm for not holding a meeting of ministers before or after landfall as power outages continued in Chiba prefecture well after the storm had passed.
 
-As Hagibis approached the Japanese mainland, Abe's cabinet held a disaster management meeting Friday in order to act more ""proactively"" than with Faxai.",Gunma Prefecture|Tomioka|,Tomioka,36.259623850000025,138.88943653,22.989,,,
-101,https://mb.com.ph/2022/01/19/flooding-landslides-likely-in-parts-of-bicol-eastern-visayas-due-to-shear-line/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=flooding-landslides-likely-in-parts-of-bicol-eastern-visayas-due-to-shear-line,"Flooding, landslides likely in parts of Bicol, Eastern Visayas due to shear line",2022-01-19 00:00:00,"(PIXABAY)
+As Hagibis approached the Japanese mainland, Abe's cabinet held a disaster management meeting Friday in order to act more ""proactively"" than with Faxai.",Gunma Prefecture|Tomioka|,Tomioka,36.259623850000025,138.88943653,22.989,None,None,None,None,None,None
+64,https://mb.com.ph/2022/01/19/flooding-landslides-likely-in-parts-of-bicol-eastern-visayas-due-to-shear-line/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=flooding-landslides-likely-in-parts-of-bicol-eastern-visayas-due-to-shear-line,"Flooding, landslides likely in parts of Bicol, Eastern Visayas due to shear line",2022-01-19 00:00:00,"(PIXABAY)
 
 The Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA) on Wednesday, Jan. 19, warned of possible flash floods or landslides in some parts of Bicol and Eastern Visayas due to rains from the shear line–a region where warm and cold winds converge.
 
@@ -2145,8 +2060,8 @@ Moreover, PAGASA advised the public and disaster risk reduction and management o
 
 Meanwhile, the northeast monsoon or “amihan” is expected to continue to bring cold weather and some rains over Metro Manila and the rest of Luzon and Visayas.
 
-In Mindanao, partly cloudy to cloudy skies with isolated rain showers may prevail due to localized thunderstorms.",Sorsogon|Albay|Catanduanes|Northern Samar|Eastern Samar,Sorsogon,12.98482000000007,123.99715000000003,17.1995,,,
-102,https://mb.com.ph/2021/11/10/flash-floods-landslides-likely-as-shear-line-amihan-bring-rains-over-parts-of-ph-pagasa/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=flash-floods-landslides-likely-as-shear-line-amihan-bring-rains-over-parts-of-ph-pagasa,"Flash floods, landslides likely as shear line, 'amihan' bring rains over parts of PH -- PAGASA",2021-11-10 00:00:00,"(SCREENGRAB FROM PAGASA FACEBOOK)
+In Mindanao, partly cloudy to cloudy skies with isolated rain showers may prevail due to localized thunderstorms.",Sorsogon|Albay|Catanduanes|Northern Samar|Eastern Samar,Sorsogon,12.98482000000007,123.99715000000003,17.1995,None,None,None,None,None,None
+65,https://mb.com.ph/2021/11/10/flash-floods-landslides-likely-as-shear-line-amihan-bring-rains-over-parts-of-ph-pagasa/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=flash-floods-landslides-likely-as-shear-line-amihan-bring-rains-over-parts-of-ph-pagasa,"Flash floods, landslides likely as shear line, 'amihan' bring rains over parts of PH -- PAGASA",2021-11-10 00:00:00,"(SCREENGRAB FROM PAGASA FACEBOOK)
 
 The shear line or tail-end of frontal system will prevail over Palawan and Visayas, while the northeast monsoon or “amihan” will affect the rest of Luzon in the next couple of hours, the Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA) said Wednesday, Nov. 10.
 
@@ -2166,7 +2081,14 @@ Weather specialist Benison Estareja said PAGASA has not monitored a tropical cyc
 
 However, he pointed out that there is a possibility that two or three tropical cyclones may enter the country’s area of responsibility before the end of the month.",Palawan|Caraga|Visayas|Davao Region,Caraga,7.331090000000074,126.56211000000008,19.691,"2021/11/21, 00:00-2021/11/30, 23:59
 ","2021/11/25, 23:59
-2021/11/25, 23:59
+","± 119.99 hours 
+","2021/11/21, 00:00-2021/11/30, 23:59
+2021/11/21, 00:00-2021/11/30, 23:59
+2021/11/21, 00:00-2021/11/30, 23:59
+2021/11/21, 00:00-2021/11/30, 23:59
+2021/11/21, 00:00-2021/11/30, 23:59
+2021/11/21, 00:00-2021/11/30, 23:59
+","2021/11/25, 23:59
 2021/11/25, 23:59
 2021/11/25, 23:59
 2021/11/25, 23:59
@@ -2178,9 +2100,8 @@ However, he pointed out that there is a possibility that two or three tropical c
 ± 119.99 hours 
 ± 119.99 hours 
 ± 119.99 hours 
-± 119.99 hours 
 "
-103,https://www.king5.com/article/news/local/disaster/washington-landslide-risk-map-dnr/281-5f3afa90-7ac1-43d1-a5d4-0331c1a76d76,DNR map shows if your home is in an area susceptible to landslides,2022-01-17 12:16:00-08:00,"A map developed by Washington state shows which areas are susceptible to landslides and where slides have occurred in the past.
+66,https://www.king5.com/article/news/local/disaster/washington-landslide-risk-map-dnr/281-5f3afa90-7ac1-43d1-a5d4-0331c1a76d76,DNR map shows if your home is in an area susceptible to landslides,2022-01-17 12:16:00-08:00,"A map developed by Washington state shows which areas are susceptible to landslides and where slides have occurred in the past.
 
 Example video title will go here for this video
 
@@ -2204,8 +2125,8 @@ The U.S. Geological Survey said that the safest areas from landslides are hard, 
 
 Homes and structures near sudden slope changes or at the top of ridges can be at an especially high risk of slides.
 
-There are actions people living in landslide-prone areas can take during a slide that could help save their life. Here’s what to do if you’re caught in a landslide:",West Seattle|Alki Beach|Seattle|Bellevue|Wilburton|Norwood Village|Beacon Hill,Alki Beach,47.59202000000005,-122.38237999999996,0.671,,,
-104,https://www.ctvnews.ca/world/landslides-in-western-india-kill-32-while-floods-trap-more-1.5520349,"Landslides, monsoon flooding kill over 100 in western India",2021-07-23 05:22:00-04:00,"NEW DELHI -
+There are actions people living in landslide-prone areas can take during a slide that could help save their life. Here’s what to do if you’re caught in a landslide:",West Seattle|Alki Beach|Seattle|Bellevue|Wilburton|Norwood Village|Beacon Hill,Alki Beach,47.59202000000005,-122.38237999999996,0.671,None,None,None,None,None,None
+67,https://www.ctvnews.ca/world/landslides-in-western-india-kill-32-while-floods-trap-more-1.5520349,"Landslides, monsoon flooding kill over 100 in western India",2021-07-23 05:22:00-04:00,"NEW DELHI -
 
 Landslides and flooding triggered by heavy monsoon rain hit parts of western India, killing more than 100 people, officials and news reports said Friday. More than 1,000 people trapped by floodwaters were rescued.
 
@@ -2251,4 +2172,4 @@ He added that the warming Arabian Sea is driving more cyclones and more intense 
 
 ------
 
-Associated Press writers Omer Farooq in Hyderabad, India, and Aniruddha Ghosal in New Delhi contributed to this report",Mumbai|Shivaji Nagar,Shivaji Nagar,25.89032000000003,85.98343000000006,9.8595,,,
+Associated Press writers Omer Farooq in Hyderabad, India, and Aniruddha Ghosal in New Delhi contributed to this report",Mumbai|Shivaji Nagar,Shivaji Nagar,25.89032000000003,85.98343000000006,9.8595,None,None,None,None,None,None

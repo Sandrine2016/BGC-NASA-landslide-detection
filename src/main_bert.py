@@ -193,7 +193,7 @@ def main():
         os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
     )
     final_df = remove_duplicates(filtered_reddit_articles_df, nasa_df)
-    final_df.to_csv(os.path.join(DATA_PATH, "output", "result_bert.csv"))
+    final_df.to_csv(os.path.join(DATA_PATH, "output", "results_bert.csv"))
 
 
 if __name__ == "__main__":

@@ -114,6 +114,8 @@ def get_final_result(original_data, loc, time):
     loc_results = loc.reset_index()
     original_data = original_data.merge(loc_results, on="index", how="left")
     original_data = original_data.merge(time, on="index", how="left")
-    original_data = original_data.drop(columns=["index", "id"])
+    original_data = original_data.drop(
+        columns=["index", "id"]
+    )
     original_data = check_duplicates.remove_duplicates(original_data, nasa)
-    original_data.to_csv(os.path.join(DATA_PATH, "output", "result.csv"))
+    original_data.to_csv(os.path.join(DATA_PATH, "output", "results.csv"))

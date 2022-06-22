@@ -113,7 +113,8 @@ def get_final_result(original_data, loc, time):
     original_data = original_data.reset_index()
     loc_results = loc.reset_index()
     original_data = original_data.merge(loc_results, on="index", how="left")
-    original_data = original_data.merge(time, on="index", how="left")
+    time = time.rename(columns={'index': "id"})
+    original_data = original_data.merge(time, on="id", how="left")
     original_data = original_data.drop(
         columns=["index", "id"]
     )

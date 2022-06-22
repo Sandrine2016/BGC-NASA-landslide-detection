@@ -29,7 +29,6 @@ def get_config_interval():
     """
     with open(os.path.join(MAIN_PATH, "config.json")) as f:
         config = json.load(f)
-
     if config["interval"]["default"] == "yes":
         log = []
         with open(os.path.join(MAIN_PATH, "history.log")) as f:
@@ -64,30 +63,31 @@ def get_config_interval():
 
 def main():
     # --------- Start by downloading data -----------
-
     start_date, end_date = get_config_interval()
-
     reddit_df = download_posts(start_date, end_date)
-    reddit_articles_df = add_articles_to_df(reddit_df)
-    filtered_reddit_articles_df = filter_negative_articles(
-        filter_articles(reddit_articles_df)
-    )
+    if len(reddit_df) != 0:
+        reddit_articles_df = add_articles_to_df(reddit_df)
+        filtered_reddit_articles_df = filter_negative_articles(
+            filter_articles(reddit_articles_df)
+        )
 
-    filtered_reddit_articles_df["article_publish_date"] = filtered_reddit_articles_df[
-        "article_publish_date"
-    ].map(lambda x: str(parser.parse(str(x)) if x and x == x else x))
+        filtered_reddit_articles_df["article_publish_date"] = filtered_reddit_articles_df[
+            "article_publish_date"
+        ].map(lambda x: str(parser.parse(str(x)) if x and x == x else x))
 
-    # --------- Predict using baseline models -----------
+        # --------- Predict using baseline models -----------
+        clean_data = data_processing.prepare_date(filtered_reddit_articles_df)
+        loc_results = loc.predict(clean_data)
+        time_results = time.get_final_result(clean_data, filtered_reddit_articles_df)
 
-    clean_data = data_processing.prepare_date(filtered_reddit_articles_df)
-    loc_results = loc.predict(clean_data)
-    time_results = time.get_final_result(clean_data, filtered_reddit_articles_df)
-
-    # --------- Filter final results and save -----------
-
-    data_processing.get_final_result(
-        filtered_reddit_articles_df, loc_results, time_results
-    )
+        # --------- Filter final results and save -----------
+        time_results.to_csv('time.csv')
+        filtered_reddit_articles_df.to_csv('or.csv')
+        data_processing.get_final_result(
+            filtered_reddit_articles_df, loc_results, time_results
+        )
+    else:
+        print('no new landslides')
 
 
 if __name__ == "__main__":

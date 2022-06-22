@@ -68,8 +68,9 @@ def download_posts(start_date=None, end_date=None):
             post.d_["keyword"] = keyword
         all_results.extend([post.d_ for post in keyword_results])
         print(f"keyword {keyword} downloaded with {len(keyword_results)}.")
-
-    df = get_filtered_df(all_results)
+    df = pd.DataFrame([])
+    if all_results:
+        df = get_filtered_df(all_results)
     df.to_csv(
         os.path.join(
             DATA_PATH,

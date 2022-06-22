@@ -133,6 +133,7 @@ def get_potential_duplicates(pred, gold):
             not pd.isnull(pred["article_publish_date"][i])
             and type(pred["article_publish_date"][i]) is str
             and pred["article_publish_date"][i] != "None"
+            and pred["article_publish_date"][i] != "NaT"
         ):
             date = parser.parse(pred["article_publish_date"][i])
             ids = data.query("event_date == @date").index.to_list()

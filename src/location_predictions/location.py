@@ -128,7 +128,7 @@ def get_radius(p1, p2):
 
 
 def get_lat_lng_radius(location_name):
-    """Get the latitude, longtitude and radius or a region"""
+    """Get the latitude, longitude and radius or a region"""
     lat, lng, radius = None, None, None
     geocoded = geocoder.arcgis(location_name).json
     if geocoded:

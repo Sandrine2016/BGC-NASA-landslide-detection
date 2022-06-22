@@ -176,7 +176,7 @@ def main():
     filtered_reddit_articles_df["landslide_trigger"] = preds_trigs
     filtered_reddit_articles_df["location"] = predicted_locations
     filtered_reddit_articles_df["latitude"] = lats
-    filtered_reddit_articles_df["longtitude"] = lngs
+    filtered_reddit_articles_df["longitude"] = lngs
     filtered_reddit_articles_df["radius_km"] = radius
     filtered_reddit_articles_df["interval_start"] = interval_starts
     filtered_reddit_articles_df["interval_end"] = interval_ends
@@ -187,7 +187,7 @@ def main():
     # --------- Filter final results and save -----------
 
     filtered_reddit_articles_df = filtered_reddit_articles_df.dropna(
-        subset=["location", "latitude", "longtitude", "interval_start", "interval_end"]
+        subset=["location", "latitude", "longitude", "interval_start", "interval_end"]
     )
     nasa_df = pd.read_csv(
         os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")

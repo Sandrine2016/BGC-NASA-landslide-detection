@@ -2,11 +2,11 @@
     "interval" : {
         "default" : "no",
         "start" : {
-            "date" : "2022-06-10"
+            "date" : "2022-05-11"
         },
         "end" : {
-            "now" : "yes",
-            "date" : "2022-06-15"
+            "now" : "no",
+            "date" : "2022-05-12"
         }
     }
 }

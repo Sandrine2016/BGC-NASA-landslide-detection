@@ -130,8 +130,8 @@ def phrase_normalization(data):
                     except:
                         date_time[row[1][0]] += "None" + "\n"
     date_intervals = pd.DataFrame.from_dict(date_time, orient="index").reset_index()
-    data["index"] = list(data["id"])
-    data = data.merge(date_intervals, on="index").rename(
+    date_intervals.rename(columns={"index": "id"}, inplace=True)
+    data = data.merge(date_intervals, on="id").rename(
         columns={0: "normalized_interval"}
     )
     return data
@@ -149,9 +149,9 @@ def id_interval_extraction(data):
         index = row[1][0]
         if index not in idx.keys():
             idx[index] = None
-        normilized_date = row[1][7]
+        normilized_date = row[1][6]
         if normilized_date:
-            idx[index] = row[1][7]
+            idx[index] = row[1][6]
     return idx
 
 
@@ -200,7 +200,7 @@ def descrete_date_plus_confidence(data):
     interval_to_normalize = defaultdict(str)
     potential_intervals = defaultdict(str)
     for row in data.iterrows():
-        intervals = [row[1][7]]
+        intervals = [row[1][6]]
         if intervals:
             intervals = intervals[0].split("\n")
             for interval in intervals:
@@ -241,31 +241,43 @@ def descrete_date_plus_confidence(data):
         .reset_index()
         .rename(columns={0: "discrete_date"})
     )
+    if len(discrete_date) == 0:
+        discrete_date['discrete_date'] = []
     potential_discrete_dates = (
         pd.DataFrame.from_dict(potential_discrete_dates, orient="index")
         .reset_index()
         .rename(columns={0: "potential_discrete_dates"})
     )
+    if len(potential_discrete_dates) == 0:
+        potential_discrete_dates['potential_discrete_dates'] = []
     confidence = (
         pd.DataFrame.from_dict(confidence, orient="index")
         .reset_index()
         .rename(columns={0: "confidence"})
     )
+    if len(confidence) == 0:
+        confidence['confidence'] = []
     interval_to_normalize = (
         pd.DataFrame.from_dict(interval_to_normalize, orient="index")
         .reset_index()
         .rename(columns={0: "interval_to_normalize"})
     )
+    if len(interval_to_normalize) == 0:
+        interval_to_normalize['interval_to_normalize'] = []
     potential_intervals = (
         pd.DataFrame.from_dict(potential_intervals, orient="index")
         .reset_index()
         .rename(columns={0: "potential_intervals"})
     )
+    if len(potential_intervals) == 0:
+        potential_intervals['potential_intervals'] = []
     potential_confidence = (
         pd.DataFrame.from_dict(potential_confidence, orient="index")
         .reset_index()
         .rename(columns={0: "potential_confidence"})
     )
+    if len(potential_confidence) == 0:
+        potential_confidence['potential_confidence'] = []
     intervals = id_interval_extraction(data)
     intervals = (
         pd.DataFrame.from_dict(intervals, orient="index")

@@ -311,7 +311,7 @@ def train_model(dataloader, model, optimizer):
     return total_loss
 
 
-def eval_model(dataloader, model, report=False):
+def eval_model(dataloader, model, report=False, device=DEVICE):
     model.eval()
 
     categories_gold = []
@@ -324,9 +324,9 @@ def eval_model(dataloader, model, report=False):
     for inputs, categories, triggers, spans, masks in tqdm(
         dataloader, total=len(dataloader)
     ):
-        inputs = inputs.to(DEVICE)
-        masks = masks.to(DEVICE)
-        spans = spans.to(DEVICE)
+        inputs = inputs.to(device)
+        masks = masks.to(device)
+        spans = spans.to(device)
 
         pred_categories, pred_triggers, pred_spans = model(
             input_ids=inputs, attention_mask=masks
@@ -401,7 +401,7 @@ def select_best_answer_span(start_probs, end_probs, distance, lengths=None):
     return spans
 
 
-def predict(model, text):
+def predict(model, text, device=DEVICE):
     if type(text) != list:
         text = [text]
 
@@ -410,8 +410,8 @@ def predict(model, text):
     masks = torch.tensor(result.attention_mask)
     model.eval()
 
-    inputs = inputs.to(DEVICE)
-    masks = masks.to(DEVICE)
+    inputs = inputs.to(device)
+    masks = masks.to(device)
 
     pred_categories, pred_triggers, pred_spans_logits = model(
         input_ids=inputs, attention_mask=masks

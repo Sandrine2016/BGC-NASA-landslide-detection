@@ -181,7 +181,7 @@ def drop_nasa_duplicates(pred, gold):
             data = data.assign(
                 distance_km=data.apply(
                     lambda x: get_distance2(
-                        x.latitude, x.longitude, x.gold_latitude, x.gold_longitude
+                        x.latitude, x.longtitude, x.gold_latitude, x.gold_longitude
                     ),
                     axis=1,
                 )

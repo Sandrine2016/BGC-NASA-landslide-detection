@@ -1,8 +1,14 @@
 import os
 import json
+import pickle
+
+import flair
 import pandas as pd
 from dateutil import parser
 from datetime import datetime
+
+from flair.models import SequenceTagger
+
 from location_predictions import location as loc, data_processing
 from time_normalizer import time_prediction as time
 from data_preprocessing import (
@@ -11,11 +17,16 @@ from data_preprocessing import (
     filter_negative_articles,
 )
 from reddit import download_posts
+from pathlib import Path
+import flair
+
+
 
 MAIN_PATH = os.path.join(
     os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))), os.pardir
 )
 
+MODEL_PATH = os.path.join(MAIN_PATH, "models")
 
 def get_config_interval():
     """
@@ -27,6 +38,7 @@ def get_config_interval():
     tuple
         (start_date, end_date)
     """
+
     with open(os.path.join(MAIN_PATH, "config.json")) as f:
         config = json.load(f)
     if config["interval"]["default"] == "yes":
@@ -63,6 +75,7 @@ def get_config_interval():
 
 def main():
     # --------- Start by downloading data -----------
+    model_tagger = SequenceTagger.load("ner-ontonotes-fast")
     start_date, end_date = get_config_interval()
     reddit_df = download_posts(start_date, end_date)
     if len(reddit_df) != 0:
@@ -76,13 +89,13 @@ def main():
         ].map(lambda x: str(parser.parse(str(x)) if x and x == x else x))
 
         # --------- Predict using baseline models -----------
-        clean_data = data_processing.prepare_date(filtered_reddit_articles_df)
+
+        clean_data = data_processing.prepare_date(filtered_reddit_articles_df, model_tagger)
+
         loc_results = loc.predict(clean_data)
         time_results = time.get_final_result(clean_data, filtered_reddit_articles_df)
 
         # --------- Filter final results and save -----------
-        time_results.to_csv('time.csv')
-        filtered_reddit_articles_df.to_csv('or.csv')
         data_processing.get_final_result(
             filtered_reddit_articles_df, loc_results, time_results
         )
@@ -91,4 +104,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()

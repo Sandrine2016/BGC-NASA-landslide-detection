@@ -20,7 +20,6 @@ MAIN_PATH = os.path.join(
 )
 DATA_PATH = os.path.join(MAIN_PATH, "data")
 MODEL_PATH = os.path.join(MAIN_PATH, "models")
-
 with open(os.path.join(MODEL_PATH, "landslide_lexicon.json")) as f:
     lexicon = json.load(f)
 

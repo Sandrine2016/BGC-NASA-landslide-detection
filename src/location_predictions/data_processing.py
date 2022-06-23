@@ -4,7 +4,7 @@ import pandas as pd
 from flair.data import Sentence
 import spacy as spacy
 from flair.models import SequenceTagger
-from src.location_predictions import check_duplicates
+from location_predictions import check_duplicates
 
 
 MAIN_PATH = os.path.join(
@@ -96,13 +96,14 @@ def get_test_data(df, tagger, nlp):
     )
 
 
-def prepare_date(df):
+def prepare_date(df, model):
     model_nlp = spacy.load("en_core_web_sm")
-    model_tagger = SequenceTagger.load("ner-ontonotes-fast")
+
+    print('sss')
     # non_dates = get_non_date(df)
     # df = update_date(df, non_dates, model_tagger)
 
-    clean_data = get_test_data(df, model_tagger, model_nlp)
+    clean_data = get_test_data(df, model, model_nlp)
     return clean_data
 
 
@@ -119,4 +120,6 @@ def get_final_result(original_data, loc, time):
         columns=["index", "id"]
     )
     original_data = check_duplicates.remove_duplicates(original_data, nasa)
+    print(os.path.join(DATA_PATH, "output", "results.csv"))
+    print(original_data)
     original_data.to_csv(os.path.join(DATA_PATH, "output", "results.csv"))

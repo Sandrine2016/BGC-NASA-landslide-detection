@@ -89,10 +89,11 @@ def main():
         ].map(lambda x: str(parser.parse(str(x)) if x and x == x else x))
 
         # --------- Predict using baseline models -----------
-
+        print('prepare clean data ...')
         clean_data = data_processing.prepare_date(filtered_reddit_articles_df, model_tagger)
-
+        print('get location information ...')
         loc_results = loc.predict(clean_data)
+        print('get rime information ...')
         time_results = time.get_final_result(clean_data, filtered_reddit_articles_df)
 
         # --------- Filter final results and save -----------

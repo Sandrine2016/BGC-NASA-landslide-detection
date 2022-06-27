@@ -47,12 +47,12 @@ def get_config_interval():
     tuple
         (start_date, end_date)
     """
-    with open(os.path.join(MAIN_PATH, "config.json")) as f:
+    with open(os.path.join(MAIN_PATH, "/files/config.json")) as f:
         config = json.load(f)
 
     if config["interval"]["default"] == "yes":
         log = []
-        with open(os.path.join(MAIN_PATH, "history.log")) as f:
+        with open(os.path.join(MAIN_PATH, "/files/history.log")) as f:
             for line in f:
                 log.append(parser.parse(line.strip().split("\t")[2]))
         if len(log) == 0:
@@ -76,7 +76,7 @@ def get_config_interval():
         else:
             end_date = datetime.now()
 
-    with open(os.path.join(MAIN_PATH, "history.log"), "a+") as f:
+    with open(os.path.join(MAIN_PATH, "/files/history.log"), "a+") as f:
         f.write("\t".join([str(datetime.now()), str(start_date), str(end_date)]) + "\n")
 
     return start_date, end_date
@@ -188,9 +188,10 @@ def main():
     nasa_df = pd.read_csv(
         os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
     )
+    filtered_reddit_articles_df.rename(columns={"longitude": "longtitude"}, inplace=True)
     final_df = remove_duplicates(filtered_reddit_articles_df, nasa_df)
-    final_df.to_csv(os.path.join(DATA_PATH, "output", "results_bert.csv"))
+    final_df.to_csv(os.path.join(MAIN_PATH, "/files/results_bert.csv"))
 
-
-if __name__ == "__main__":
-    main()
+#
+# if __name__ == "__main__":
+#     main()

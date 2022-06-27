@@ -99,7 +99,6 @@ def get_test_data(df, tagger, nlp):
 def prepare_date(df, model):
     model_nlp = spacy.load("en_core_web_sm")
 
-    print('sss')
     # non_dates = get_non_date(df)
     # df = update_date(df, non_dates, model_tagger)
 
@@ -120,6 +119,4 @@ def get_final_result(original_data, loc, time):
         columns=["index", "id"]
     )
     original_data = check_duplicates.remove_duplicates(original_data, nasa)
-    print(os.path.join(DATA_PATH, "output", "results.csv"))
-    print(original_data)
-    original_data.to_csv(os.path.join(DATA_PATH, "output", "results.csv"))
+    original_data.to_csv(os.path.join(MAIN_PATH, "/files/results.csv"))

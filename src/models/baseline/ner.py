@@ -3,9 +3,9 @@ from urllib.request import Request, urlopen
 import pandas as pd
 from flair.data import Sentence
 import spacy as spacy
-from flair.models import SequenceTagger
-from location_predictions import check_duplicates
-from pipeline_utils import format_column_nasa_format
+# from flair.models import SequenceTagger
+# from extraction. import check_duplicates
+# from pipeline_utils import format_column_nasa_format
 
 
 MAIN_PATH = os.path.join(
@@ -123,27 +123,27 @@ def merge_locs_dates(data):
     return data
 
 
-def get_final_result(original_data, loc, time):
-    nasa = pd.read_csv(
-        os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
-    )
-    original_data = original_data.reset_index()
-    loc_results = loc.reset_index()
-    original_data = original_data.merge(loc_results, on="index", how="left")
-    time = time.rename(columns={"index": "id"})
-    original_data = original_data.merge(time, on="id", how="left")
-    original_data["discrete_date"] = original_data["discrete_date"].map(
-        lambda x: None
-        if not x or x != x or x == "None" or x == "NaT" or len(x) < 5
-        else x
-    )
-    original_data = original_data.dropna(
-        subset=["location", "latitude", "longitude", "discrete_date"]
-    )
-    original_data = original_data.drop(columns=["index", "id"])
-    original_data = format_column_nasa_format(
-        check_duplicates.remove_duplicates(original_data, nasa)
-    )
-    print(os.path.join(DATA_PATH, "output", "results.csv"))
-    print(original_data)
-    original_data.to_csv(os.path.join(DATA_PATH, "output", "results.csv"))
+# def get_final_result(original_data, loc, time):
+#     nasa = pd.read_csv(
+#         os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
+#     )
+#     original_data = original_data.reset_index()
+#     loc_results = loc.reset_index()
+#     original_data = original_data.merge(loc_results, on="index", how="left")
+#     time = time.rename(columns={"index": "id"})
+#     original_data = original_data.merge(time, on="id", how="left")
+#     original_data["discrete_date"] = original_data["discrete_date"].map(
+#         lambda x: None
+#         if not x or x != x or x == "None" or x == "NaT" or len(x) < 5
+#         else x
+#     )
+#     original_data = original_data.dropna(
+#         subset=["location", "latitude", "longitude", "discrete_date"]
+#     )
+#     original_data = original_data.drop(columns=["index", "id"])
+#     original_data = format_column_nasa_format(
+#         check_duplicates.remove_duplicates(original_data, nasa)
+#     )
+#     print(os.path.join(DATA_PATH, "output", "results.csv"))
+#     print(original_data)
+#     original_data.to_csv(os.path.join(DATA_PATH, "output", "results.csv"))

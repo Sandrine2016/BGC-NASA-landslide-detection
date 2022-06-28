@@ -120,7 +120,7 @@ def filter_articles_by_lang(df, lang="en"):
     return df[df["lang"] == lang]
 
 
-def filter_articles(df):
+def filter_invalid_articles(df):
     """
     Filters articles by removing duplicate, checking for lexicon keywords
     and checking for language.

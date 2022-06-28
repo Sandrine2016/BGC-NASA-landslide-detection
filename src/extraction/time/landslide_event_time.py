@@ -25,4 +25,4 @@ class LandslideEventTime:
                     self.interval_start = interval[0]
                     self.interval_end = interval[1]
                     self.discrete_date = discrete_date
-                    self.confidence = confidence
+                    self.confidence = np.abs(confidence)

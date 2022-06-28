@@ -784,6 +784,14 @@ def get_discrete_date_and_confidence(date_start, date_end):
         return None, None
 
 
+def str_to_datetime(text):
+    try:
+        datetime_text = parser.parse(text)
+        return datetime_text
+    except parser.ParserError:
+        return None
+
+
 def time_date_normalization(phrase, date_string):
 
     phrase = phrase.replace(": ", ":").replace(" :", ":")

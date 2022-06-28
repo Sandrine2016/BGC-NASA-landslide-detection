@@ -16,6 +16,7 @@ from transformers import AutoTokenizer, AutoModel
 from sklearn.metrics import accuracy_score, f1_score, classification_report
 from sklearn.model_selection import train_test_split
 
+from extraction.time import time
 from extraction.casualties import casualties
 from extraction.time.landslide_event_time import LandslideEventTime
 from extraction.location.landslide_event_location import LandslideEventLocation
@@ -25,7 +26,7 @@ MAIN_PATH = os.path.join(
     os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
     os.pardir,
     os.pardir,
-    os.pardir
+    os.pardir,
 )
 MODEL_PATH = os.path.join(MAIN_PATH, "models")
 
@@ -459,6 +460,7 @@ def get_batch(iterable, n=1):
     for ndx in range(0, l, n):
         yield iterable[ndx : min(ndx + n, l)]
 
+
 class CPU_Unpickler(pickle.Unpickler):
     def find_class(self, module, name):
         if module == "torch.storage" and name == "_load_from_bytes":
@@ -473,7 +475,8 @@ def predict(article_df):
     extractions = []
 
     articles = article_df["article_text"].to_numpy().tolist()
-    publication_dates = article_df["article_publish_date"].to_numpy().tolist()
+    publication_dates = article_df["article_publish_date"].astype(str).to_numpy()
+    publication_dates = list(map(time.str_to_datetime, publication_dates))
 
     with open(
         os.path.join(MODEL_PATH, "landslide_detection-QA-2-epoch_2-40.model"), "rb"
@@ -486,7 +489,9 @@ def predict(article_df):
         for batch in tqdm(
             get_batch(articles, BATCH_SIZE), total=round(len(articles) / BATCH_SIZE)
         ):
-            batch_categories, batch_triggers, batch_extractions = predict_batch(model, batch)
+            batch_categories, batch_triggers, batch_extractions = predict_batch(
+                model, batch
+            )
             categories.extend(batch_categories)
             triggers.extend(batch_triggers)
             for i, extracted_entities in enumerate(batch_extractions):
@@ -498,8 +503,7 @@ def predict(article_df):
     event_casualties = [casualties.format_num(n) for n in extractions[SPAN_L2ID["CAS"]]]
 
     event_locations = Parallel(n_jobs=-1, verbose=1)(
-        delayed(LandslideEventLocation)([location])
-        for location in extracted_locations
+        delayed(LandslideEventLocation)([location]) for location in extracted_locations
     )
 
     event_times = []
@@ -507,7 +511,6 @@ def predict(article_df):
         time_phrases = [extracted_dates[i], extracted_times[i]]
         publication_date = publication_dates[i]
         event_times.append(LandslideEventTime(time_phrases, publication_date))
-
 
     return (
         event_locations,

@@ -4,9 +4,13 @@ import numpy as np
 from joblib import Parallel, delayed
 from flair.models import SequenceTagger
 from nltk.tokenize.regexp import RegexpTokenizer
+
+from extraction.time import time
 from extraction.casualties import casualties
 from extraction.time.landslide_event_time import LandslideEventTime
 from extraction.location.landslide_event_location import LandslideEventLocation
+
+from models.baseline import ner
 
 
 TOKENIZER = RegexpTokenizer("\w+|\$[\d\.]+|\S+")
@@ -15,7 +19,7 @@ MAIN_PATH = os.path.join(
     os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
     os.pardir,
     os.pardir,
-    os.pardir
+    os.pardir,
 )
 MODEL_PATH = os.path.join(MAIN_PATH, "models")
 
@@ -59,14 +63,14 @@ def extract_casualties(text):
 
 
 def is_time_sentence_invalid(row):
-    if type(row["DATE"]) != float or type(row["TIME"]) != float:
+    if row["dates"] and len(row["dates"]) > 3:
         return True
     else:
         return False
 
 
 def is_location_sentence_invalid(row):
-    if type(row["GPE"]) != float or type(row["LOC"]) != float:
+    if row["locations"] and len(row["locations"]) > 3:
         return True
     else:
         return False
@@ -136,23 +140,29 @@ def predict_casualties(texts):
 
 
 def predict_datetimes(sentence_df, publication_dates):
-    predicted_event_times = [None] * sentence_df.groupby("id").size()
+    predicted_event_times = []
+    id2idx = dict()
+    for i, id in enumerate(sentence_df.groupby("id")["id"].size().index):
+        id2idx[id] = i
+        predicted_event_times.append(None)
 
     with open(os.path.join(MODEL_PATH, "date_time.model"), "rb") as f:
         model = pickle.load(f)
 
-    time_probs = model.predict_proba(sentence_df["text"])[:, 1]
+    time_probs = model.predict_proba(sentence_df)[:, 1]
 
     sentence_df["time_sentence_is_positive_confidence"] = time_probs
-    sentence_df = sentence_df[sentence_df.apply(is_time_sentence_invalid)].copy()
     sentence_df = sentence_df[
+        sentence_df.apply(is_time_sentence_invalid, axis=1)
+    ].copy().reset_index(drop=True)
+    sentence_df = sentence_df.iloc[
         sentence_df.groupby("id")["time_sentence_is_positive_confidence"].idxmax()
     ].copy()
 
     for idx in range(sentence_df.shape[0]):
         phrases = sentence_df["dates"].iloc[idx].split("|")
-        publication_date = publication_dates(sentence_df["id"].iloc[idx])
-        predicted_event_times[sentence_df["id"].iloc[idx]] = LandslideEventTime(
+        publication_date = publication_dates[id2idx[sentence_df["id"].iloc[idx]]]
+        predicted_event_times[id2idx[sentence_df["id"].iloc[idx]]] = LandslideEventTime(
             phrases, publication_date
         )
 
@@ -160,16 +170,23 @@ def predict_datetimes(sentence_df, publication_dates):
 
 
 def predict_locations(sentence_df):
-    predicted_event_locations = [None] * sentence_df.groupby("id").size()
+    predicted_event_locations = []
+    id2idx = dict()
+    for i, id in enumerate(sentence_df.groupby("id")["id"].size().index):
+        id2idx[id] = i
+        predicted_event_locations.append(None)
+
     with open(os.path.join(MODEL_PATH, "location.model"), "rb") as f:
         model = pickle.load(f)
 
     location_probs = model.predict_proba(sentence_df["text"])[:, 1]
 
-    sentence_df["time_sentence_is_positive_confidence"] = location_probs
-    sentence_df = sentence_df[sentence_df.apply(is_location_sentence_invalid)].copy()
+    sentence_df["location_sentence_is_positive_confidence"] = location_probs
     sentence_df = sentence_df[
-        sentence_df.groupby("id")["time_sentence_is_positive_confidence"].idxmax()
+        sentence_df.apply(is_location_sentence_invalid, axis=1)
+    ].copy().reset_index(drop=True)
+    sentence_df = sentence_df.iloc[
+        sentence_df.groupby("id")["location_sentence_is_positive_confidence"].idxmax()
     ].copy()
 
     locations_candidates = sentence_df["locations"].to_numpy()
@@ -178,20 +195,22 @@ def predict_locations(sentence_df):
         for locations in locations_candidates
     )
 
-    for id, event_location in zip(sentence_df["id"].to_numpy(), extracted_event_locations):
-        predicted_event_locations[id] = event_location
+    for id, event_location in zip(
+        sentence_df["id"].to_numpy(), extracted_event_locations
+    ):
+        predicted_event_locations[id2idx[id]] = event_location
 
     return predicted_event_locations
 
 
 def predict(article_df):
     model_tagger = SequenceTagger.load("ner-ontonotes-fast")
-    sentence_df = data_processing.prepare_date(article_df, model_tagger)
-
-    sentence_df = data_processing.merge_locs_dates(sentence_df)
+    sentence_df = ner.prepare_date(article_df, model_tagger)
+    sentence_df = ner.merge_locs_dates(sentence_df)
 
     articles = article_df["article_text"].to_numpy().tolist()
-    publication_dates = article_df["article_publish_date"].to_numpy().tolist()
+    publication_dates = article_df["article_publish_date"].astype(str).to_numpy()
+    publication_dates = list(map(time.str_to_datetime, publication_dates))
 
     event_locations = predict_locations(sentence_df)
     event_times = predict_datetimes(sentence_df, publication_dates)
@@ -199,10 +218,4 @@ def predict(article_df):
     categories = predict_categories(articles)
     triggers = predict_triggers(articles)
 
-    return (
-        event_locations,
-        event_times,
-        casualties,
-        categories,
-        triggers
-    )
+    return (event_locations, event_times, casualties, categories, triggers)

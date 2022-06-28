@@ -12,11 +12,11 @@ def get_config_interval():
         (start_date, end_date)
     """
 
-    with open(os.path.join(MAIN_PATH, "config.json")) as f:
+    with open(os.path.join(MAIN_PATH, "/files/config.json")) as f:
         config = json.load(f)
     if config["interval"]["default"] == "yes":
         log = []
-        with open(os.path.join(MAIN_PATH, "history.log")) as f:
+        with open(os.path.join(MAIN_PATH, "/files/history.log")) as f:
             for line in f:
                 log.append(parser.parse(line.strip().split("\t")[2]))
         if len(log) == 0:
@@ -40,7 +40,7 @@ def get_config_interval():
         else:
             end_date = datetime.now()
 
-    with open(os.path.join(MAIN_PATH, "history.log"), "a+") as f:
+    with open(os.path.join(MAIN_PATH, "/files/history.log"), "a+") as f:
         f.write("\t".join([str(datetime.now()), str(start_date), str(end_date)]) + "\n")
 
     return start_date, end_date

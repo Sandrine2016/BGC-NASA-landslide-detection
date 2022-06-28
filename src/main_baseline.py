@@ -93,7 +93,7 @@ def main():
         clean_data = data_processing.prepare_date(filtered_reddit_articles_df, model_tagger)
         print('get location information ...')
         loc_results = loc.predict(clean_data)
-        print('get rime information ...')
+        print('get time information ...')
         time_results = time.get_final_result(clean_data, filtered_reddit_articles_df)
 
         # --------- Filter final results and save -----------

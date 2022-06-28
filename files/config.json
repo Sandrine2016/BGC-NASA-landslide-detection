@@ -6,7 +6,11 @@
         },
         "end" : {
             "now" : "no",
-            "date" : "2022-04-20"
+            "date" : "2022-04-21"
         }
+    },
+    "model" : {
+        "baseline" : "yes",
+        "multitask" : "yes"
     }
 }

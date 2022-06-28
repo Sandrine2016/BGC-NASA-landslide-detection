@@ -12,7 +12,18 @@ class CPU_Unpickler(pickle.Unpickler):
         else:
             return super().find_class(module, name)
 
+MAIN_PATH = os.path.join(
+    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))), os.pardir
+)
+
 
 if __name__ == "__main__":
-    main_bert.main()
-    main_baseline.main()
+    with open(os.path.join(MAIN_PATH, "/files/config.json")) as f:
+        config = json.load(f)
+    if config["model"] == "both":
+        main_bert.main()
+        main_baseline.main()
+    elif config["model"] == "bert":
+        main_bert.main()
+    else:
+        main_baseline.main()

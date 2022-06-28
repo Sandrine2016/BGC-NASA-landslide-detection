@@ -100,10 +100,6 @@ def get_test_data(df, tagger, nlp):
 def prepare_date(df, model):
     model_nlp = spacy.load("en_core_web_sm")
 
-<<<<<<< HEAD:src/models/baseline/ner.py
-    print("sss")
-=======
->>>>>>> a7efe5e3bd6edb58dc654a32b8015c14e8cb06e4:src/location_predictions/data_processing.py
     # non_dates = get_non_date(df)
     # df = update_date(df, non_dates, model_tagger)
 
@@ -111,7 +107,6 @@ def prepare_date(df, model):
     return clean_data
 
 
-<<<<<<< HEAD:src/models/baseline/ner.py
 def merge_locs_dates(data):
     """Fill NAs and merge location/date columns"""
     data = data.fillna("")  # replace NAN with empty string
@@ -151,19 +146,3 @@ def merge_locs_dates(data):
 #     print(os.path.join(DATA_PATH, "output", "results.csv"))
 #     print(original_data)
 #     original_data.to_csv(os.path.join(DATA_PATH, "output", "results.csv"))
-=======
-def get_final_result(original_data, loc, time):
-    nasa = pd.read_csv(
-        os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
-    )
-    original_data = original_data.reset_index()
-    loc_results = loc.reset_index()
-    original_data = original_data.merge(loc_results, on="index", how="left")
-    time = time.rename(columns={'index': "id"})
-    original_data = original_data.merge(time, on="id", how="left")
-    original_data = original_data.drop(
-        columns=["index", "id"]
-    )
-    original_data = check_duplicates.remove_duplicates(original_data, nasa)
-    original_data.to_csv(os.path.join(MAIN_PATH, "/files/results.csv"))
->>>>>>> a7efe5e3bd6edb58dc654a32b8015c14e8cb06e4:src/location_predictions/data_processing.py

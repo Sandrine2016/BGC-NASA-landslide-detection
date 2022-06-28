@@ -1,29 +1,27 @@
-import main_bert
-import main_baseline
-import io
-import pickle
-from bert_utils import *
+import os
+import config
+from data import data
+from models.baseline import baseline
+from models.multitask import multitask
+from models.multitask.multitask import LandslideEventsClassifier
+from models.multitask.multitask import LandslideEventsLabelClassifier
+from models.multitask.multitask import LandslideEventsSpanClassifier
 
 
-class CPU_Unpickler(pickle.Unpickler):
-    def find_class(self, module, name):
-        if module == "torch.storage" and name == "_load_from_bytes":
-            return lambda b: torch.load(io.BytesIO(b), map_location="cpu")
-        else:
-            return super().find_class(module, name)
+def main():
+    start_date, end_date = config.get_interval()
+    articles_df = data.get_articles_df(start_date, end_date)
 
-MAIN_PATH = os.path.join(
-    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))), os.pardir
-)
+    if config.is_running_baseline():
+        predictions = baseline.predict(articles_df)
+        output_df = data.get_formatted_output_df(articles_df, predictions)
+        output_df.to_csv(os.path.join(config.user_path, "baseline_results.csv"))
+    
+    if config.is_running_multitask():
+        predictions = multitask.predict(articles_df)
+        output_df = data.get_formatted_output_df(articles_df, predictions)
+        output_df.to_csv(os.path.join(config.user_path, "multitask_results.csv"))
 
 
 if __name__ == "__main__":
-    with open(os.path.join(MAIN_PATH, "/files/config.json")) as f:
-        config = json.load(f)
-    if config["model"] == "both":
-        main_bert.main()
-        main_baseline.main()
-    elif config["model"] == "bert":
-        main_bert.main()
-    else:
-        main_baseline.main()
+    main()

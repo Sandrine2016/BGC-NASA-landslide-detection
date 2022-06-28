@@ -1,8 +1,8 @@
 import os
 import pickle
 import numpy as np
+import config
 from joblib import Parallel, delayed
-from flair.models import SequenceTagger
 from nltk.tokenize.regexp import RegexpTokenizer
 
 from extraction.time import time
@@ -14,15 +14,6 @@ from models.baseline import ner
 
 
 TOKENIZER = RegexpTokenizer("\w+|\$[\d\.]+|\S+")
-
-MAIN_PATH = os.path.join(
-    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
-    os.pardir,
-    os.pardir,
-    os.pardir,
-)
-MODEL_PATH = os.path.join(MAIN_PATH, "models")
-
 
 def extract_casualties(text):
     """
@@ -90,7 +81,7 @@ def predict_categories(texts):
     list(str)
         list of categories
     """
-    with open(os.path.join(MODEL_PATH, "category.model"), "rb") as f:
+    with open(os.path.join(config.model_path, "category.model"), "rb") as f:
         model = pickle.load(f)
 
     categories = model.predict(texts)
@@ -112,7 +103,7 @@ def predict_triggers(texts):
     list(str)
         list of triggers
     """
-    with open(os.path.join(MODEL_PATH, "trigger.model"), "rb") as f:
+    with open(os.path.join(config.model_path, "trigger.model"), "rb") as f:
         model = pickle.load(f)
 
     triggers = model.predict(texts)
@@ -144,9 +135,9 @@ def predict_datetimes(sentence_df, publication_dates):
     id2idx = dict()
     for i, id in enumerate(sentence_df.groupby("id")["id"].size().index):
         id2idx[id] = i
-        predicted_event_times.append(None)
+        predicted_event_times.append(LandslideEventTime([], ""))
 
-    with open(os.path.join(MODEL_PATH, "date_time.model"), "rb") as f:
+    with open(os.path.join(config.model_path, "date_time.model"), "rb") as f:
         model = pickle.load(f)
 
     time_probs = model.predict_proba(sentence_df)[:, 1]
@@ -174,9 +165,9 @@ def predict_locations(sentence_df):
     id2idx = dict()
     for i, id in enumerate(sentence_df.groupby("id")["id"].size().index):
         id2idx[id] = i
-        predicted_event_locations.append(None)
+        predicted_event_locations.append(LandslideEventLocation([]))
 
-    with open(os.path.join(MODEL_PATH, "location.model"), "rb") as f:
+    with open(os.path.join(config.model_path, "location.model"), "rb") as f:
         model = pickle.load(f)
 
     location_probs = model.predict_proba(sentence_df["text"])[:, 1]
@@ -204,9 +195,7 @@ def predict_locations(sentence_df):
 
 
 def predict(article_df):
-    model_tagger = SequenceTagger.load("ner-ontonotes-fast")
-    sentence_df = ner.prepare_date(article_df, model_tagger)
-    sentence_df = ner.merge_locs_dates(sentence_df)
+    sentence_df = ner.get_NER_sentences(article_df)
 
     articles = article_df["article_text"].to_numpy().tolist()
     publication_dates = article_df["article_publish_date"].astype(str).to_numpy()

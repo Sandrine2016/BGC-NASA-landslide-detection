@@ -14,15 +14,10 @@ from gensim.models import TfidfModel
 from gensim.corpora import Dictionary
 from gensim.matutils import corpus2csc, cossim, any2sparse
 
+import config
 
-MAIN_PATH = os.path.join(
-    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
-    os.pardir,
-    os.pardir,
-)
-DATA_PATH = os.path.join(MAIN_PATH, "data")
-MODEL_PATH = os.path.join(MAIN_PATH, "models")
-with open(os.path.join(MODEL_PATH, "landslide_lexicon.json")) as f:
+
+with open(os.path.join(config.model_path, "landslide_lexicon.json")) as f:
     lexicon = json.load(f)
 
 POSITIVE_LEXICON = lexicon["positive"]
@@ -110,7 +105,7 @@ def filter_articles_by_lang(df, lang="en"):
     Pandas.DataFrame
         filtered dataframe
     """
-    lang_model = fasttext.load_model(os.path.join(MODEL_PATH, "lid.176.bin"))
+    lang_model = fasttext.load_model(os.path.join(config.model_path, "lid.176.bin"))
     pred, prob = lang_model.predict(
         df["text"].str.replace("\n", " ").to_numpy().tolist()
     )
@@ -350,10 +345,12 @@ def filter_negative_articles(df):
         filtered dataframe.
     """
     dictionary = Dictionary.load_from_text(
-        os.path.join(MODEL_PATH, "gensim_dictionary.txt")
+        os.path.join(config.model_path, "gensim_dictionary.txt")
     )
-    tfidf_model = TfidfModel.load(os.path.join(MODEL_PATH, "landslide_tfidf.model"))
-    with open(os.path.join(MODEL_PATH, "landslide_tfidf.vec"), "rb") as f:
+    tfidf_model = TfidfModel.load(
+        os.path.join(config.model_path, "landslide_tfidf.model")
+    )
+    with open(os.path.join(config.model_path, "landslide_tfidf.vec"), "rb") as f:
         tfidf_vector = pickle.load(f)
 
     df["similarity"] = df.apply(

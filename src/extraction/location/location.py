@@ -1,6 +1,3 @@
-import os
-import pickle
-
 import math
 import pandas as pd
 import numpy as np
@@ -12,14 +9,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import classification_report
 import geocoder
 import geopy.distance
-
-
-MAIN_PATH = os.path.join(
-    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
-    os.pardir,
-    os.pardir,
-)
-MODEL_PATH = os.path.join(MAIN_PATH, "models")
 
 
 def get_distance(p1, p2):

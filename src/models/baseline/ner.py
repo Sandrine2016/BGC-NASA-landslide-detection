@@ -1,20 +1,10 @@
 import os
+import config
 from urllib.request import Request, urlopen
 import pandas as pd
 from flair.data import Sentence
+from flair.models import SequenceTagger
 import spacy as spacy
-# from flair.models import SequenceTagger
-# from extraction. import check_duplicates
-# from pipeline_utils import format_column_nasa_format
-
-
-MAIN_PATH = os.path.join(
-    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
-    os.pardir,
-    os.pardir,
-)
-DATA_PATH = os.path.join(MAIN_PATH, "data")
-
 
 def get_non_date(df):
     non_dates = []
@@ -51,7 +41,7 @@ def update_date(df, non_date_lst, tagger):
     return df
 
 
-def get_test_data(df, tagger, nlp):
+def predict_sentences(df, tagger, sentencizer):
     GPE = []
     LOC = []
     DATE = []
@@ -60,7 +50,7 @@ def get_test_data(df, tagger, nlp):
     SENTENCE = []
     for idx, row in df.iterrows():
         if type(row["article_text"]) != float:
-            for sent in nlp(row["article_text"]).sents:
+            for sent in sentencizer(row["article_text"]).sents:
                 sub_sent = sent.text.strip()
                 if sub_sent:
                     sentence = Sentence(sub_sent)
@@ -97,14 +87,20 @@ def get_test_data(df, tagger, nlp):
     )
 
 
-def prepare_date(df, model):
-    model_nlp = spacy.load("en_core_web_sm")
+def get_NER_sentences(df):
+    ner_model = SequenceTagger.load("ner-ontonotes-fast")
+    sentence_model = spacy.load(
+        "en_core_web_sm",
+        disable=["tok2vec", "tagger", "parser", "attribute_ruler", "lemmatizer", "ner"],
+    )
+    sentence_model.enable_pipe("senter")
 
     # non_dates = get_non_date(df)
     # df = update_date(df, non_dates, model_tagger)
 
-    clean_data = get_test_data(df, model, model_nlp)
-    return clean_data
+    sentences = predict_sentences(df, ner_model, sentence_model)
+    sentences = merge_locs_dates(sentences)
+    return sentences
 
 
 def merge_locs_dates(data):
@@ -121,28 +117,3 @@ def merge_locs_dates(data):
     )  # keep only the joined column
     return data
 
-
-# def get_final_result(original_data, loc, time):
-#     nasa = pd.read_csv(
-#         os.path.join(DATA_PATH, "nasa", "nasa_global_landslide_catalog_point.csv")
-#     )
-#     original_data = original_data.reset_index()
-#     loc_results = loc.reset_index()
-#     original_data = original_data.merge(loc_results, on="index", how="left")
-#     time = time.rename(columns={"index": "id"})
-#     original_data = original_data.merge(time, on="id", how="left")
-#     original_data["discrete_date"] = original_data["discrete_date"].map(
-#         lambda x: None
-#         if not x or x != x or x == "None" or x == "NaT" or len(x) < 5
-#         else x
-#     )
-#     original_data = original_data.dropna(
-#         subset=["location", "latitude", "longitude", "discrete_date"]
-#     )
-#     original_data = original_data.drop(columns=["index", "id"])
-#     original_data = format_column_nasa_format(
-#         check_duplicates.remove_duplicates(original_data, nasa)
-#     )
-#     print(os.path.join(DATA_PATH, "output", "results.csv"))
-#     print(original_data)
-#     original_data.to_csv(os.path.join(DATA_PATH, "output", "results.csv"))

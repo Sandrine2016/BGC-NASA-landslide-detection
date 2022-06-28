@@ -861,30 +861,23 @@ def time_date_normalization(phrase, date_string):
         and season
         and week
     ):
-        #         print(0)
         date_start, date_end = time_interval_with_number_of_days(phrase, date_string)
 
     elif between_in_phrase and (
         month_name or month_in_phrase or year or season or day_time
     ):
-        #         print(1)
         date_start, date_end = between_phrase(phrase, date_string)
 
     elif weekend == True and (month_in_phrase or month_name):
-        #         print(2)
         date_start, date_end = weekend_month(phrase, date_string)
 
     elif week == True and (month_in_phrase or month_name):
-        #         print(3)
         date_start, date_end = week_month(phrase, date_string)
 
     elif weekday or day_time:
-        #         print(4)
         date_start, date_end = days_time_triplet(phrase, date_string)
-        #         print(date_start, date_end)
 
     elif month_in_phrase or month_name:
-        #         print(5)
         date_start, date_end = month_parsing(phrase, date_string)
 
     elif weekend_in_phrase and not (
@@ -899,7 +892,6 @@ def time_date_normalization(phrase, date_string):
         and year
         and season
     ):
-        #         print(6)
         date_start, date_end = weekend(phrase, date_string)
 
     elif week_in_phrase and not (
@@ -914,7 +906,6 @@ def time_date_normalization(phrase, date_string):
         and year
         and season
     ):
-        #         print(7)
         date_start, date_end = week(phrase, date_string)
 
     elif season and not (
@@ -929,15 +920,12 @@ def time_date_normalization(phrase, date_string):
         and year
         and week
     ):
-        #         print(8)
         date_start, date_end = seasons_interval(phrase, date_string)
 
     elif year and number_of_years == 1:
-        #         print(9)
         date_start, date_end = specific_year(phrase)
 
     elif vague_phrase:
-        #         print(10)
         date_start, date_end = years_interval(phrase, date_string)
 
     if exact_time:
@@ -966,58 +954,3 @@ def time_date_normalization(phrase, date_string):
             return date_start, date_end
         else:
             return None, None
-    # if date_start and parse(date_string):
-    #     if date_start > parse(date_string):
-    #         return None, None
-    #     if date_end > parse(date_string) and date_start <= parse(date_string):
-    #         return datetime.combine(date_start, datetime.min.time()), parse(
-    #             date_string) + one_day_delta - delta_to_subtract
-    # else:
-    #     return None, None
-    # return datetime.combine(date_start, datetime.min.time()), date_end
-
-
-# c = Normalizer()
-# c.time_date_normalization('last weekend this April', '2022-06-06')
-#
-
-# print('Between phrase: ')
-# print(time_date_normalization('between last evening and last night', '2022-06-06'))
-# print('Weekend + month: ')
-# print(time_date_normalization('last weekend this April', '2022-06-06'))
-# print(time_date_normalization('last weekend last April', '2022-06-06'))
-# print('Week + month: ')
-# print(time_date_normalization('second week last April', '2022-06-06'))
-# print('Week day + day time: ')
-# print(time_date_normalization('late Saturday evening', '2022-06-07'))
-# print(time_date_normalization('last October', '2022-06-07'))
-# print(time_date_normalization('last weekend', '2022-06-07'))
-# print(time_date_normalization('last week', '2022-06-07'))
-# print(time_date_normalization('this week', '2022-06-07'))
-# print('Seasons: ')
-# print(time_date_normalization("this winter", '2022-06-06'))
-# print(time_date_normalization("this summer", '2022-06-06'))
-# print('Weekday + time / precise date: ')
-# print(time_date_normalization("Monday", '2022-06-08'))
-# print(time_date_normalization("4 pm Monday", '2022-06-08'))
-# print('----')
-# print(time_date_normalization("3:30 am", '2015-06-22T14:30:00'))
-# print(time_date_normalization("3:30 am today", '2015-06-21'))
-# print(time_date_normalization("Dec 15", '2022-06-08'))
-# print(time_date_normalization("4 pm Dec 15", '2022-06-08'))
-# print(time_date_normalization("4 pm", '2022-06-08'))
-# print(time_date_normalization("yesterday", '2022-06-08'))
-# print(time_date_normalization("today", '2022-06-08'))
-# print(time_date_normalization("weekend", '2022-06-08'))
-# print('Years: ')
-# print(time_date_normalization("in 2010", '2022-06-08'))
-# print(time_date_normalization("in 2022", '2022-06-08'))
-# print(time_date_normalization("several months ago", '2022-06-08'))
-# print(time_date_normalization("some days ago", '2022-06-08'))
-# print(time_date_normalization("a couple of years ago", '2022-06-08'))
-# print(time_date_normalization("several years ago", '2022-06-08'))
-# print(time_date_normalization("evening", '2014-11-07 16:45:00+05:30'))
-# print(time_date_normalization("last evening", '2014-11-07 16:45:00'))
-# print(time_date_normalization("friday", '2015-08-22T14:30:00'))
-# print(time_date_normalization("3 : 30 am today", '2015-06-24T14:30:00'))
-# print(time_date_normalization("next week", '2015-06-24T14:30:00'))

@@ -9,16 +9,9 @@ import pandas as pd
 import datetime as dt
 from psaw import PushshiftAPI
 
-MAIN_PATH = os.path.join(
-    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
-    os.pardir,
-    os.pardir,
-    os.pardir
-)
-DATA_PATH = os.path.join(MAIN_PATH, "data")
-MODEL_PATH = os.path.join(MAIN_PATH, "models")
+import config
 
-with open(os.path.join(MODEL_PATH, "landslide_lexicon.json")) as f:
+with open(os.path.join(config.model_path, "landslide_lexicon.json")) as f:
     lexicon = json.load(f)
 
 POSITIVE_LEXICON = lexicon["positive"]
@@ -76,7 +69,7 @@ def download_posts(start_date=None, end_date=None):
         df = get_filtered_df(all_results)
     df.to_csv(
         os.path.join(
-            DATA_PATH,
+            config.data_path,
             "reddit",
             f"reddit-{str(start_date.date()) if start_date else ''}-{str(end_date.date()) if end_date else ''}.csv",
         ),

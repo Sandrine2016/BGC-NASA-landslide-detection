@@ -1,11 +1,9 @@
 import pandas as pd
 from collections import defaultdict
-import geocoder
-import geopy.distance
-import math
 from datetime import datetime
 from dateutil import parser
 
+from extraction.location import location
 
 
 def get_nasa_db_radius(accuracy):
@@ -21,15 +19,14 @@ def get_nasa_db_radius(accuracy):
     return output
 
 
-
 def drop_predicted_duplicates(df):
     """Drop rows where both date, loc are empty or duplicated"""
     idxs = df.query(
-        "discrete_date != discrete_date & location != location"
+        "event_date != event_date & location_description != location_description"
     ).index.to_list()
     if idxs:
         df = df.drop(idxs, axis=0)
-    df = df.drop_duplicates(subset=["location", "discrete_date"])
+    df = df.drop_duplicates(subset=["location_description", "event_date"])
     df = df.reset_index().drop("index", axis=1)
     return df
 
@@ -56,30 +53,17 @@ def get_potential_duplicates(pred, gold):
         subset=["event_date"]
     )  # drop rows that are not in datetime format
     gold = gold.reset_index()  # keep the original nasa dataset index in 'index' column
+    gold = gold.rename(columns={"event_date": "nasa_event_date"})
 
     for i in range(len(pred)):
         data = pred.iloc[[i]].merge(
-            gold[["index", "event_date"]], how="cross"
+            gold[["index", "nasa_event_date"]], how="cross"
         )  # index: original nasa dataset index
-        if (
-            "interval_to_normalize" in pred
-            and not pd.isnull(pred["interval_to_normalize"][i])
-            and "-" in pred["interval_to_normalize"][i]
-        ):  # If interval has valid date interval
-            start, end = pred["interval_to_normalize"][i].split(
-                "-"
-            )  # pred['interval'][i].split('\n')[0].split('-')   start, end = '1997/01/01, 00:00', '1997/01/20, 00:00'
-            start, end = datetime.strptime(
-                start.strip(), "%Y/%m/%d, %H:%M"
-            ), datetime.strptime(end.strip(), "%Y/%m/%d, %H:%M")
-            ids = data.query(
-                "@start <= event_date <= @end"
-            ).index.to_list()  # ids: data index
-        elif "interval_start" in pred and "interval_end" in pred:
+        if "interval_start" in pred and "interval_end" in pred:
             start = pred["interval_start"].iloc[i]
             end = pred["interval_end"].iloc[i]
             ids = data.query(
-                "@start <= event_date <= @end"
+                "@start <= nasa_event_date <= @end"
             ).index.to_list()  # ids: data index
         elif (
             not pd.isnull(pred["article_publish_date"][i])
@@ -88,7 +72,7 @@ def get_potential_duplicates(pred, gold):
             and pred["article_publish_date"][i] != "NaT"
         ):
             date = parser.parse(pred["article_publish_date"][i])
-            ids = data.query("event_date == @date").index.to_list()
+            ids = data.query("nasa_event_date == @date").index.to_list()
         else:
             ids = None
 
@@ -132,7 +116,7 @@ def drop_nasa_duplicates(pred, gold):
             )  # full join the current pred row with potential duplicate rows in nasa dataset
             data = data.assign(
                 distance_km=data.apply(
-                    lambda x: get_distance2(
+                    lambda x: location.get_distance2(
                         x.latitude, x.longitude, x.gold_latitude, x.gold_longitude
                     ),
                     axis=1,
@@ -140,17 +124,19 @@ def drop_nasa_duplicates(pred, gold):
             )
             data = data.assign(
                 gold_radius_km=data.apply(
-                    lambda x: get_gold_radius(x.location_accuracy), axis=1
+                    lambda x: location.get_gold_radius(x.location_accuracy), axis=1
                 )
             )
             data = data.assign(
                 correct=data.apply(
-                    lambda x: is_correct(x.radius_km, x.gold_radius_km, x.distance_km),
+                    lambda x: location.is_correct(
+                        x.radius_km, x.gold_radius_km, x.distance_km
+                    ),
                     axis=1,
                 )
             )
             data[["precision", "recall", "f1_score"]] = data.apply(
-                lambda x: get_precision_recall_f1(
+                lambda x: location.get_precision_recall_f1(
                     x.radius_km, x.gold_radius_km, x.distance_km
                 ),
                 axis=1,

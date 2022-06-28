@@ -16,19 +16,11 @@ from transformers import AutoTokenizer, AutoModel
 from sklearn.metrics import accuracy_score, f1_score, classification_report
 from sklearn.model_selection import train_test_split
 
+import config
 from extraction.time import time
 from extraction.casualties import casualties
 from extraction.time.landslide_event_time import LandslideEventTime
 from extraction.location.landslide_event_location import LandslideEventLocation
-
-
-MAIN_PATH = os.path.join(
-    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
-    os.pardir,
-    os.pardir,
-    os.pardir,
-)
-MODEL_PATH = os.path.join(MAIN_PATH, "models")
 
 
 CATEGORIES_ID2L = [
@@ -408,6 +400,11 @@ def select_best_answer_span(start_probs, end_probs, distance, lengths=None):
     spans = []
     if lengths is None:
         lengths = torch.ones(start_probs.shape[0]) * start_probs.shape[1]
+    # In case there is only one example to extract
+    if len(start_probs.shape) == 1:
+        start_probs = start_probs.unsqueeze(dim=0)
+        end_probs = end_probs.unsqueeze(dim=0)
+        lengths = lengths.unsqueeze(dim=0)
     for start_prob, end_prob, length in zip(start_probs, end_probs, lengths):
         spans.append(
             _select_best_answer_span(
@@ -479,7 +476,7 @@ def predict(article_df):
     publication_dates = list(map(time.str_to_datetime, publication_dates))
 
     with open(
-        os.path.join(MODEL_PATH, "landslide_detection-QA-2-epoch_2-40.model"), "rb"
+        os.path.join(config.model_path, "landslide_detection-QA-2-epoch_2-40.model"), "rb"
     ) as f:
         model = CPU_Unpickler(f).load()
 

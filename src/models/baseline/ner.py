@@ -1,10 +1,12 @@
 import os
 import config
+from tqdm import tqdm
 from urllib.request import Request, urlopen
 import pandas as pd
 from flair.data import Sentence
 from flair.models import SequenceTagger
 import spacy as spacy
+
 
 def get_non_date(df):
     non_dates = []
@@ -48,7 +50,8 @@ def predict_sentences(df, tagger, sentencizer):
     TIME = []
     INDEX = []
     SENTENCE = []
-    for idx, row in df.iterrows():
+    config.logger.info("running NER model...")
+    for idx, row in tqdm(df.iterrows(), total=df.shape[0]):
         if type(row["article_text"]) != float:
             for sent in sentencizer(row["article_text"]).sents:
                 sub_sent = sent.text.strip()
@@ -116,4 +119,3 @@ def merge_locs_dates(data):
         columns=["GPE", "LOC", "DATE", "TIME"]
     )  # keep only the joined column
     return data
-

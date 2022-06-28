@@ -483,6 +483,7 @@ def predict(article_df):
     with torch.no_grad():
         for i in range(len(SPAN_ID2L)):
             extractions.append([])
+        config.logger.info("running multitask model...")
         for batch in tqdm(
             get_batch(articles, BATCH_SIZE), total=round(len(articles) / BATCH_SIZE)
         ):
@@ -509,10 +510,10 @@ def predict(article_df):
         publication_date = publication_dates[i]
         event_times.append(LandslideEventTime(time_phrases, publication_date))
 
-    return (
-        event_locations,
-        event_times,
-        event_casualties,
-        categories,
-        triggers,
-    )
+    return {
+        "location": event_locations,
+        "time": event_times,
+        "casualties": event_casualties,
+        "category": categories,
+        "trigger": triggers,
+    }

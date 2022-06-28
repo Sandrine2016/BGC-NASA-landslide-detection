@@ -776,7 +776,7 @@ def get_discrete_date_and_confidence(date_start, date_end):
         delta_hours = (date_end - date_start).total_seconds() / 60 / 60 / 2
         date_start += relativedelta(hours=delta_hours)
 
-        discrete_date = str(date_start.strftime("%Y/%m/%d, %H:%M"))
+        discrete_date = str(date_start.strftime("%Y-%m-%d %H:%M"))
         confidence = round(delta_hours, 2)
 
         return discrete_date, confidence

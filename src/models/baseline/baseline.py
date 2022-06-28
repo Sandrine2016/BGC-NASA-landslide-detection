@@ -15,6 +15,7 @@ from models.baseline import ner
 
 TOKENIZER = RegexpTokenizer("\w+|\$[\d\.]+|\S+")
 
+
 def extract_casualties(text):
     """
     Rule based method to extract casualties if a certain text contains a
@@ -143,9 +144,11 @@ def predict_datetimes(sentence_df, publication_dates):
     time_probs = model.predict_proba(sentence_df)[:, 1]
 
     sentence_df["time_sentence_is_positive_confidence"] = time_probs
-    sentence_df = sentence_df[
-        sentence_df.apply(is_time_sentence_invalid, axis=1)
-    ].copy().reset_index(drop=True)
+    sentence_df = (
+        sentence_df[sentence_df.apply(is_time_sentence_invalid, axis=1)]
+        .copy()
+        .reset_index(drop=True)
+    )
     sentence_df = sentence_df.iloc[
         sentence_df.groupby("id")["time_sentence_is_positive_confidence"].idxmax()
     ].copy()
@@ -173,9 +176,11 @@ def predict_locations(sentence_df):
     location_probs = model.predict_proba(sentence_df["text"])[:, 1]
 
     sentence_df["location_sentence_is_positive_confidence"] = location_probs
-    sentence_df = sentence_df[
-        sentence_df.apply(is_location_sentence_invalid, axis=1)
-    ].copy().reset_index(drop=True)
+    sentence_df = (
+        sentence_df[sentence_df.apply(is_location_sentence_invalid, axis=1)]
+        .copy()
+        .reset_index(drop=True)
+    )
     sentence_df = sentence_df.iloc[
         sentence_df.groupby("id")["location_sentence_is_positive_confidence"].idxmax()
     ].copy()
@@ -203,8 +208,14 @@ def predict(article_df):
 
     event_locations = predict_locations(sentence_df)
     event_times = predict_datetimes(sentence_df, publication_dates)
-    casualties = predict_casualties(articles)
+    event_casualties = predict_casualties(articles)
     categories = predict_categories(articles)
     triggers = predict_triggers(articles)
 
-    return (event_locations, event_times, casualties, categories, triggers)
+    return {
+        "location": event_locations,
+        "time": event_times,
+        "casualties": event_casualties,
+        "category": categories,
+        "trigger": triggers,
+    }

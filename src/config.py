@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 from datetime import datetime
 import dateutil.parser as parser
 
@@ -13,6 +14,15 @@ user_path = os.path.join(main_path, "user")
 
 config_file_path = os.path.join(user_path, "config.json")
 history_file_path = os.path.join(user_path, "history.log")
+
+logger = logging
+logger.basicConfig(
+    level=logging.INFO,
+    handlers=[
+        logging.FileHandler(os.path.join(user_path, "run.log")),
+        logging.StreamHandler()
+    ]
+)
 
 
 def get_interval():

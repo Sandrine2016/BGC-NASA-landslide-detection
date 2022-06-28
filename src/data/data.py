@@ -41,8 +41,8 @@ def get_formatted_output_df(df, predictions):
     ----------
     df : pandas.DataFrame
         article dataframe
-    predictions : list
-        list of predictions
+    predictions : dict
+        dictionary of predictions
 
     Returns
     -------
@@ -52,25 +52,29 @@ def get_formatted_output_df(df, predictions):
 
     df["event_title"] = [
         str(f"{category} at {location}")
-        for category, location in zip(predictions[3], [p.name for p in predictions[0]])
+        for category, location in zip(
+            predictions["category"], [p.name for p in predictions["location"]]
+        )
     ]
-    df["landslide_category"] = predictions[3]
-    df["landslide_trigger"] = predictions[4]
-    df["location_description"] = [p.name for p in predictions[0]]
-    df["latitude"] = [p.lat for p in predictions[0]]
-    df["longitude"] = [p.lng for p in predictions[0]]
-    df["interval_start"] = [p.interval_start for p in predictions[1]]
-    df["interval_end"] = [p.interval_end for p in predictions[1]]
+    df["landslide_category"] = predictions["category"]
+    df["landslide_trigger"] = predictions["trigger"]
+    df["location_description"] = [p.name for p in predictions["location"]]
+    df["latitude"] = [p.lat for p in predictions["location"]]
+    df["longitude"] = [p.lng for p in predictions["location"]]
+    df["interval_start"] = [p.interval_start for p in predictions["time"]]
+    df["interval_end"] = [p.interval_end for p in predictions["time"]]
     df["location_accuracy"] = [
         str(round(p.radius)) + "km" if p.radius != np.inf else None
-        for p in predictions[0]
+        for p in predictions["location"]
     ]
-    df["event_date"] = [p.discrete_date for p in predictions[1]]
+    df["event_date"] = [
+        p.discrete_date for p in predictions["time"]
+    ]
     df["event_date_accuracy"] = [
         str(round(p.confidence)) + "hours" if p.confidence != np.inf else None
-        for p in predictions[1]
+        for p in predictions["time"]
     ]
-    df["fatality_count"] = predictions[2]
+    df["fatality_count"] = predictions["casualties"]
 
     df = df.dropna(
         subset=[

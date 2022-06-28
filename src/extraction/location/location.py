@@ -93,22 +93,26 @@ def get_precision_recall_f1(r_pred, r_gold, d):
         r1 = r_gold
         r2 = r_pred
 
-    if d >= r1 + r2:
-        a_intersection = 0
-    elif d <= r1 - r2:
-        a_intersection = math.pi * (r2**2)
-    else:
-        d1 = (r1**2 - r2**2 + d**2) / (2 * d)
-        d2 = d - d1
-        a1 = (r1**2) * math.acos(d1 / r1) - d1 * math.sqrt(r1**2 - d1**2)
-        a2 = (r2**2) * math.acos(d2 / r2) - d2 * math.sqrt(r2**2 - d2**2)
-        a_intersection = a1 + a2
+    try:
+        if d >= r1 + r2:
+            a_intersection = 0
+        elif d <= r1 - r2:
+            a_intersection = math.pi * (r2**2)
+        else:
+            d1 = (r1**2 - r2**2 + d**2) / (2 * d)
+            d2 = d - d1
+            a1 = (r1**2) * math.acos(d1 / r1) - d1 * math.sqrt(r1**2 - d1**2)
+            a2 = (r2**2) * math.acos(d2 / r2) - d2 * math.sqrt(r2**2 - d2**2)
+            a_intersection = a1 + a2
 
-    a_pred = math.pi * (r_pred**2)
-    a_gold = math.pi * (r_gold**2)
+        a_pred = math.pi * (r_pred**2)
+        a_gold = math.pi * (r_gold**2)
 
-    precision = a_intersection / a_pred
-    recall = a_intersection / a_gold
+        precision = a_intersection / a_pred
+        recall = a_intersection / a_gold
+    except ZeroDivisionError:
+        precision = 0
+        recall = 0
 
     if precision != 0 and recall != 0:
         f1 = 2 * precision * recall / (precision + recall)

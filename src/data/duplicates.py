@@ -100,10 +100,19 @@ def drop_nasa_duplicates(pred, gold):
     """
     df = pred.iloc[:, :-1].copy()
     gold = gold.rename(
-        columns={"latitude": "gold_latitude", "longitude": "gold_longitude"}
+        columns={
+            "latitude": "gold_latitude",
+            "longitude": "gold_longitude",
+            "location_accuracy": "gold_location_accuracy",
+        }
     )
     gold = gold[
-        ["location_description", "location_accuracy", "gold_latitude", "gold_longitude"]
+        [
+            "location_description",
+            "gold_location_accuracy",
+            "gold_latitude",
+            "gold_longitude",
+        ]
     ]
 
     for i in range(len(pred)):
@@ -116,7 +125,7 @@ def drop_nasa_duplicates(pred, gold):
             )  # full join the current pred row with potential duplicate rows in nasa dataset
             data = data.assign(
                 distance_km=data.apply(
-                    lambda x: location.get_distance2(
+                    lambda x: location.get_distance_lat_lng(
                         x.latitude, x.longitude, x.gold_latitude, x.gold_longitude
                     ),
                     axis=1,
@@ -124,20 +133,20 @@ def drop_nasa_duplicates(pred, gold):
             )
             data = data.assign(
                 gold_radius_km=data.apply(
-                    lambda x: location.get_gold_radius(x.location_accuracy), axis=1
+                    lambda x: get_nasa_db_radius(x.gold_location_accuracy), axis=1
                 )
             )
             data = data.assign(
                 correct=data.apply(
                     lambda x: location.is_correct(
-                        x.radius_km, x.gold_radius_km, x.distance_km
+                        int(x.location_accuracy[:-2]), x.gold_radius_km, x.distance_km
                     ),
                     axis=1,
                 )
             )
             data[["precision", "recall", "f1_score"]] = data.apply(
                 lambda x: location.get_precision_recall_f1(
-                    x.radius_km, x.gold_radius_km, x.distance_km
+                    int(x.location_accuracy[:-2]), x.gold_radius_km, x.distance_km
                 ),
                 axis=1,
                 result_type="expand",

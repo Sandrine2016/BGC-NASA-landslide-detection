@@ -23,11 +23,11 @@ def download_posts(start_date=None, end_date=None):
     Queries all the posts that that have words in the positive
     lexicon. The posts are then downloaded in a json file.
     """
-    print("downloading Reddit posts...")
+    config.logger.info("downloading Reddit posts...")
     if start_date:
-        print(f"specified start date : {start_date.date()}")
+        config.logger.info(f"specified start date : {start_date.date()}")
     if end_date:
-        print(f"specified end date : {end_date.date()}")
+        config.logger.info(f"specified end date : {end_date.date()}")
 
     api = PushshiftAPI()
     all_results = []
@@ -38,10 +38,9 @@ def download_posts(start_date=None, end_date=None):
         after = START_EPOCH
 
     before = int(end_date.timestamp())
-    # before = end_date
 
     for keyword in POSITIVE_LEXICON:
-        print(f"querying examples with keyword : {keyword}...")
+        config.logger.info(f"querying examples with keyword : {keyword}...")
         keyword_results = list(
             api.search_submissions(
                 after=after,
@@ -63,7 +62,7 @@ def download_posts(start_date=None, end_date=None):
         for post in keyword_results:
             post.d_["keyword"] = keyword
         all_results.extend([post.d_ for post in keyword_results])
-        print(f"keyword {keyword} downloaded with {len(keyword_results)}.")
+        config.logger.info(f"keyword {keyword} downloaded with {len(keyword_results)}.")
     df = pd.DataFrame([])
     if all_results:
         df = get_filtered_df(all_results)
@@ -75,7 +74,7 @@ def download_posts(start_date=None, end_date=None):
         ),
         index=False,
     )
-    print("done")
+    config.logger.info("done")
     return df
 
 
@@ -90,7 +89,7 @@ def get_filtered_df(all_results):
     pandas.DataFrame()
         Dataframe with all the filtered results
     """
-    print("filtering posts...")
+    config.logger.info("filtering posts...")
     df = pd.DataFrame(all_results)
     # Removing anything posts that have the same url
     df = df.drop_duplicates(subset=["full_link"], ignore_index=True)

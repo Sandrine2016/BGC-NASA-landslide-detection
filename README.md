@@ -2,7 +2,7 @@
 Detect landslide location, date, and category automatically.
 
 1. Install docker application
-2. Download landslides.tar and user files to your local directory
+2. Download landslides.tar and user files from [here](https://drive.google.com/drive/folders/1jpARrfLu9sGGVa9YCxBKmeEF0UJtMrMk) to your local directory
 3. You can choose model and start-end date by editing the config file
 4. Go to the directory where you save the landslides.tar in terminal
 5. Type and run "docker load < landslides.tar" in  terminal

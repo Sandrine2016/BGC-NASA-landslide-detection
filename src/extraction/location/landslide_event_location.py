@@ -25,5 +25,5 @@ class LandslideEventLocation():
     
             self.name = geocoded_locations[best_location_idx]
             self.lat = points[best_location_idx][0]
-            self.lng = points[best_location_idx][0]
+            self.lng = points[best_location_idx][1]
             self.radius = radiuses[best_location_idx]

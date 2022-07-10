@@ -123,6 +123,7 @@ Try to uninstall : `pip uninstall torch` and reinstall with `conda install pytor
 For M1 macs, you will need an environment with `python=3.8` and before installing `requirements.txt` run:
 - `conda install sentencepiece=0.1.95`
 - `conda install gensim`
+
 And finally edit `fasttext` in `requirements.txt` to `fasttext-wheel`
 
 

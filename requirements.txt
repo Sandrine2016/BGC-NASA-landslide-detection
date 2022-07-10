@@ -11,7 +11,7 @@ flair~=0.11.3
 dateparser~=1.1.0
 word2number~=1.1
 pybind11
-fasttext
+fasttext-wheel
 newspaper3k
 psaw
 torch>=1.10.2

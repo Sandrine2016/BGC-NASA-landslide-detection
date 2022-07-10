@@ -467,6 +467,20 @@ class CPU_Unpickler(pickle.Unpickler):
 
 
 def predict(article_df):
+    """
+    Returns all extracted event information predicted from a dataframe of articles
+    using BERT on a cpu.
+
+    Parameters
+    ----------
+    article_df : pandas.DataFrame
+        dataframe containing all the articles
+
+    Returns
+    -------
+    dict
+        dictionary of lists with all the predictions.
+    """    
     categories = []
     triggers = []
     extractions = []
@@ -488,7 +502,7 @@ def predict(article_df):
             get_batch(articles, BATCH_SIZE), total=round(len(articles) / BATCH_SIZE)
         ):
             batch_categories, batch_triggers, batch_extractions = predict_batch(
-                model, batch
+                model, batch, "cpu"
             )
             categories.extend(batch_categories)
             triggers.extend(batch_triggers)

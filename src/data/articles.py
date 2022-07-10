@@ -2,6 +2,7 @@ import os
 import re
 import json
 import pickle
+import nltk
 import fasttext
 import numpy as np
 import pandas as pd
@@ -22,6 +23,12 @@ with open(os.path.join(config.model_path, "landslide_lexicon.json")) as f:
 
 POSITIVE_LEXICON = lexicon["positive"]
 NEGATIVE_LEXICON = lexicon["negative"]
+
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
 
 STOPS = set(stopwords.words("english"))
 TOKENIZER = RegexpTokenizer("\w+|\$[\d\.]+|\S+")

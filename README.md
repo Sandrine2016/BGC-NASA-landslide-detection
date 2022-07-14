@@ -9,7 +9,7 @@ This is an overview of the project on how landslides are extracted from Reddit:
 ![overview](./diagrams/project-structure.png)
 
 
-News articles are first extracted from online sources and then passed to a model that extracted the landlside's event properties.
+News articles are first extracted from online sources and then passed to a model that extractes the landlside's event properties.
 
 
 For Reddit specifically, the data extraction pipeline looks like this:

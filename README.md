@@ -150,7 +150,10 @@ Or `git lfs` cannot be installed, then the models can be downloaded from [link](
 
 
 ### Citation
-Badr Jaidi$^{\dagger}$, Mariia Morello$^{\dagger}$, Shengjie Zhang$^{\dagger}$, Yiting Zhou$^{\dagger}$, $\textbf{Jungyeul Park}^{*}$ (UBC), Rachel Soobitsky (NASA), Corey Scheip, Richard Carter, Autumn Umanetz (BGC). Landslides Event Information Detection. (Under review}. $^{\dagger}$These authors contributed equally. $^{*}$Corresponding author.
+
+<p align="center">
+  <img src="./diagrams/authors.png" />
+</p>
 
 
 Thanks!!

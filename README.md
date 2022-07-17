@@ -148,4 +148,9 @@ Or `git lfs` cannot be installed, then the models can be downloaded from [link](
 6. Type and run `docker run -v $(pwd)/user:/user landslides` in terminal.
 7. You can see the final results in the user folder.
 
+
+### Citation
+Badr Jaidi$^{\dagger}$, Mariia Morello$^{\dagger}$, Shengjie Zhang$^{\dagger}$, Yiting Zhou$^{\dagger}$, \textbf{Jungyeul Park}$^{*}$ (UBC), Rachel Soobitsky (NASA), Corey Scheip, Richard Carter, Autumn Umanetz (BGC). Landslides Event Information Detection. (Under review}. $^{\dagger}$These authors contributed equally. $^{*}$Corresponding author.
+
+
 Thanks!!

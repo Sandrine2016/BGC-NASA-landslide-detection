@@ -38,6 +38,17 @@ The model is used to extract the event information directly:
 
 ![multitask](./diagrams/multitask-pipeline.drawio.png)
 
+
+##### Training
+
+The multitask model was pre-trained using `squad-v2` "where" and "when" questions and text labels extracted using the NASA COOLR database.
+
+The datasets used to train the model are in the `data/processed` folder and the following notebooks can be consulted for more details on the process:
+
+- `notebooks/multi-task-learning-QA-squad-data.ipynb` : notebook used to train the multitask model.
+- `notebooks/multi-task-dataset-squad.ipynb` : notebook showing how the `squad-v2` pre-training data was extracted.
+- `notebooks/multi-task-dataset.ipynb` : notebook showing how the training data was extracted.
+
 ## Project Structure
 
 ```
